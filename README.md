@@ -21,24 +21,11 @@ The collaborative application's main features are the following:
 - GIS Integration
 - Plant Image Recognition
 
-## To get started:
-
-```
-install node.js
-
-npm i -g expo-cli
-
-npx expo install react-native-web@~0.18.9 react-dom@18.1.0 @expo/webpack-config@^0.17.2
-
-```
-
 ## To run:
 
 ```
+npm install
+```
+```
 npm start or npx expo start
-
-if 'w' or open web produces an error:
-export NODE_OPTIONS=--openssl-legacy-provider
-source: https://stackoverflow.com/questions/69394632/webpack-build-failing-with-err-ossl-evp-unsupported
-
 ```
