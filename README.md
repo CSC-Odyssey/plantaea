@@ -1,4 +1,4 @@
-# Plant-Mobile-Application
+# Plantaea - An interactive plant identification mobile application with gamified features and gis integration for certain regions.
 
 ## Developers
 
