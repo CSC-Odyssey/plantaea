@@ -1,12 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import { View, Text, SafeAreaView, ScrollView, ImageBackground } from "react-native";
 
-const HomeScreen = () => {
-  return (
-    <View>
-      <Text className="text-red-200">HomeScreenTest</Text>
-    </View>
-  )
+export default function HomeScreen(){
+    return(
+        <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
+            <ScrollView style={{padding:40}}>
+                <View style={{flexDirection:'row',justifyContent:"space-between",marginBottom:20}}>               
+                <Text style={{fontSize:16, fontWeight:'bold'}}>Hello, User!</Text>
+                <ImageBackground source={require('../assets/images/user-profile.jpg')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
+                </View>
+            </ScrollView>
+        </SafeAreaView>
+    )
 }
-
-export default HomeScreen

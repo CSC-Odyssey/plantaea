@@ -2,12 +2,12 @@ import React from 'react'
 import { View, Text } from 'react-native'
 
 
-const LoginScreen = ({}) => {
+const PlantLibrary = ({}) => {
     return (
         <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
-            <Text>LoginScreen</Text>
+            <Text>PlantLibrary</Text>
         </View>
     )
 }
 
-export default LoginScreen
+export default PlantLibrary
