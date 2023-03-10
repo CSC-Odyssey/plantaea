@@ -9,6 +9,9 @@ export default function HomeScreen(){
                 <Text style={{fontSize:16, fontWeight:'bold'}}>Hello, User!</Text>
                 <ImageBackground source={require('../assets/images/user-profile.jpg')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
                 </View>
+
+            <Text>This is the Home Screen</Text>
+
             </ScrollView>
         </SafeAreaView>
     )

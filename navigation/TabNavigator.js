@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeScreen from '../screens/HomeScreen'
@@ -12,10 +13,31 @@ import Feather from 'react-native-vector-icons/Feather'
 
 const Tab = createBottomTabNavigator();
 
+const CameraBottomTabButton = ({children, onPress}) => (
+    <TouchableOpacity
+        style={{
+            top:-30,
+            justifyContent:'center',
+            alignItems:'center',
+            ...styles.shadow
+        }}
+        onPress={onPress}
+    >
+        <View style={{
+            width:70,
+            height:70,
+            borderRadius:35,
+
+        }}>
+            {children}
+        </View>
+    </TouchableOpacity>
+);
+
 const TabNavigator = () => {
     return (
 
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'#C2F373'},tabBarActiveTintColor:'white',tabBarInactiveTintColor:'#A4B489'}}>
+    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#102409',tabBarInactiveTintColor:'#C6C6C6'}}>
         <Tab.Screen name="Home2" component={HomeScreen} options={{
             tabBarIcon: ({color,size}) => (
                 <Ionicons name="home-outline" color={color} size={size} />
@@ -27,8 +49,15 @@ const TabNavigator = () => {
             )
         }}/>
         <Tab.Screen name="Camera" component={CameraScreen} options={{
-        tabBarIcon: ({color,size}) => (
-                <Ionicons name="camera-outline" color={color} size={size} />
+        tabBarIcon: ({focused}) => (
+                <Image
+                    source={require('../assets/images/CameraButtonIcon.png')}
+                    resizeMode="contain"
+                    style={{width:100,height:100}}
+                />
+            ),
+            tabBarButton: (props) => (
+                <CameraBottomTabButton {...props} />
             )
         }}/>
         <Tab.Screen name="PlantLibrary" component={PlantLibraryScreen} options={{
@@ -46,3 +75,13 @@ const TabNavigator = () => {
 }
 
 export default TabNavigator
+
+const styles = StyleSheet.create({
+    shadow: {
+        shadowColor:'#7F5DF0',
+        shadowOffset: {width:0,height:10},
+        shadowOpacity:0.25,
+        shadowRadius:3.5,
+        elevation:5
+    }
+});
