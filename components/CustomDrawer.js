@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 const CustomDrawer = (props) => {
     return (
         <View style={{flex:1}}>
-            <DrawerContentScrollView {...props} contentContainerStyle={{backgroundColor:'#B6E03F'}}>
+            <DrawerContentScrollView {...props} contentContainerStyle={{backgroundColor:'#102409'}}>
             <ImageBackground source={require('../assets/images/drawer-bg.png')} style={{padding:20}}>
             <Image source={require('../assets/images/user-profile.jpg')} style={{height:80,width:80,borderRadius:40,marginBottom:10}} />
             <Text style={{color:'white',fontSize:18}}>Username</Text>
