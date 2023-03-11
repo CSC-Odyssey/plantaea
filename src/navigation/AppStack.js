@@ -2,12 +2,12 @@ import 'react-native-gesture-handler';
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import HomeScreen from '../../screens/HomeScreen';
-import UserProfileScreen from '../../screens/UserProfileScreen';
-import SettingsScreen from '../../screens/SettingsScreen';
-import TabNavigator from '../../navigation/TabNavigator';
+import HomeScreen from '../screens/HomeScreen';
+import UserProfileScreen from '../screens/UserProfileScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import TabNavigator from './TabNavigator';
 
-import CustomDrawer from '../../components/CustomDrawer';
+import CustomDrawer from '../components/CustomDrawer';
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
