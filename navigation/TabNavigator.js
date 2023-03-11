@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeScreen from '../screens/HomeScreen'
@@ -7,11 +8,22 @@ import MapScreen from '../screens/MapScreen'
 import CameraScreen from '../screens/CameraScreen'
 import PlantLibraryScreen from '../screens/PlantLibrary'
 import UserProfileScreen from '../screens/UserProfileScreen'
+import PlantDetailsScreen from '../screens/PlantDetailsScreen'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const PlantLibraryStack = () => {
+    return (
+        <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
+        <Stack.Screen component={PlantDetailsScreen} name="PlantDetails" />
+      </Stack.Navigator>
+    )
+}
 
 const CameraBottomTabButton = ({children, onPress}) => (
     <TouchableOpacity
@@ -60,10 +72,10 @@ const TabNavigator = () => {
                 <CameraBottomTabButton {...props} />
             )
         }}/>
-        <Tab.Screen name="PlantLibrary" component={PlantLibraryScreen} options={{
-        tabBarIcon: ({color,size}) => (
-                <Ionicons name="book-outline" color={color} size={size} />
-            )
+        <Tab.Screen name="PlantLibrary" component={PlantLibraryStack} options={{
+          tabBarIcon: ({color, size}) => (
+            <Ionicons name="book-outline" color={color} size={size} />
+          ),
         }}/>
         <Tab.Screen name="UserProfile" component={UserProfileScreen} options={{
         tabBarIcon: ({color,size}) => (

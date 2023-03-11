@@ -3,8 +3,11 @@ import { View, Text, SafeAreaView, ScrollView, TextInput, StyleSheet, Image} fro
 
 import Feather from 'react-native-vector-icons/Feather'
 import { alignItems } from 'react-native-wind/dist/styles/flex/align-items'
+import ListItem from '../components/ListItem'
 
-const PlantLibrary = ({}) => {
+import {plantListLibrary} from '../model/data'
+
+const PlantLibrary = ({navigation}) => {
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
             <ScrollView style={{padding:40}}>
@@ -20,7 +23,12 @@ const PlantLibrary = ({}) => {
                     <Feather name="search" size={20} color="#C6C6C6" style={{marginRight:5}} />
                     <TextInput placeholder='Search' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,}}/>
                 </View>
-                <View style={{padding:20,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:20}} />
+                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:20}} />
+                {plantListLibrary.map(item => (
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, id: item.id})}/>
+                ))
+                }
+
             </ScrollView>
         </SafeAreaView>
 
