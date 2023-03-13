@@ -3,7 +3,6 @@ import { View, Text, ImageBackground, Image, TouchableOpacity } from 'react-nati
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-
 const CustomDrawer = (props) => {
     return (
         <View style={{flex:1}}>
