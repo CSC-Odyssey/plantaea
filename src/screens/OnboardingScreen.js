@@ -22,7 +22,7 @@ const OnboardingScreen = ({navigation}) => {
           <Text style={{ fontSize:60, fontWeight:'bold', color:'#1C4C4E'}}>Plantaea</Text>
         </View>
         </View>
-        <View style={{flex:1, justifyContent:'flex-end',marginBottom:5no0}}>
+        <View style={{flex:1, justifyContent:'flex-end',marginBottom:50}}>
         <TouchableOpacity 
         style={{flexDirection:'row',justifyContent:'space-between', backgroundColor:'#1C4C4E', padding:20, width:windowWidth-40,borderRadius:15}}
         onPress={() => navigation.navigate('Login')}

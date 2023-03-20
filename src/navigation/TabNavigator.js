@@ -18,7 +18,7 @@ const Tab = createBottomTabNavigator();
 
 const PlantLibraryStack = () => {
     return (
-        <Stack.Navigator screenOptions={{headerShown:false}}>
+      <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
         <Stack.Screen component={PlantDetailsScreen} name="PlantDetails" />
       </Stack.Navigator>
