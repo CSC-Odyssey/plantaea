@@ -1,5 +1,5 @@
 import React,  { useState } from 'react'
-import { View, Text, SafeAreaView, ScrollView, Image, } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, Image, ImageBackground } from 'react-native'
 import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ListItem from '../components/ListItem'
@@ -12,13 +12,18 @@ const UserProfileScreen = ({navigation}) => {
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
             <ScrollView style={{padding:40}}>
+                <View style={{flexDirection:'row',alignItems:'center',marginBottom: -30}}>
+                    <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
+                    </TouchableOpacity>          
+                </View>
                 <View style={{flex:1,alignItems:'center',marginBottom:20}}>
                     <Image source={require('../assets/images/profile-icon.png')} 
-                           style={{width:150,height:150, marginTop:50, borderRadius: 75}}  
+                           style={{width:175,height:175, borderRadius: 75}}  
                     />
                     <Text style={{fontSize:20, fontWeight:'bold', color:'#1C4C4E', marginTop:10}}>User</Text>
                 </View>
-                <View style={{alignItems:'center'}}>
+                <View style={{marginTop: -10, alignItems:'center'}}>
                     <View style={{alignItems:'center', 
                                   width: 300, 
                                   height: 35,
