@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, Text, SafeAreaView, ScrollView, TextInput, StyleSheet, Image} from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TextInput, StyleSheet, Image, ImageBackground} from 'react-native'
 
 import Feather from 'react-native-vector-icons/Feather'
 import { alignItems } from 'react-native-wind/dist/styles/flex/align-items'
 import ListItem from '../components/ListItem'
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 import {plantListLibrary} from '../model/data'
 
@@ -11,6 +12,11 @@ const PlantLibrary = ({navigation}) => {
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
             <ScrollView style={{padding:40}}>
+                <View style={{flexDirection:'row',alignItems:'center',marginBottom: -30}}>
+                    <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
+                    </TouchableOpacity>          
+                </View>
                 <View style={{flex:1, alignItems:'center'}}>
                 <Image
                     source={require('../assets/images/plant-library-icon.png')}
