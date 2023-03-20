@@ -30,7 +30,7 @@ export default function HomeScreen({navigation}){
                 
               
                 <View style= {{flexDirection:'row', alignContent:'center'}} >
-                   <TouchableOpacity onPress={()=>navigation.openDrawer()}> 
+                   <TouchableOpacity onPress={()=>navigation.navigate('Map')}> 
                      <View style = {styles.containerLE}> 
                          <Image
                             source={require('../assets/images/learn-icon.png')}
@@ -42,7 +42,7 @@ export default function HomeScreen({navigation}){
                      </View>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+                  <TouchableOpacity onPress={()=>navigation.navigate('PlantLibraryStack')}>
                         <View style ={styles.containerLE}>
                           <Image
                             source={require('../assets/images/explore-icon.png')}

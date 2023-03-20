@@ -25,6 +25,16 @@ const PlantLibraryStack = () => {
     )
 }
 
+const HomeStack = () => {
+    return (
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen component={HomeScreen} name="HomeScreen" />
+        <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
+        <Stack.Screen component={MapScreen} name="Map" />
+      </Stack.Navigator>
+    )
+}
+
 const CameraBottomTabButton = ({children, onPress}) => (
     <TouchableOpacity
         style={{
@@ -50,7 +60,7 @@ const TabNavigator = () => {
     return (
 
     <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#102409',tabBarInactiveTintColor:'#C6C6C6'}}>
-        <Tab.Screen name="Home2" component={HomeScreen} options={{
+        <Tab.Screen name="Home2" component={HomeStack} options={{
             tabBarIcon: ({color,size}) => (
                 <Ionicons name="home-outline" color={color} size={size} />
             )
