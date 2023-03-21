@@ -20,8 +20,9 @@ export default function App() {
     setMapRegion({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
+      // latitudeDelta: 0.0822
+      latitudeDelta: 0.01,
+      longitudeDelta: 0.002,
     });
     console.log(location.coords.latitude, location.coords.longitude);
   }
@@ -34,7 +35,7 @@ export default function App() {
       <MapView style={styles.map}
         region={mapRegion}
       >
-          <Marker coordinate={mapRegion} title='Marker' />
+          <Marker coordinate={mapRegion} title='You are here!' />
         </MapView>
         <Button title='Get Location' onPress={userLocation} />
     </View>

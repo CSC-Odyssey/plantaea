@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, ScrollView, ImageBackground, Button } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, ImageBackground, Button} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function HomeScreen({navigation}){
@@ -11,10 +11,15 @@ export default function HomeScreen({navigation}){
                         <ImageBackground source={require('../assets/images/user-profile.jpg')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
                     </TouchableOpacity>          
                     <Text style={{fontSize:16, fontWeight:'bold', marginLeft:10}}>Hello, User!</Text>
+                    
                 </View>
+                {/* <InnerContainer style={{padding:40, backgroundColor:'#cde0d5', flexGrow:1}}>
+                    <Text>This is the Home Screen</Text>
+                </InnerContainer> */}
+            </ScrollView>
 
-            <Text>This is the Home Screen</Text>
-
+            <ScrollView style={{flexGrow:10, padding:40, backgroundColor:'#E2F3E2' }}>
+                <Text>This is the Home Screen</Text>
             </ScrollView>
         </SafeAreaView>
         
