@@ -3,20 +3,18 @@ import { View, Text,Image, SafeAreaView, ScrollView, StyleSheet, ImageBackground
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function HomeScreen({navigation}){
-    return(
+    return (
         <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-            <ScrollView style={{padding:40}}>
-                <View style={{flexDirection:'row',alignItems:'center',marginBottom:20}}>
+
+            <ScrollView style={{padding:10, paddingTop:30}}>
+                <View style={{flexDirection:'row',alignItems:'center',marginBottom:1}}>
                     <TouchableOpacity onPress={()=>navigation.openDrawer()}>
                         <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
                     </TouchableOpacity>          
-                   
                 </View>
-                {/* <InnerContainer style={{padding:40, backgroundColor:'#cde0d5', flexGrow:1}}>
-                    <Text>This is the Home Screen</Text>
-                </InnerContainer> */}
             </ScrollView>
 
+            <ScrollView style={{padding:10, backgroundColor:'white'}}>
                 <View style={{flex:1,alignItems:'center',margintop: 10}}>
                     <Text style={{fontSize:30 ,fontWeight:'bold'}}> PLANTAEA </Text>
                 </View>
@@ -52,16 +50,15 @@ export default function HomeScreen({navigation}){
                             source={require('../assets/images/explore-icon.png')}
                             resizeMode="contain"
                             style={{width:70,height:70,alignSelf:"center", borderRadius:70, margin: 20}}
-                          />
+                         />
 
                             <Text style = {styles.headingText}> EXPLORE</Text>
                             <Text style = {styles.bodyText}> Find the wonders around you</Text>
                      </View>
                     </TouchableOpacity>
                 </View>
-            </ScrollView> 
-        </SafeAreaView>
-        
+            </ScrollView>
+        </SafeAreaView>    
     )
 }
 
