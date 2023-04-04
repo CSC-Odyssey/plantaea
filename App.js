@@ -9,10 +9,10 @@ const App = () => {
   return(
     <NavigationContainer>
       {/* calls the OnboardingScreen and log in screen */}
-      {/* <AuthStack/> */}
+      <AuthStack/>
 
       {/* calls the main app */}
-      <AppStack/>
+      {/* <AppStack/> */}
     </NavigationContainer>
   )
 }
