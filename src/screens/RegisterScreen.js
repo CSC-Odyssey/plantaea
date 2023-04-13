@@ -31,7 +31,7 @@ const RegisterScreen = ({navigation}) => {
                 <CustomButton label={"Register"} onPress={() => {}}/>
 
                 <View style={{flexDirection:'row', justifyContent:'center',marginBottom:30}}>
-                <Text>Already Registered? </Text>
+                <Text>Already Have an Account? </Text>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <Text style={{color:'#1C4C4E', fontWeight:'700'}}>Login</Text>
                     </TouchableOpacity>
