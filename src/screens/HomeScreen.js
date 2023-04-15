@@ -4,34 +4,38 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function HomeScreen({navigation}){
     return (
-        <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-
-            <ScrollView style={{padding:10, paddingTop:30}}>
+        <SafeAreaView style={{ padding: 10, flex:1, backgroundColor:'white'}}>
+            <SafeAreaView style={{paddingTop:40}}>
                 <View style={{flexDirection:'row',alignItems:'center',marginBottom:1}}>
                     <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
+                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30}} imageStyle={{borderRadius:20}} />
                     </TouchableOpacity>          
                 </View>
-            </ScrollView>
+            </SafeAreaView>
 
-            <ScrollView style={{padding:10, backgroundColor:'white'}}>
-                <View style={{flex:1,alignItems:'center',margintop: 10}}>
-                    <Text style={{fontSize:30 ,fontWeight:'bold'}}> PLANTAEA </Text>
+            <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'white'}}>
+             
+                <View style={{flex:1,alignItems:'center'}}>
+                  <Image
+                     source={require('../assets/images/plant-library-icon.png')}
+                     resizeMode="contain"
+                     style={{width:80,height:80}}
+                     />
+                    <Text style={{fontSize:30 ,fontWeight:'bold', marginBottom: 10}}> PLANTAEA </Text>                  
                 </View>
-            
 
-                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
+                
+                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6'}} />
                 <View>
                     <Text style={{ fontSize:20, fontWeight:'bold',color:'#1C4C4E'}}> TRIVIA OF THE DAY</Text>
                 </View>
                 <View style={styles.containerT}>
                 </View>
 
-
-                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
                 
-              
-                <View style= {{flexDirection:'row', alignContent:'center'}} >
+                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
+            
+                <View style= {{flex: 1, flexDirection:'row', alignContent:'center'}} >
                    <TouchableOpacity onPress={()=>navigation.navigate('PlantLibraryStack')}> 
                      <View style = {styles.containerLE}> 
                          <Image
@@ -75,7 +79,7 @@ const  styles = StyleSheet.create({
         fontSize:15,
      },
     containerLE:{
-        margin: 10,
+        margin: 17,
         width: 150,
         height : 210,
         borderRadius: 10,
@@ -89,7 +93,7 @@ const  styles = StyleSheet.create({
         shadowColor: '#333',
         shadowOpacity: 0.4
     }, containerT:{
-        margin: 10,
+        margin: 17,
         width: 320,
         height : 130,
         borderRadius: 10,
