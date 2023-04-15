@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Button, Image } from 'react-native';
 import * as Location from 'expo-location';
 import {PlantsLocation, plantDetails} from '../model/IndigenousPlantsLocation'
 import ListItem from '../components/ListItem';
@@ -46,9 +46,13 @@ export default function App() {
       initialRegion={{latitude: 17.3513,longitude: 121.1719,latitudeDelta: 0, longitudeDelta: 2}}>
 
         {PlantsLocation.map(item => (
-          < Marker 
-          title={item.name} 
-          coordinate = {{ latitude: item.latitude , longitude: item.longitude}} />
+          <Marker 
+            title={item.name} 
+            coordinate = {{ latitude: item.latitude , longitude: item.longitude}}
+            key={item.id}
+            >
+            <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
+          </Marker>
         ))
         }
 
