@@ -34,7 +34,6 @@ const PlantLibrary = ({navigation}) => {
                     <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, id: item.id})}/>
                 ))
                 }
-
             </ScrollView>
         </SafeAreaView>
 
