@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeScreen from '../screens/HomeScreen'
+import DailiesScreen from '../screens/DailiesScreen'
 import MapScreen from '../screens/MapScreen'
 import CameraScreen from '../screens/CameraScreen'
 import PlantLibraryScreen from '../screens/PlantLibrary'
@@ -30,7 +31,7 @@ const HomeStack = () => {
       <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen component={HomeScreen} name="HomeScreen" />
         <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
-        <Stack.Screen component={MapScreen} name="Map" />
+        <Stack.Screen component={DailiesScreen} name="Dailies" />
       </Stack.Navigator>
     )
 }
@@ -65,11 +66,17 @@ const TabNavigator = () => {
                 <Ionicons name="home-outline" color={color} size={size} />
             )
         }}/>
-        <Tab.Screen name="Map" component={MapScreen} options={{
+
+        <Tab.Screen name="Dailies" component={DailiesScreen} options={{
+        tabBarIcon: ({color,size}) => (
+                <Ionicons name="game-controller-outline" color={color} size={size} />
+        ) }} />
+
+        {/*<Tab.Screen name="Map" component={MapScreen} options={{
         tabBarIcon: ({color,size}) => (
                 <Ionicons name="map-outline" color={color} size={size} />
-            )
-        }}/>
+        ) */}
+        
         <Tab.Screen name="Camera" component={CameraScreen} options={{
         tabBarIcon: ({focused}) => (
                 <Image
