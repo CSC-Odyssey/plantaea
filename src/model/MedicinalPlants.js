@@ -1,27 +1,20 @@
-export const PlantsLocation = [
+export const medicinalPlants =[
     {
-        id: 1,
+        id: 5,
         type: 'Medicinal',
         name: 'Blumea balsamifera',
         latitude: 16.3005,
         longitude: 120.5740
     },
     {
-        id: 2,
+        id: 6,
         type: "Medicinal",
         name: "Ehretia microphylla",
         latitude: 16.3452,
         longitude:120.6890
     },
     {
-        id: 3,
-        type: "Food",
-        name: "Psidium guajav",
-        latitude: 16.4885,
-        longitude:120.5164
-    },
-    {
-        id: 4,
+        id: 7,
         type: "Medicinal",
         name: "Vitex negundo",
         latitude: 16.6170,
