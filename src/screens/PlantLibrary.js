@@ -31,7 +31,7 @@ const PlantLibrary = ({navigation}) => {
                 </View>
                 <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:20}} />
                 {plantListLibrary.map(item => (
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, id: item.id})}/>
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, id: item.id})}/>
                 ))
                 }
             </ScrollView>
