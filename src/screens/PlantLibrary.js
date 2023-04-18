@@ -18,17 +18,17 @@ const PlantLibrary = ({navigation, route}) => {
 
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-            <ScrollView style={{padding:40}}>
-                <View style={{flexDirection:'row',alignItems:'center',marginBottom: -30}}>
-                    <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+            <ScrollView style={{padding:17}}>
+                <View style={{flexDirection:'row',alignItems:'center',marginBottom: 1}}>
+                    {/* <TouchableOpacity onPress={()=>navigation.openDrawer()}>
                         <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
-                    </TouchableOpacity>          
+                    </TouchableOpacity>           */}
                 </View>
                 <View style={{flex:1, alignItems:'center'}}>
                 <Image
                     source={require('../assets/images/plant-library-icon.png')}
                     resizeMode="contain"
-                    style={{width:80,height:80}}
+                    style={{width:80,height:130}}
                 />
                     <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E'}}>ETHNOBOTANICAL PLANTS</Text>
                 </View>
@@ -47,19 +47,22 @@ const PlantLibrary = ({navigation, route}) => {
             />
         </View>
 
+
+
         {descriptionTab == 1 &&
             <View>
                 {plantListLibrary.map(item => (
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, id: item.id})}/>
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                 ))
                 }
             </View>
         }
         {descriptionTab == 2 &&
             <View>
+                
                 {plantListLibrary.map(item => (
-                    item.category == 'medicine' || item.category == 'food,medicine'? 
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, id: item.id})}/>
+                    item.category[0] == 'medicine'? 
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))
                 }
@@ -68,15 +71,15 @@ const PlantLibrary = ({navigation, route}) => {
         {descriptionTab == 3 &&
             <View>
                 {plantListLibrary.map(item => (
-                    item.category == 'food' || item.category == 'food,medicine'? 
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, id: item.id})}/>
+                    item.category[0] == 'food' || item.category[1] == 'food'? 
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))
                 }
             </View>
         }
 
-                
+<View style={{padding:7,borderTopWidth:1,borderTopColor:'white', marginTop:60}} />
             </ScrollView>
         </SafeAreaView>
 
