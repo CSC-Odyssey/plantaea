@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity} from 'react-native'
 
-export default function CustomSwitch({
+export default function CustomSwitchLibrary({
     selectionMode,
     option1,
     option2,
