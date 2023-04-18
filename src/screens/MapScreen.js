@@ -145,15 +145,15 @@ export default function App() {
           ))
           } */}
           <TouchableOpacity onPress={() => onCategoryClick('All')}>
-            <Text>All</Text>
+            <Text style={styles.textStyle}>All</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onCategoryClick('Medicinal')}>
-            <Text>Medicine</Text>
+            <Text style={styles.textStyle}>Medicine</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onCategoryClick('Food')}>
-            <Text>Food</Text>
+            <Text style={styles.textStyle}>Food</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -196,9 +196,12 @@ const styles = StyleSheet.create({
     bottom: 10,
     right: 10,
     width: '20%',
-    height: '20%',
+    height: "12%",
     borderColor: "Black",
     borderWidth: 1,
     backgroundColor: "white",
+  },
+  textStyle: {
+    paddingLeft: 5,
   }
 });
