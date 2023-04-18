@@ -17,7 +17,7 @@ export default function ListItem({image, scientificName, localName, category, on
     return(
         <View>
             <View style={{flexDirection:'row', alignItems:'center', flex:1}}>
-                <TouchableOpacity onPress={onPress} style={{borderRadius:20,flexDirection:'row', alignItems:'center', flex:1, backgroundColor:'#F7FFF9', paddingHorizontal:15,paddingVertical:10,marginTop:10,marginHorizontal:3,elevation:3}}>
+                <TouchableOpacity onPress={onPress} style={{borderRadius:20,flexDirection:'row', alignItems:'center', flex:1, backgroundColor:'#F7FFF9', paddingHorizontal:15,paddingVertical:10,marginBottom:10,marginHorizontal:3,elevation:3}}>
                     <Image source={image} style={{width:55,height:55,borderRadius:55/2,marginRight:8}}/>
                     <View>
                     <Text>{localName}</Text>

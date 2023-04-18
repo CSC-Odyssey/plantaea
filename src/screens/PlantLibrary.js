@@ -30,13 +30,8 @@ const PlantLibrary = ({navigation, route}) => {
                     resizeMode="contain"
                     style={{width:80,height:50,marginTop:30,marginBottom:10}}
                 />
-                    <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E'}}>ETHNOBOTANICAL PLANTS</Text>
+                    <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E',marginBottom:15}}>ETHNOBOTANICAL PLANTS</Text>
                 </View>
-                <View style={{flex:1, flexDirection:'row', alignItems:'center', borderColor:'#C6C6C6', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:2, marginTop:20}}>
-                    <Feather name="search" size={20} color="#C6C6C6" style={{marginRight:5}} />
-                    <TextInput placeholder='Search' clearButtonMode='always' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,}}/>
-                </View>
-                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:20}} />
                 <View>
             <CustomSwitchLibrary 
                 selectionMode={1}
@@ -47,7 +42,11 @@ const PlantLibrary = ({navigation, route}) => {
             />
         </View>
 
-
+        <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:2}} />
+        <View style={{flex:1, flexDirection:'row', alignItems:'center', borderColor:'#E6E6E6', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:2, marginTop:2,marginBottom:20}}>
+                    <Feather name="search" size={20} color="#C6C6C6" style={{marginRight:5}} />
+                    <TextInput placeholder='Search' clearButtonMode='always' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,}}/>
+                </View>
 
         {descriptionTab == 1 &&
             <View>

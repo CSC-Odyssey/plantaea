@@ -17,26 +17,26 @@ export default function CustomSwitchLibrary({
     }
 
     return (
-        <View style={{height:44, width:'100%', backgroundColor:'white', borderRadius:10, borderColor:'#1C4C4E', flexDirection:'row', justifyContent:'center'}}>
+        <View style={{height:50, width:'100%', backgroundColor:'white', borderRadius:10, borderColor:'#1C4C4E', flexDirection:'row', justifyContent:'center'}}>
             <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(1)}
-            style={{flex:1, backgroundColor: getSelectionMode == 1 ? '#79D27E' : '#DEFFE0', borderRadius:10, justifyContent:'center', alignItems:'center'}}>
+            style={{marginTop:getSelectionMode == 1 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 1 ? '#79D27E' : '#DEFFE0', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 <Text
-                style={{color: getSelectionMode == 1 ? 'white' : 'white', fontSize:14}}>
+                style={{color: getSelectionMode == 1 ? 'white' : 'white', fontSize: getSelectionMode == 1 ?14:10}}>
                     {option1}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(2)}
-            style={{flex:1, backgroundColor: getSelectionMode == 2 ? '#F37373' : '#FFDFDF', borderRadius:10, justifyContent:'center', alignItems:'center'}}>
+            style={{marginTop:getSelectionMode == 2 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 2 ? '#F37373' : '#FFDFDF', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 <Text
-                style={{color: getSelectionMode == 2 ? 'white' : 'white', fontSize:14}}>
+                style={{color: getSelectionMode == 2 ? 'white' : 'white', fontSize: getSelectionMode == 2 ?14:10}}>
                     {option2}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(3)}
-            style={{flex:1, backgroundColor: getSelectionMode == 3 ? '#E281DA' : '#FFE0FC', borderRadius:10, justifyContent:'center', alignItems:'center'}}>
+            style={{marginTop:getSelectionMode == 3 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 3 ? '#E281DA' : '#FFE0FC', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 
                 <Text
-                style={{color: getSelectionMode == 3 ? 'white' : 'white', fontSize:14}}>
+                style={{color: getSelectionMode == 3 ? 'white' : 'white', fontSize: getSelectionMode == 3 ?14:10}}>
                     {option3}</Text>
             </TouchableOpacity>
         </View>
