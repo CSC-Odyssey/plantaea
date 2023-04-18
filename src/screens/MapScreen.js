@@ -104,7 +104,7 @@ export default function App() {
                       longitude: medpla.longitude}}
       key={medpla.id}
     >
-      <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
+      <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
     </Marker>
   ))
 
@@ -115,7 +115,7 @@ export default function App() {
                       longitude: foopla.longitude}}
       key={foopla.id}
     >
-      <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
+      <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
     </Marker>
   ))
 
@@ -145,15 +145,15 @@ export default function App() {
           ))
           } */}
           <TouchableOpacity onPress={() => onCategoryClick('All')}>
-            <Text>all</Text>
+            <Text style={styles.textStyle}>All</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onCategoryClick('Medicinal')}>
-            <Text>medicine</Text>
+            <Text style={styles.textStyle}>Medicine</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onCategoryClick('Food')}>
-            <Text>food</Text>
+            <Text style={styles.textStyle}>Food</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -196,8 +196,12 @@ const styles = StyleSheet.create({
     bottom: 10,
     right: 10,
     width: '20%',
-    height: '20%',
+    height: "12%",
     borderColor: "Black",
     borderWidth: 1,
+    backgroundColor: "white",
+  },
+  textStyle: {
+    paddingLeft: 5,
   }
 });
