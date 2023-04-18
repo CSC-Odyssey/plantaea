@@ -104,7 +104,7 @@ export default function App() {
                       longitude: medpla.longitude}}
       key={medpla.id}
     >
-      <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
+      <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
     </Marker>
   ))
 
@@ -115,7 +115,7 @@ export default function App() {
                       longitude: foopla.longitude}}
       key={foopla.id}
     >
-      <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
+      <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
     </Marker>
   ))
 
@@ -145,15 +145,15 @@ export default function App() {
           ))
           } */}
           <TouchableOpacity onPress={() => onCategoryClick('All')}>
-            <Text>all</Text>
+            <Text>All</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onCategoryClick('Medicinal')}>
-            <Text>medicine</Text>
+            <Text>Medicine</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => onCategoryClick('Food')}>
-            <Text>food</Text>
+            <Text>Food</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -199,5 +199,6 @@ const styles = StyleSheet.create({
     height: '20%',
     borderColor: "Black",
     borderWidth: 1,
+    backgroundColor: "white",
   }
 });
