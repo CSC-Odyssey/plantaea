@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import MapView, {Marker} from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Button, Image } from 'react-native';
+import MapView, {Marker, Callout} from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions, Button, Image,  } from 'react-native';
 import * as Location from 'expo-location';
 import {PlantsLocation, plantDetails} from '../model/IndigenousPlantsLocation';
 import {medicinalPlants} from '../model/MedicinalPlants';
@@ -102,14 +102,17 @@ export default function App() {
       title={medpla.name} 
       coordinate = {{ latitude: medpla.latitude , 
                       longitude: medpla.longitude}}
+      // description={medpla.description}
       key={medpla.id}
+
     >
       <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
     </Marker>
   ))
 
+
   const food = foodPlants.map((foopla) => (
-    <Marker 
+    <Marker style={styles.markerText}
       title={foopla.name} 
       coordinate = {{ latitude: foopla.latitude , 
                       longitude: foopla.longitude}}
@@ -203,5 +206,39 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     paddingLeft: 5,
+  },
+  bubble: {
+    width: 150,
+    flexDirection: "column",
+    alignSelf: "flex-start",
+    backgroundColor: "#fff",
+    borderRadius: 6,
+    borderWidth: 0.5,
+    padding: 15,
+    borderColor: "#ccc"
+  },
+  name: {
+    fontSize: 16,
+    marginBottom: 5,
+  }, 
+  arrow: {
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    borderTopColor: "#fff",
+    borderWidth: 16,
+    alignSelf: "center",
+    marginTop: -32,
+  },
+  arrowBorder: {
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    borderTopColor: "#007a87",
+    borderWidth: 16,
+    alignSelf: "center",
+    marginTop: -0.5,
+  },
+  image: {
+    widht: 120,
+    height: 80,
   }
 });

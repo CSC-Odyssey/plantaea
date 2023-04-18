@@ -1,7 +1,7 @@
 export const activities = [
     {
         id: 1,
-        title:"Capture 1 plant",
+        title:"View 5 plants in Library",
         description: "",
         complete: false
     },
@@ -13,7 +13,7 @@ export const activities = [
     },
     {
         id: 3,
-        title:"Capture 3 plants",
+        title:"Visit 2 Markers",
         description: "",
         complete: false
     },
