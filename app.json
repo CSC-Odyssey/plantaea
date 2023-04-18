@@ -4,9 +4,9 @@
     "slug": "Plantaea",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "src/assets/images/plant-library-icon.png",
+    "icon": "src/assets/images/plantaea-logo.png",
     "splash": {
-      "image": "src/assets/images/plant-library-icon.png",
+      "image": "src/assets/images/plantaea-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -35,7 +35,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "src/assets/images/plant-library-icon.png",
+        "foregroundImage": "src/assets/images/plantaea-logo.png",
         "backgroundColor": "#FFFFFF"
       },
       "permissions": [

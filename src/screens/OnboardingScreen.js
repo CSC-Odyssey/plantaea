@@ -13,7 +13,7 @@ const OnboardingScreen = ({navigation}) => {
         <View>
         {/* <PlantImgTemp width={300} height={300} style={{ transform: [{rotate: '15deg'}]}}/> */}
         <Image
-          source={require('../assets/images/plant-library-icon.png')}
+          source={require('../assets/images/plantaea-logo.png')}
           resizeMode="contain"
           style={{width:80,height:80}}
         />

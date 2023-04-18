@@ -5,7 +5,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import { alignItems } from 'react-native-wind/dist/styles/flex/align-items'
 import ListItem from '../components/ListItem'
 import { TouchableOpacity } from "react-native-gesture-handler";
-import CustomSwitchLibrary from "../components/CustomSwitch";
+import CustomSwitchLibrary from "../components/CustomSwitchLibrary";
 
 import {plantListLibrary} from '../model/data'
 
@@ -26,9 +26,9 @@ const PlantLibrary = ({navigation, route}) => {
                 </View>
                 <View style={{flex:1, alignItems:'center'}}>
                 <Image
-                    source={require('../assets/images/plant-library-icon.png')}
+                    source={require('../assets/images/plantaea-logo.png')}
                     resizeMode="contain"
-                    style={{width:80,height:130}}
+                    style={{width:80,height:50,marginTop:30,marginBottom:10}}
                 />
                     <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E'}}>ETHNOBOTANICAL PLANTS</Text>
                 </View>

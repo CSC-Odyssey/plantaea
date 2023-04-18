@@ -39,7 +39,7 @@ export const plantListLibrary = [
         id: '4',
     },
     {
-        image: require('../assets/images/plants/psidium-guajava.jpg'),
+        image: require('../assets/images/plants/test-plant.jpg'),
         scientificName: 'Food and Medicine Plant Sample',
         localName: 'Sample Name Food and Medicine',
         description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
@@ -48,7 +48,7 @@ export const plantListLibrary = [
         id: '5',
     },
     {
-        image: require('../assets/images/plants/psidium-guajava.jpg'),
+        image: require('../assets/images/plants/test-plant.jpg'),
         scientificName: 'Food Plant Sample',
         localName: 'Sample Name Food',
         description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
@@ -57,7 +57,7 @@ export const plantListLibrary = [
         id: '6',
     },
     {
-        image: require('../assets/images/plants/psidium-guajava.jpg'),
+        image: require('../assets/images/plants/test-plant.jpg'),
         scientificName: 'Food Plant Sample',
         localName: 'Sample Name Food',
         description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
@@ -66,7 +66,7 @@ export const plantListLibrary = [
         id: '7',
     },
     {
-        image: require('../assets/images/plants/psidium-guajava.jpg'),
+        image: require('../assets/images/plants/test-plant.jpg'),
         scientificName: 'Food Plant Sample',
         localName: 'Sample Name Food',
         description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
@@ -75,7 +75,7 @@ export const plantListLibrary = [
         id: '8',
     },
     {
-        image: require('../assets/images/plants/psidium-guajava.jpg'),
+        image: require('../assets/images/plants/test-plant.jpg'),
         scientificName: 'Food and Medicine Plant Sample',
         localName: 'Sample Name Food and Medicine',
         description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',

@@ -17,7 +17,7 @@ export default function HomeScreen({navigation}){
              
                 <View style={{flex:1,alignItems:'center'}}>
                   <Image
-                     source={require('../assets/images/plant-library-icon.png')}
+                     source={require('../assets/images/plantaea-logo.png')}
                      resizeMode="contain"
                      style={{width:80,height:80}}
                      />
