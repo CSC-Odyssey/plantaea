@@ -38,6 +38,7 @@ const PlantLibrary = ({navigation, route}) => {
                 option1="All"
                 option2="Medicine"
                 option3="Food"
+                option4="Aromatic"
                 onSelectSwitch={onSelectSwitch}
             />
         </View>
@@ -71,6 +72,16 @@ const PlantLibrary = ({navigation, route}) => {
             <View>
                 {plantListLibrary.map(item => (
                     item.category[0] == 'food' || item.category[1] == 'food'? 
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
+                    : null
+                ))
+                }
+            </View>
+        }
+        {descriptionTab == 4 &&
+            <View>
+                {plantListLibrary.map(item => (
+                    item.category[0] == 'aromatic' || item.category[1] == 'aromatic' || item.category[2] == 'aromatic'? 
                     <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))

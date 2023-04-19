@@ -1,19 +1,9 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from "react-native";
 
+import createPlantTag from "../components/createPlantTag";
+
 export default function ListItem({image, scientificName, localName, category, onPress}){
-    var medicine = ""
-    var food = ""
- 
-    // if (category[0] == 'medicine' && category[1] == 'food') {
-    //     medicine = category[0]
-    //     food = category[1]
-    // } else if (category[0] == 'medicine') {
-    //     medicine = category[0]
-    // } else {
-    //     food = category[0]
-    // }
-    
     return(
         <View>
             <View style={{flexDirection:'row', alignItems:'center', flex:1}}>
@@ -23,14 +13,20 @@ export default function ListItem({image, scientificName, localName, category, on
                     <Text>{localName}</Text>
                     <Text style={{fontStyle:"italic",fontSize:10}}>{scientificName}</Text>
                     <View style={{flexDirection:'row'}}>
-                    {category[0] == 'medicine' && category[1] == 'food'?
-                        <View style={{flexDirection:'row'}}>
-                            <View style={{backgroundColor:'#F37373', alignItems:'center', borderRadius:8, paddingHorizontal:5,paddingVertical:1,marginTop:2}}><Text style={{fontSize:8, color:'white'}}>Medicine</Text></View>
-                            <View style={{backgroundColor:'#E281DA', alignItems:'center', borderRadius:8, paddingHorizontal:5,paddingVertical:1,marginTop:2}}><Text style={{fontSize:8, color:'white'}}>Food</Text></View>
-                        </View>
-                        : category[0] == 'medicine' ? 
-                        <View style={{backgroundColor:'#F37373', alignItems:'center', borderRadius:8, paddingHorizontal:5,paddingVertical:1,marginTop:2}}><Text style={{fontSize:8, color:'white'}}>Medicine</Text></View>
-                        : <View style={{backgroundColor:'#E281DA', alignItems:'center', borderRadius:8, paddingHorizontal:5,paddingVertical:1,marginTop:2}}><Text style={{fontSize:8, color:'white'}}>Food</Text></View>
+                    {category[0] == 'medicine' && category[1] == 'food' && category[2] == 'aromatic'?
+                        createPlantTag(true,true,true)
+                        : category[0] == 'medicine' && category[1] == 'food'?
+                            createPlantTag(true,true)
+                        : category[0] == 'medicine' && category[1] == 'aromatic'?
+                            createPlantTag(true,false,true)
+                        : category[0] == 'food' && category[1] == 'aromatic'?
+                            createPlantTag(false,true,true)
+                        : category[0] == 'medicine'?     
+                            createPlantTag(true)    
+                        : category[0] == 'food'?
+                            createPlantTag(false,true)   
+                        :
+                            createPlantTag(false,false,true)
                     }
                     </View>
                     </View>

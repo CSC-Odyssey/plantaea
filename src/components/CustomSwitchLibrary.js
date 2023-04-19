@@ -6,6 +6,7 @@ export default function CustomSwitchLibrary({
     option1,
     option2,
     option3,
+    option4,
     onSelectSwitch
 }) {
 
@@ -33,11 +34,19 @@ export default function CustomSwitchLibrary({
             </TouchableOpacity>
 
             <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(3)}
-            style={{marginTop:getSelectionMode == 3 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 3 ? '#E281DA' : '#FFE0FC', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
+            style={{marginTop:getSelectionMode == 3 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 3 ? '#F6C36C' : '#FFF7DF', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 
                 <Text
                 style={{color: getSelectionMode == 3 ? 'white' : 'white', fontSize: getSelectionMode == 3 ?14:10}}>
                     {option3}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(4)}
+            style={{marginTop:getSelectionMode == 4 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 4 ? '#E281DA' : '#FFE0FC', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
+                
+                <Text
+                style={{color: getSelectionMode == 4 ? 'white' : 'white', fontSize: getSelectionMode == 4 ?14:10}}>
+                    {option4}</Text>
             </TouchableOpacity>
         </View>
     )
