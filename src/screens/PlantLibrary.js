@@ -7,6 +7,8 @@ import ListItem from '../components/ListItem'
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CustomSwitchLibrary from "../components/CustomSwitchLibrary";
 
+import { windowWidth, windowHeight } from '../utils/Dimensions'
+
 import {plantListLibrary} from '../model/data'
 
 const PlantLibrary = ({navigation, route}) => {
@@ -17,41 +19,42 @@ const PlantLibrary = ({navigation, route}) => {
     }
 
     return (
-        <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-            <ScrollView style={{padding:17}}>
-                <View style={{flexDirection:'row',alignItems:'center',marginBottom: 1}}>
-                    {/* <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
-                    </TouchableOpacity>           */}
-                </View>
-                <View style={{flex:1, alignItems:'center'}}>
-                <Image
-                    source={require('../assets/images/plantaea-logo.png')}
-                    resizeMode="contain"
-                    style={{width:80,height:50,marginTop:30,marginBottom:10}}
-                />
-
-
-
-                    <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E',marginBottom:15}}>ETHNOBOTANICAL PLANTS</Text>
-                </View>
-                <View>
-            <CustomSwitchLibrary 
-                selectionMode={1}
-                option1="All"
-                option2="Medicine"
-                option3="Food"
-                option4="Aromatic"
-                onSelectSwitch={onSelectSwitch}
+        <SafeAreaView style={{flex:1, padding:5, paddingTop:windowHeight-(windowHeight-25), backgroundColor:'white'}}>
+        <View style={{overflow: 'hidden', paddingBottom:5}}>
+        <SafeAreaView style={{backgroundColor:'white', alignItems:'center', ...styles.shadow }}> 
+            
+            {/* <View style={{flexDirection:'row',alignItems:'center',marginBottom: 1}}> */}
+                {/* <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+                    <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
+                </TouchableOpacity>           */}
+            {/* </View> */}
+            {/* <View style={{flex:1, alignItems:'center'}}> */}
+            <Image
+                source={require('../assets/images/plantaea-logo.png')}
+                resizeMode="contain"
+                style={{width:80,height:50,marginTop:5,marginBottom:10}}
             />
+            <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E',marginBottom:15}}>ETHNOBOTANICAL PLANTS</Text>
+            {/* </View> */}
+    <View style={{paddingHorizontal:20}}>
+        <CustomSwitchLibrary 
+            selectionMode={1}
+            option1="All"
+            option2="Medicine"
+            option3="Food"
+            option4="Aromatic"
+            onSelectSwitch={onSelectSwitch}
+        />
+    </View>
+
+    <View style={{borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:2,  paddingHorizontal:183, paddingVertical:2}} />
+    <View style={{ flexDirection:'row', alignItems:'center', borderColor:'#E6E6E6', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:2, marginTop:2,marginBottom:5, marginHorizontal:20}}>
+                <Feather name="search" size={20} color="#C6C6C6" style={{marginRight:5}} />
+                <TextInput placeholder='Search' clearButtonMode='always' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,}}/>
+    </View>
+    </SafeAreaView>
         </View>
-
-        <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:2}} />
-        <View style={{flex:1, flexDirection:'row', alignItems:'center', borderColor:'#E6E6E6', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:2, marginTop:2,marginBottom:20}}>
-                    <Feather name="search" size={20} color="#C6C6C6" style={{marginRight:5}} />
-                    <TextInput placeholder='Search' clearButtonMode='always' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,}}/>
-                </View>
-
+                <ScrollView style={{paddingHorizontal:15,paddingVertical:15, marginTop:0}}>
         {descriptionTab == 1 &&
             <View>
                 {plantListLibrary.map(item => (
@@ -100,3 +103,13 @@ const PlantLibrary = ({navigation, route}) => {
 }
 
 export default PlantLibrary
+
+const styles = StyleSheet.create({
+    shadow: {
+        shadowColor:'black',
+        shadowOffset: {width:1,height:1},
+        shadowOpacity:1,
+        shadowRadius:3.5,
+        elevation:5
+    }
+});
