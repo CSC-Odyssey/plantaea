@@ -30,6 +30,9 @@ const PlantLibrary = ({navigation, route}) => {
                     resizeMode="contain"
                     style={{width:80,height:50,marginTop:30,marginBottom:10}}
                 />
+
+
+
                     <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E',marginBottom:15}}>ETHNOBOTANICAL PLANTS</Text>
                 </View>
                 <View>
