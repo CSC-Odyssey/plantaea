@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text,Image, SafeAreaView, ScrollView, StyleSheet, ImageBackground, Button } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+import Swiper from 'react-native-swiper'
+
 export default function HomeScreen({navigation}){
     return (
         <SafeAreaView style={{ padding: 10, flex:1, backgroundColor:'white'}}>
@@ -27,10 +29,83 @@ export default function HomeScreen({navigation}){
                 
                 <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6'}} />
                 <View>
-                    <Text style={{ fontSize:20, fontWeight:'bold',color:'#1C4C4E'}}> TRIVIA OF THE DAY</Text>
+                    <Text style={{ fontSize:20, fontWeight:'bold',color:'#1C4C4E'}}>PLANT TRIVIAS</Text>
+
+                <View style={styles.sliderContainer}>
+                    <Swiper autoplay height={200} activeDotColor="white" removeClippedSubviews={false}>
+                            <View styles={styles.slide}>
+                                <ImageBackground
+                                    source={require('../assets/images/banners/plant-banner1.jpg')}
+                                    resizeMode="cover"
+                                    style={styles.sliderImage}
+                                    imageStyle={{borderRadius:10}}
+                                >
+                                <Text style={{color:'white'}}>PLANTS ARE GAY</Text>
+                                </ImageBackground>           
+                            </View>
+
+                            <View styles={styles.slide}>
+                                <ImageBackground
+                                    source={require('../assets/images/banners/plant-banner2.jpg')}
+                                    resizeMode="cover"
+                                    style={styles.sliderImage}
+                                    imageStyle={{borderRadius:10}}
+                                >
+                                <Text style={{color:'white'}}>There are over 200,000 identified plant species and the list is growing all the time. 90 percent of the foods humans eat come from just 30 plants. An average size tree can provide enough wood to make 170,100 pencils.</Text>
+                                </ImageBackground>           
+                            </View>
+
+                            <View styles={styles.slide}>
+                                <ImageBackground
+                                    source={require('../assets/images/banners/plant-banner3.jpg')}
+                                    resizeMode="cover"
+                                    style={styles.sliderImage}
+                                    imageStyle={{borderRadius:10}}
+                                >
+                                <Text style={{color:'white'}}>sample text</Text>
+                                </ImageBackground>           
+                            </View>
+
+                            <View styles={styles.slide}>
+                                <ImageBackground
+                                    source={require('../assets/images/banners/plant-banner4.jpg')}
+                                    resizeMode="cover"
+                                    style={styles.sliderImage}
+                                    imageStyle={{borderRadius:10}}
+                                >
+                                <Text style={{color:'white'}}>sample text</Text>
+                                </ImageBackground>           
+                            </View>
+
+                            <View styles={styles.slide}>
+                                <ImageBackground
+                                    source={require('../assets/images/banners/plant-banner5.jpg')}
+                                    resizeMode="cover"
+                                    style={styles.sliderImage}
+                                    imageStyle={{borderRadius:10}}
+                                >
+                                <Text style={{color:'white'}}>sample text</Text>
+                                </ImageBackground>           
+                            </View>
+
+                            <View styles={styles.slide}>
+                                <ImageBackground
+                                    source={require('../assets/images/banners/plant-banner6.jpg')}
+                                    resizeMode="cover"
+                                    style={styles.sliderImage}
+                                    imageStyle={{borderRadius:10}}
+                                >
+                                <Text style={{color:'white'}}>Some Plants help with Skincare</Text>
+                                </ImageBackground>           
+                            </View>
+
+                    </Swiper>
                 </View>
-                <View style={styles.containerT}>
+
+
                 </View>
+                {/* <View style={styles.containerT}>
+                </View> */}
 
                 
                 <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
@@ -106,5 +181,26 @@ const  styles = StyleSheet.create({
         },
         shadowColor: '#333',
         shadowOpacity: 0.4
+    }, 
+    sliderContainer: {
+        height:200,
+        width:'90%',
+        marginTop:10,
+        justifyContent:'center',
+        alignSelf:'center',
+        borderRadius:8,
+    }, slide: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor:'transparent',
+        borderRadius:8,
+    },
+    sliderImage: {
+        height:'100%',
+        width:'100%',
+        alignSelf:'center',
+        borderRadius:8,
+        justifyContent: 'center',
+        alignItems:'center',
     }
 })

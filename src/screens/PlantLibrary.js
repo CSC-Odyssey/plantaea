@@ -41,8 +41,8 @@ const PlantLibrary = ({navigation, route}) => {
             selectionMode={1}
             option1="All"
             option2="Medicine"
-            option3="Food"
-            option4="Aromatic"
+            option3="Consumable"
+            option4="Ornamental"
             onSelectSwitch={onSelectSwitch}
         />
     </View>
@@ -77,7 +77,7 @@ const PlantLibrary = ({navigation, route}) => {
         {descriptionTab == 3 &&
             <View>
                 {plantListLibrary.map(item => (
-                    item.category[0] == 'food' || item.category[1] == 'food'? 
+                    item.category[0] == 'consumable' || item.category[1] == 'consumable'? 
                     <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))
@@ -87,7 +87,7 @@ const PlantLibrary = ({navigation, route}) => {
         {descriptionTab == 4 &&
             <View>
                 {plantListLibrary.map(item => (
-                    item.category[0] == 'aromatic' || item.category[1] == 'aromatic' || item.category[2] == 'aromatic'? 
+                    item.category[0] == 'ornamental' || item.category[1] == 'ornamental' || item.category[2] == 'ornamental'? 
                     <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))

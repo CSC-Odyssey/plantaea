@@ -13,17 +13,17 @@ export default function ListItem({image, scientificName, localName, category, on
                     <Text>{localName}</Text>
                     <Text style={{fontStyle:"italic",fontSize:10}}>{scientificName}</Text>
                     <View style={{flexDirection:'row'}}>
-                    {category[0] == 'medicine' && category[1] == 'food' && category[2] == 'aromatic'?
+                    {category[0] == 'medicine' && category[1] == 'consumable' && category[2] == 'ornamental'?
                         createPlantTag(true,true,true)
-                        : category[0] == 'medicine' && category[1] == 'food'?
+                        : category[0] == 'medicine' && category[1] == 'consumable'?
                             createPlantTag(true,true)
-                        : category[0] == 'medicine' && category[1] == 'aromatic'?
+                        : category[0] == 'medicine' && category[1] == 'ornamental'?
                             createPlantTag(true,false,true)
-                        : category[0] == 'food' && category[1] == 'aromatic'?
+                        : category[0] == 'consumable' && category[1] == 'ornamental'?
                             createPlantTag(false,true,true)
                         : category[0] == 'medicine'?     
                             createPlantTag(true)    
-                        : category[0] == 'food'?
+                        : category[0] == 'consumable'?
                             createPlantTag(false,true)   
                         :
                             createPlantTag(false,false,true)
