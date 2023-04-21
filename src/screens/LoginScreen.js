@@ -15,7 +15,7 @@ const LoginScreen = ({navigation}) => {
         <View style={{paddingHorizontal:25}}>
             <View style={{alignItems:'center'}}>
                 <Image
-                source={require('../assets/images/plant-library-icon.png')}
+                source={require('../assets/images/plantaea-logo.png')}
                 resizeMode="contain"
                 style={{width:80,height:80}}
                 />

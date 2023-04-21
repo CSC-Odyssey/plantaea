@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen'
 import DailiesScreen from '../screens/DailiesScreen'
 import MapScreen from '../screens/MapScreen'
 import CameraScreen from '../screens/CameraScreen'
+import PlantUsesScreen from '../screens/PlantUsesScreen'
 import PlantLibraryScreen from '../screens/PlantLibrary'
 import UserProfileScreen from '../screens/UserProfileScreen'
 import PlantDetailsScreen from '../screens/PlantDetailsScreen'
@@ -33,6 +34,7 @@ const HomeStack = () => {
         <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
         <Stack.Screen component={DailiesScreen} name="Dailies" />
         <Stack.Screen component={MapScreen} name="Map" />
+        <Stack.Screen component={PlantUsesScreen} name="PlantUses" />
       </Stack.Navigator>
     )
 }
@@ -40,17 +42,19 @@ const HomeStack = () => {
 const CameraBottomTabButton = ({children, onPress}) => (
     <TouchableOpacity
         style={{
-            top:-30,
+            top:-20,
             justifyContent:'center',
             alignItems:'center',
-            ...styles.shadow
+
         }}
         onPress={onPress}
     >
         <View style={{
-            width:70,
-            height:70,
-            borderRadius:35,
+            width:60,
+            height:60,
+            borderRadius:30,
+            backgroundColor:'white',
+            ...styles.shadow
 
         }}>
             {children}
@@ -61,43 +65,52 @@ const CameraBottomTabButton = ({children, onPress}) => (
 const TabNavigator = () => {
     return (
 
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#102409',tabBarInactiveTintColor:'#C6C6C6'}}>
+    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#164530',tabBarInactiveTintColor:'#E2E2E2'}}>
         <Tab.Screen name="Home2" component={HomeStack} options={{
             tabBarIcon: ({color,size}) => (
-                <Ionicons name="home-outline" color={color} size={size} />
+                <Ionicons name="ios-home-sharp" color={color} size={size} />
             )
         }}/>
 
         <Tab.Screen name="Dailies" component={DailiesScreen} options={{
         tabBarIcon: ({color,size}) => (
-                <Ionicons name="game-controller-outline" color={color} size={size} />
-        ) }} />
+            <Ionicons name="ios-game-controller" color={color} size={size} />
+    ) }} />
 
-        {/*<Tab.Screen name="Map" component={MapScreen} options={{
+
+        {/* <Tab.Screen name="Map" component={MapScreen} options={{
         tabBarIcon: ({color,size}) => (
-                <Ionicons name="map-outline" color={color} size={size} />
-        ) */}
+            <Ionicons name="ios-map" color={color} size={size} />
+    ) }} /> */}
+
+
         
         <Tab.Screen name="Camera" component={CameraScreen} options={{
-        tabBarIcon: ({focused}) => (
-                <Image
-                    source={require('../assets/images/CameraButtonIcon.png')}
-                    resizeMode="contain"
-                    style={{width:100,height:100}}
-                />
-            ),
-            tabBarButton: (props) => (
-                <CameraBottomTabButton {...props} />
-            )
-        }}/>
+            tabBarIcon: ({focused}) => (
+                    <Image
+                        source={require('../assets/images/icons/camera-button-icon.png')}
+                        resizeMode="contain"
+                        style={{width:90,height:90}}
+                    />
+                ),
+                tabBarButton: (props) => (
+                    <CameraBottomTabButton {...props} />
+                )
+            }}/>   
+
+                    {/* <Tab.Screen name="PlantUses" component={PlantUsesScreen} options={{
+                tabBarIcon: ({color,size}) => (
+                    <Ionicons name="ios-bandage-sharp" color={color} size={size} />
+            ) }} />        */}
+
         <Tab.Screen name="PlantLibrary" component={PlantLibraryStack} options={{
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="book-outline" color={color} size={size} />
+            <Ionicons name="ios-book" color={color} size={size} />
           ),
         }}/>
         <Tab.Screen name="UserProfile" component={UserProfileScreen} options={{
         tabBarIcon: ({color,size}) => (
-                <Ionicons name="person-outline" color={color} size={size} />
+                <Ionicons name="ios-person-sharp" color={color} size={size} />
             )
         }}/>
     </Tab.Navigator>
@@ -108,10 +121,10 @@ export default TabNavigator
 
 const styles = StyleSheet.create({
     shadow: {
-        shadowColor:'#7F5DF0',
-        shadowOffset: {width:0,height:10},
-        shadowOpacity:0.25,
+        shadowColor:'black',
+        shadowOffset: {width:0,height:5},
+        shadowOpacity:.5,
         shadowRadius:3.5,
-        elevation:5
+        elevation:1
     }
 });
