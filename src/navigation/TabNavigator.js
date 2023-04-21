@@ -41,12 +41,13 @@ const PlantLibraryStack = () => {
 
 const HomeStack = () => {
     return (
-      <Stack.Navigator screenOptions={{headerShown:false}}>
+      <Stack.Navigator screenOptions={{headerShown:false}}
+    >
         <Stack.Screen component={HomeScreen} name="HomeScreen" />
         <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
-        <Stack.Screen component={DailiesScreen} name="Dailies" />
+        {/* <Stack.Screen component={DailiesScreen} name="Dailies" /> */}
         <Stack.Screen component={MapScreen} name="Map" />
-        <Stack.Screen component={PlantUsesScreen} name="PlantUses" />
+        {/* <Stack.Screen component={PlantUsesScreen} name="PlantUses" /> */}
       </Stack.Navigator>
     )
 }

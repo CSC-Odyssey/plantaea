@@ -127,8 +127,8 @@ export default function HomeScreen({navigation}){
                             resizeMode="contain"
                             style={{width:70,height:70,alignSelf:"center", margin: 20}}
                          />
-                            <Text style = {styles.headingText}> LEARN </Text>
-                            <Text style = {styles.bodyText}> Knowledge is within reach </Text>
+                            <Text style = {styles.headingText}> GUIDE </Text>
+                            <Text style = {styles.bodyText}> get the best results when scanning plants</Text>
                      </View>
                   </TouchableOpacity>
 

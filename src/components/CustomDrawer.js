@@ -16,7 +16,7 @@ const CustomDrawer = (props) => {
             <Text style={{color:'white'}}>Botanist</Text>
             </ImageBackground>
             <View style={{flex:1, backgroundColor:'white',paddingTop:10}}>
-            <DrawerItemList {...props} />
+            {/* <DrawerItemList {...props} /> */}
             </View>
             </DrawerContentScrollView>
             <View style={{padding:20,borderTopWidth:1,borderTopColor:'#ccc'}}>
