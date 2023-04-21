@@ -20,9 +20,21 @@ const Tab = createBottomTabNavigator();
 
 const PlantLibraryStack = () => {
     return (
-      <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
-        <Stack.Screen component={PlantDetailsScreen} name="PlantDetails" />
+      <Stack.Navigator screenOptions={{}}>
+        <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack"
+            options={({}) => ({
+                headerShown:false
+            })}        
+        />
+        <Stack.Screen component={PlantDetailsScreen} name="PlantDetails" 
+            options={({}) => ({
+                headerBackVisible:true,
+                title:'',
+                // headerShown:false,
+                headerTransparent:true,
+                headerTintColor:'white'
+            })}
+        />
       </Stack.Navigator>
     )
 }

@@ -4,32 +4,43 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import Swiper from 'react-native-swiper'
 
+import Feather from 'react-native-vector-icons/Feather'
+import TabNavigator from "../navigation/TabNavigator";
+
 export default function HomeScreen({navigation}){
     return (
         <SafeAreaView style={{ padding: 10, flex:1, backgroundColor:'white'}}>
             <SafeAreaView style={{paddingTop:40}}>
                 <View style={{flexDirection:'row',alignItems:'center',marginBottom:1}}>
                     <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30}} imageStyle={{borderRadius:20}} />
+                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30}} imageStyle={{borderRadius:0}} />
                     </TouchableOpacity>          
                 </View>
             </SafeAreaView>
 
             <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'white'}}>
              
-                <View style={{flex:1,alignItems:'center'}}>
+                {/* <View style={{flex:1,alignItems:'center'}}>
                   <Image
                      source={require('../assets/images/plantaea-logo.png')}
                      resizeMode="contain"
                      style={{width:80,height:80}}
                      />
                     <Text style={{fontSize:30 ,fontWeight:'bold', marginBottom: 10}}> PLANTAEA </Text>                  
-                </View>
+                </View> */}
 
                 
                 <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6'}} />
-                <View>
-                    <Text style={{ fontSize:20, fontWeight:'bold',color:'#1C4C4E'}}>PLANT TRIVIAS</Text>
+
+                    {/* <Text style={{ fontSize:20, fontWeight:'bold',color:'#1C4C4E'}}>PLANT TRIVIAS</Text> */}
+
+                <TouchableOpacity 
+                    style={{ backgroundColor:'white',flexDirection:'row', alignItems:'center', borderColor:'#E1F6F7', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:10, marginTop:2,marginBottom:5, marginHorizontal:20}}
+                    onPress={()=>navigation.navigate('PlantLibraryStack')}
+                >
+                        <Feather name="search" size={20} color="#1C4C4E" style={{marginRight:5}} />
+                        <Text style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,color:'#1C4C4E'}}>Search</Text>
+                </TouchableOpacity>
 
                 <View style={styles.sliderContainer}>
                     <Swiper autoplay height={200} activeDotColor="white" removeClippedSubviews={false}>
@@ -102,16 +113,14 @@ export default function HomeScreen({navigation}){
                     </Swiper>
                 </View>
 
-
-                </View>
                 {/* <View style={styles.containerT}>
                 </View> */}
 
                 
-                <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
+                {/* <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} /> */}
             
                 <View style= {{flex: 1, flexDirection:'row', alignContent:'center'}} >
-                   <TouchableOpacity onPress={()=>navigation.navigate('PlantLibraryStack')}> 
+                   <TouchableOpacity> 
                      <View style = {styles.containerLE}> 
                          <Image
                             source={require('../assets/images/learn-icon.png')}
