@@ -31,12 +31,13 @@ const PlantDetailsScreen = ({navigation, route}) => {
             maxOverlayOpacity={0.6}
             minOverlayOpacity={0.3}
             renderHeader={() =>  (
-                <Image source={route.params?.image}/>
+                <Image source={route.params?.image} style={{width:windowWidth,height:400}}/>
                 )}
 
             renderForeground={() => (
                 <View style={styles.titleContainer}>
                     <Text style={styles.imageTitle}>{route.params?.localName}</Text>
+                    <Text style={{fontStyle:'italic',color:'white'}}>{route.params?.scientificName}</Text>
                 </View>
             )}
 
@@ -47,27 +48,22 @@ const PlantDetailsScreen = ({navigation, route}) => {
 
             )}
         >
+            <SafeAreaView style={{padding:10,backgroundColor:'white'}}>
             <TriggeringView
                 style={styles.section}
                 onHide={() => navTitleView.current.fadeInUp(200)}
                 onDisplay={() => navTitleView.current.fadeOut(100)}
             >
-         
-                    <Text style={styles.title}>{route.params?.localName}</Text>
-
+                    <Text style={styles.title}>Description</Text>
             </TriggeringView>
-            <View style={[styles.section, styles.sectionLarge]}>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-                <Text style={styles.section}>{route.params?.use}</Text>
-            </View>
+            
+            <Text style={styles.section}>{route.params?.description}</Text>
+            <Text style={[styles.title,styles.section]}>Use</Text>
+            <Text style={styles.section}>{route.params?.use}</Text>
+            <Text style={[styles.title,styles.section]}>Taxonomy</Text>
+            <Text style={[styles.section,{fontSize:10}]}>{route.params?.taxonomy}</Text>
+            </SafeAreaView>
+
         </ImageHeaderScrollView>
         </View>
 
