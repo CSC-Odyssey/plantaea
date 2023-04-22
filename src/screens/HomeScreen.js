@@ -5,7 +5,6 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import Swiper from 'react-native-swiper'
 
 import Feather from 'react-native-vector-icons/Feather'
-import TabNavigator from "../navigation/TabNavigator";
 
 export default function HomeScreen({navigation}){
     return (

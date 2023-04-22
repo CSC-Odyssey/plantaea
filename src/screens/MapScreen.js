@@ -2,16 +2,12 @@ import React, {useState, useEffect} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Button, Image,  } from 'react-native';
 import * as Location from 'expo-location';
-import {PlantsLocation, plantDetails} from '../model/IndigenousPlantsLocation';
-import {medicinalPlants} from '../model/MedicinalPlants';
-import {foodPlants} from '../model/FoodPlants';
-import ListItem from '../components/ListItem';
-import { position } from 'react-native-wind/dist/styles/layout/position';
+import {PlantsLocation} from '../model/IndigenousPlantsLocation';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
-  /*const [mapRegion, setMapRegion] = useState({
+  const [mapRegion, setMapRegion] = useState({
     latitude: 37.78825,
     longitude: -122.4324,
     latitudeDelta: 0.0922,
@@ -36,32 +32,7 @@ export default function App() {
 
   useEffect(() => {
     userLocation();
-  }, []);*/
-  // var userInput
-  // var filteredData = filterType(PlantsLocation, userInput) 
-  // function setMarker(PlantsLocation, userInput){
-  //   {userInput = this.userInput}
-  //    <MapView
-  //     style={styles.map}
-  //     initialRegion={{latitude: 17.3513,
-  //                     longitude: 121.1719,
-  //                     latitudeDelta: 0, 
-  //                     longitudeDelta: 2}}
-  //   >
-  //       {filteredData.map(item => (
-  //         <Marker 
-  //           title={item.name} 
-  //           coordinate = {{ latitude: item.latitude , 
-  //                           longitude: item.longitude}}
-  //           key={item.id}
-  //         >
-  //           <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
-  //         </Marker>
-  //       ))
-  //     }
-  //     console.log(filteredData)
-  //   </MapView>
-  // }
+  }, []);
 
   function listDownType(PlantsLocation){
     const uniqueType = ["Medicinal"]
@@ -81,48 +52,11 @@ export default function App() {
     }
     return plantType
   }
-  var filteredData = []
 
-  const [currentCategory, setCurrentCategory] = React.useState('All');
-
-  const getMarkers = () => {
-    switch (currentCategory) {
-      case 'Medicinal': return medic;
-      case 'Food': return food;
-      default: return [...medic,...food]
-    }
+  const [showMarkers, setShowMarker] = useState("All");
+  const typeSelect = (value) => {
+      setShowMarker(value);
   }
-
-  const onCategoryClick = category => {
-    setCurrentCategory(category);
-  }
-
-  const medic = medicinalPlants.map((medpla) => (
-    <Marker 
-      title={medpla.name} 
-      coordinate = {{ latitude: medpla.latitude , 
-                      longitude: medpla.longitude}}
-      // description={medpla.description}
-      key={medpla.id}
-
-    >
-      <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
-    </Marker>
-  ))
-
-
-  const food = foodPlants.map((foopla) => (
-    <Marker style={styles.markerText}
-      title={foopla.name} 
-      coordinate = {{ latitude: foopla.latitude , 
-                      longitude: foopla.longitude}}
-      key={foopla.id}
-    >
-      <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
-    </Marker>
-  ))
-
-  const [status, setStatus] = useState("All")
 
   return (
     /*<View style={styles.container}>
@@ -141,26 +75,17 @@ export default function App() {
           </Text>
         </View>
         <View>
-          {/* {lastArray.map(item => (
-            <TouchableOpacity>
-              <Text>{item}</Text>
-            </TouchableOpacity>
-          ))
-          } */}
-          <TouchableOpacity onPress={() => onCategoryClick('All')}>
-            <Text style={styles.textStyle}>All</Text>
+          <TouchableOpacity onPress={() => typeSelect("All")}>
+            <Text>All</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => onCategoryClick('Medicinal')}>
-            <Text style={styles.textStyle}>Medicine</Text>
+          <TouchableOpacity onPress={() => typeSelect("Medicinal")}>
+            <Text>Medicinal</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => onCategoryClick('Food')}>
-            <Text style={styles.textStyle}>Food</Text>
+          <TouchableOpacity onPress={() => typeSelect("Food")}>
+            <Text>Food</Text>
           </TouchableOpacity>
         </View>
       </View>
-      
       <MapView
         style={styles.map}
         initialRegion={{latitude: 17.3513,
@@ -168,18 +93,59 @@ export default function App() {
                         latitudeDelta: 0, 
                         longitudeDelta: 2}}
       >
-          {/* {PlantsLocation.map(item => (
-            <Marker 
-              title={item.name} 
-              coordinate = {{ latitude: item.latitude , 
-                              longitude: item.longitude}}
-              key={item.id}
-            >
-              <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
-            </Marker>
-          ))
-          } */}
-          {getMarkers()}
+        {showMarkers === "All" && 
+          <View>
+            {PlantsLocation.map(item => (
+              item.type == "Medicinal"?
+              <Marker
+                title={item.name} 
+                coordinate = {{ latitude: item.latitude , 
+                                longitude: item.longitude}}
+                key={item.id}
+              >
+                <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
+              </Marker>:              
+              <Marker
+                title={item.name} 
+                coordinate = {{ latitude: item.latitude , 
+                                longitude: item.longitude}}
+                key={item.id}
+              >
+                <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
+              </Marker>
+            ))}
+          </View>
+        }
+        {showMarkers === "Medicinal" && 
+          <View>
+            {PlantsLocation.map(item => (
+              item.type == "Medicinal"?
+              <Marker
+                title={item.name} 
+                coordinate = {{ latitude: item.latitude , 
+                                longitude: item.longitude}}
+                key={item.id}
+              >
+                <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
+              </Marker>:null
+            ))}
+          </View>
+        }
+        {showMarkers === "Food" && 
+          <View>
+            {PlantsLocation.map(item => (
+              item.type == "Food"?
+              <Marker
+                title={item.name} 
+                coordinate = {{ latitude: item.latitude , 
+                                longitude: item.longitude}}
+                key={item.id}
+              >
+                <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
+              </Marker>:null
+            ))}
+          </View>
+        }
       </MapView>
     </SafeAreaView>
   );
