@@ -19,6 +19,8 @@ export const plantListLibrary = [
         use: 'Its primary uses are as a diuretic (or "water pill") and to treat symptoms of the common cold. As a diuretic, sambong is an herb used to treat urolithiasis (urinary tract or kidney stones) and urinary tract infections, and thus reduces high blood pressure. Sambong works as an expectorant, an antidiarrheal and an antispasmodic, all of which treat some symptoms of the common cold. It is also sometimes used as an astringent for wounds. It is approved by the Philippine Department of Health, Institute of Traditional and Alternative Health Care, and by the Bureau of Plant Industries of the Department of Agriculture.',
         category: ['medicine','ornamental'],
         id: '2',
+        latitude: 16.3005,
+        longitude: 120.5740
     },
     {
         image: require('../assets/images/plants/clinopodium-douglasii.jpg'),
@@ -48,6 +50,8 @@ export const plantListLibrary = [
         use: 'The plant is popular in Penjing in China. The leaves are used medicinally in the Philippines to treat cough, colic, diarrhea and dysentery.',
         category: ['medicine'],
         id: '5',
+        latitude: 16.3452,
+        longitude:120.6890
     },
     {
         image: require('../assets/images/plants/momordica-charantia.jpg'),
@@ -77,6 +81,8 @@ export const plantListLibrary = [
         use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
         category: ['medicine','consumable'],
         id: '8',
+        latitude: 16.4885,
+        longitude:120.5164
     },
     {
         image: require('../assets/images/plants/senna-alata.jpg'),
@@ -97,68 +103,8 @@ export const plantListLibrary = [
         taxonomy: 'Plants (Kingdom Plantae)\n   ⤷Vascular Plants (Phylum Tracheophyta)\n        ⤷Flowering Plants (Subphylum Angiospermae)\n            ⤷Dicots (Class Magnoliopsida)\n                 ⤷Mints, Plantains, Olives, and Allies (Order Lamiales)\n                    ⤷Mint Family (Family Lamiaceae)\n                       ⤷Subfamily Viticoideae\n                            ⤷Genus Vitex\n                              ⤷Five-leaved Chaste Tree (Vitex negundo)\n                              ⤷Vitex negundo var. cannabifolia\n                              ⤷Vitex negundo var. heterophylla\n                              ⤷Vitex negundo var. negundo',
         category: ['medicine','ornamental'],
         id: '10',
+        latitude: 16.6170,
+        longitude:120.8269
     },
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Consumable and Medicine Plant Sample',
-        localName: 'Sample Name Consumable and Medicine',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['medicine','consumable'],
-        id: '11',
-    },
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Consumable Plant Sample',
-        localName: 'Sample Name Consumable',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['consumable'],
-        id: '12',
-    },
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Consumable Plant Sample',
-        localName: 'Sample Name Consumable',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['consumable'],
-        id: '13',
-    },
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Consumable and Ornamental Plant Sample',
-        localName: 'Sample Name Consumable and Ornamental',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['consumable','ornamental'],
-        id: '14',
-    },
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Consumable,Medicine, and Ornamental Plant Sample',
-        localName: 'Consumable, Medicine, and Ornamental',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['medicine','consumable','ornamental'],
-        id: '15',
-    }, 
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Ornamental Plant Sample',
-        localName: 'Sample Name Ornamental',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['ornamental'],
-        id: '16',
-    }, 
-    {
-        image: require('../assets/images/plants/test-plant.jpg'),
-        scientificName: 'Medicine and Ornamental Plant',
-        localName: 'Sample Medicine and Ornamental',
-        description: 'Widely cultivated in tropical and subtropical regions around the world, guava fruits can range in size from as small as an apricot to as large as a grapefruit. Various cultivars have white, pink, or red flesh; a few varieties feature red (instead of green or yellow) skin. When cultivated from seed, guavas are notable for their extremely slow growth rate for several months, before a very rapid acceleration in growth rate takes over. From seed, common guavas may bloom and set fruit in as few as two years or as many as eight. Cuttings, grafting, and air layering are more commonly used as a propagation method in commercial groves. Highly adaptable, guavas can be easily grown as container plants in temperate regions, though their ability to bloom and set fruit is somewhat less predictable. In some tropical locations, guavas can become invasive. It has become a major problem in the Galápagos Islands. The plant is used in many different shampoo products for its scent. It is also becoming a popular bonsai species and is currently quite popular in India and Eastern Asia.',
-        use: 'Psidium guajava has been used in traditional medicine by many cultures throughout Central America, the Caribbean, Africa, and Asia. It is used for inflammation, diabetes, hypertension, caries, wounds, pain relief, fever, diarrhea, rheumatism, lung diseases, and ulcers. Guava is an edible fruit, and can be eaten raw or cooked. The processing of the fruits yields by-products that can be fed to livestock. The leaves can also be used as fodder.',
-        category: ['medicine','ornamental'],
-        id: '17',
-    }, 
+
 ]

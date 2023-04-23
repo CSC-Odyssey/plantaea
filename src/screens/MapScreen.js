@@ -5,34 +5,35 @@ import * as Location from 'expo-location';
 import {PlantsLocation} from '../model/IndigenousPlantsLocation';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { position } from 'react-native-wind/dist/styles/layout/position';
 
-export default function App() {
-  const [mapRegion, setMapRegion] = useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  });
+const PlantLibrary = ({navigation,route}) => { 
+  // const [mapRegion, setMapRegion] = useState({
+  //   latitude: 37.78825,
+  //   longitude: -122.4324,
+  //   latitudeDelta: 0.0922,
+  //   longitudeDelta: 0.0421,
+  // });
 
-  const userLocation = async () => {
-    let {status} = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted'){
-      setErrorMsg('Permission to access location was denied');
-    }
-    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
-    setMapRegion({
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude,
-      // latitudeDelta: 0.0822
-      latitudeDelta: 0.01,
-      longitudeDelta: 0.002,
-    });
-    console.log(location.coords.latitude, location.coords.longitude);
-  }
+  // const userLocation = async () => {
+  //   let {status} = await Location.requestForegroundPermissionsAsync();
+  //   if (status !== 'granted'){
+  //     setErrorMsg('Permission to access location was denied');
+  //   }
+  //   let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
+  //   setMapRegion({
+  //     latitude: location.coords.latitude,
+  //     longitude: location.coords.longitude,
+  //     // latitudeDelta: 0.0822
+  //     latitudeDelta: 0.01,
+  //     longitudeDelta: 0.002,
+  //   });
+  //   console.log(location.coords.latitude, location.coords.longitude);
+  // }
 
-  useEffect(() => {
-    userLocation();
-  }, []);
+  // useEffect(() => {
+  //   userLocation();
+  // }, []);
 
   function listDownType(PlantsLocation){
     const uniqueType = ["Medicinal"]
@@ -52,11 +53,10 @@ export default function App() {
     }
     return plantType
   }
-
-  const [showMarkers, setShowMarker] = useState("All");
-  const typeSelect = (value) => {
-      setShowMarker(value);
-  }
+    const [showMarkers, setShowMarker] = useState("All");
+    const typeSelect = (value) => {
+        setShowMarker(value);
+    }
 
   return (
     /*<View style={styles.container}>
@@ -104,6 +104,17 @@ export default function App() {
                 key={item.id}
               >
                 <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
+                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                                                            {image: item.image, 
+                                                             name: item.name, 
+                                                             description: item.description, 
+                                                             type: item.type, 
+                                                             id: item.id})}>
+                  <View style={styles.calloutBox}>
+                    <Text>{item.name}</Text>
+                    <Text><Image style={{width: 70, height:90}} source={item.image}/></Text>
+                  </View>
+                </Callout>
               </Marker>:              
               <Marker
                 title={item.name} 
@@ -112,6 +123,19 @@ export default function App() {
                 key={item.id}
               >
                 <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
+                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                                                            {image: item.image, 
+                                                             name: item.name, 
+                                                             description: item.description, 
+                                                             type: item.type, 
+                                                             id: item.id})}>
+                  <View style={styles.calloutBox}>
+                    <Text>{item.name}</Text>
+                    <Text style={{bottom: 40}}>
+                      <Image resizeMode="cover" style={{width: 70, height:90}} source={item.image}/>
+                    </Text>
+                  </View>
+                </Callout>
               </Marker>
             ))}
           </View>
@@ -127,6 +151,19 @@ export default function App() {
                 key={item.id}
               >
                 <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
+                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                                                            {image: item.image, 
+                                                             name: item.name, 
+                                                             description: item.description, 
+                                                             type: item.type, 
+                                                             id: item.id})}>
+                  <View style={styles.calloutBox}>
+                    <Text>{item.name}</Text>
+                    <Text style={{bottom: 40}}>
+                      <Image resizeMode="cover" style={{width: 70, height:90}} source={item.image}/>
+                    </Text>
+                  </View>
+                </Callout>
               </Marker>:null
             ))}
           </View>
@@ -140,8 +177,21 @@ export default function App() {
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
-              >
+              >   
                 <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
+                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                                                            {image: item.image, 
+                                                             name: item.name, 
+                                                             description: item.description, 
+                                                             type: item.type, 
+                                                             id: item.id})}>
+                  <View style={styles.calloutBox}>
+                    <Text>{item.name}</Text>
+                    <Text style={{bottom: 40}}>
+                      <Image resizeMode="cover" style={{width: 70, height:90}} source={item.image}/>
+                    </Text>
+                  </View>
+                </Callout>
               </Marker>:null
             ))}
           </View>
@@ -150,6 +200,8 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
+export default PlantLibrary
 
 const styles = StyleSheet.create({
   container: {
@@ -206,5 +258,9 @@ const styles = StyleSheet.create({
   image: {
     widht: 120,
     height: 80,
-  }
+  },
+  calloutBox: {
+    lexDirection: 'column', 
+    width: 100
+  },
 });

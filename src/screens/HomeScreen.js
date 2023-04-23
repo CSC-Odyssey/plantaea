@@ -19,14 +19,14 @@ export default function HomeScreen({navigation}){
 
             <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'white'}}>
              
-                {/* <View style={{flex:1,alignItems:'center'}}>
+                <View style={{flex:1,alignItems:'center'}}>
                   <Image
                      source={require('../assets/images/plantaea-logo.png')}
                      resizeMode="contain"
                      style={{width:80,height:80}}
                      />
                     <Text style={{fontSize:30 ,fontWeight:'bold', marginBottom: 10}}> PLANTAEA </Text>                  
-                </View> */}
+                </View>
 
                 
                 <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6'}} />
@@ -119,7 +119,7 @@ export default function HomeScreen({navigation}){
                 {/* <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} /> */}
             
                 <View style= {{flex: 1, flexDirection:'row', alignContent:'center'}} >
-                   <TouchableOpacity> 
+                   <TouchableOpacity onPress={()=>navigation.navigate('PlantLibraryStack')}> 
                      <View style = {styles.containerLE}> 
                          <Image
                             source={require('../assets/images/learn-icon.png')}
