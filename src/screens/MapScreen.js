@@ -1,39 +1,38 @@
 import React, {useState, useEffect} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Button, Image,  } from 'react-native';
+import { StyleSheet, Text, View, Image,  } from 'react-native';
 import * as Location from 'expo-location';
 import {PlantsLocation} from '../model/IndigenousPlantsLocation';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { position } from 'react-native-wind/dist/styles/layout/position';
 
 const PlantLibrary = ({navigation,route}) => { 
-  // const [mapRegion, setMapRegion] = useState({
-  //   latitude: 37.78825,
-  //   longitude: -122.4324,
-  //   latitudeDelta: 0.0922,
-  //   longitudeDelta: 0.0421,
-  // });
+  const [mapRegion, setMapRegion] = useState({
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  });
 
-  // const userLocation = async () => {
-  //   let {status} = await Location.requestForegroundPermissionsAsync();
-  //   if (status !== 'granted'){
-  //     setErrorMsg('Permission to access location was denied');
-  //   }
-  //   let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
-  //   setMapRegion({
-  //     latitude: location.coords.latitude,
-  //     longitude: location.coords.longitude,
-  //     // latitudeDelta: 0.0822
-  //     latitudeDelta: 0.01,
-  //     longitudeDelta: 0.002,
-  //   });
-  //   console.log(location.coords.latitude, location.coords.longitude);
-  // }
+  const userLocation = async () => {
+    let {status} = await Location.requestForegroundPermissionsAsync();
+    if (status !== 'granted'){
+      setErrorMsg('Permission to access location was denied');
+    }
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
+    setMapRegion({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      // latitudeDelta: 0.0822
+      latitudeDelta: 0.01,
+      longitudeDelta: 0.002,
+    });
+    console.log(location.coords.latitude, location.coords.longitude);
+  }
 
-  // useEffect(() => {
-  //   userLocation();
-  // }, []);
+  useEffect(() => {
+    userLocation();
+  }, []);
 
   function listDownType(PlantsLocation){
     const uniqueType = ["Medicinal"]

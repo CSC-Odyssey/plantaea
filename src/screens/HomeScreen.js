@@ -50,7 +50,7 @@ export default function HomeScreen({navigation}){
                                     style={styles.sliderImage}
                                     imageStyle={{borderRadius:10}}
                                 >
-                                <Text style={{color:'white'}}>PLANTS ARE GAY</Text>
+                                <Text style={{color:'white'}}>PLANTS ARE NICE</Text>
                                 </ImageBackground>           
                             </View>
 
@@ -108,7 +108,6 @@ export default function HomeScreen({navigation}){
                                 <Text style={{color:'white'}}>Some Plants help with Skincare</Text>
                                 </ImageBackground>           
                             </View>
-
                     </Swiper>
                 </View>
 
