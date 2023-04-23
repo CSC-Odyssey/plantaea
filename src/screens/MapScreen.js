@@ -103,16 +103,20 @@ const PlantLibrary = ({navigation,route}) => {
                 key={item.id}
               >
                 <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
-                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                <Callout 
+                  tooltip
+                  onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
                                                              name: item.name, 
                                                              description: item.description, 
                                                              type: item.type, 
                                                              id: item.id})}>
-                  <View style={styles.calloutBox}>
-                    <Text>{item.name}</Text>
-                    <Text><Image style={{width: 70, height:90}} source={item.image}/></Text>
+                  <View style={styles.bubble}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
+                  <View style={styles.arrowBorder}/>
+                  <View style={styles.arrow} />
                 </Callout>
               </Marker>:              
               <Marker
@@ -122,18 +126,20 @@ const PlantLibrary = ({navigation,route}) => {
                 key={item.id}
               >
                 <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
-                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                <Callout 
+                  tooltip
+                  onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
                                                              name: item.name, 
                                                              description: item.description, 
                                                              type: item.type, 
                                                              id: item.id})}>
-                  <View style={styles.calloutBox}>
-                    <Text>{item.name}</Text>
-                    <Text style={{bottom: 40}}>
-                      <Image resizeMode="cover" style={{width: 70, height:90}} source={item.image}/>
-                    </Text>
+                  <View style={styles.bubble}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
+                  <View style={styles.arrowBorder}/>
+                  <View style={styles.arrow} />
                 </Callout>
               </Marker>
             ))}
@@ -150,18 +156,20 @@ const PlantLibrary = ({navigation,route}) => {
                 key={item.id}
               >
                 <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
-                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                <Callout 
+                  tooltip
+                  onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
                                                              name: item.name, 
                                                              description: item.description, 
                                                              type: item.type, 
                                                              id: item.id})}>
-                  <View style={styles.calloutBox}>
-                    <Text>{item.name}</Text>
-                    <Text style={{bottom: 40}}>
-                      <Image resizeMode="cover" style={{width: 70, height:90}} source={item.image}/>
-                    </Text>
+                  <View style={styles.bubble}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
+                  <View style={styles.arrowBorder}/>
+                  <View style={styles.arrow} />
                 </Callout>
               </Marker>:null
             ))}
@@ -178,18 +186,20 @@ const PlantLibrary = ({navigation,route}) => {
                 key={item.id}
               >   
                 <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
-                <Callout onPress={() => navigation.navigate('PlantDetails', 
+                <Callout 
+                  tooltip
+                  onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
                                                              name: item.name, 
                                                              description: item.description, 
                                                              type: item.type, 
                                                              id: item.id})}>
-                  <View style={styles.calloutBox}>
-                    <Text>{item.name}</Text>
-                    <Text style={{bottom: 40}}>
-                      <Image resizeMode="cover" style={{width: 70, height:90}} source={item.image}/>
-                    </Text>
+                  <View style={styles.bubble}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
+                  <View style={styles.arrowBorder}/>
+                  <View style={styles.arrow} />
                 </Callout>
               </Marker>:null
             ))}
@@ -257,9 +267,5 @@ const styles = StyleSheet.create({
   image: {
     widht: 120,
     height: 80,
-  },
-  calloutBox: {
-    lexDirection: 'column', 
-    width: 100
   },
 });
