@@ -58,7 +58,8 @@ const PlantLibrary = ({navigation, route}) => {
         {descriptionTab == 1 &&
             <View>
                 {plantListLibrary.map(item => (
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} 
+                    onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                 ))
                 }
             </View>
@@ -68,7 +69,8 @@ const PlantLibrary = ({navigation, route}) => {
                 
                 {plantListLibrary.map(item => (
                     item.category[0] == 'medicine'? 
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} 
+                    onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))
                 }
@@ -78,7 +80,8 @@ const PlantLibrary = ({navigation, route}) => {
             <View>
                 {plantListLibrary.map(item => (
                     item.category[0] == 'consumable' || item.category[1] == 'consumable'? 
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} 
+                    onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))
                 }
@@ -88,7 +91,8 @@ const PlantLibrary = ({navigation, route}) => {
             <View>
                 {plantListLibrary.map(item => (
                     item.category[0] == 'ornamental' || item.category[1] == 'ornamental' || item.category[2] == 'ornamental'? 
-                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
+                    <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} 
+                    onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, category: item.category, id: item.id})}/>
                     : null
                 ))
                 }
