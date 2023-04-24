@@ -20,7 +20,7 @@ export default function DailiesScreen({navigation}){
             <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
 
             {activities.map(e => (
-                    <ListActivities key={e.id}  title={e.title} />
+                    <ListActivities key={e.id}  title={e.title}  total= {e.total} />
                 ))
             }
 
