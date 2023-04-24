@@ -6,10 +6,16 @@ import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 
 export default function App() {
+
   let cameraRef = useRef();
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
   const [photo, setPhoto] = useState();
+  const [count,setCount] = useState(1)
+  var counter = () => {
+    setCount(count + 1)
+    console.log(count)
+  }
 
   useEffect(() => {
     (async () => {

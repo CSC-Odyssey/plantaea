@@ -75,7 +75,7 @@ const PlantLibrary = ({navigation,route}) => {
         </View>
         <View>
           <TouchableOpacity onPress={() => typeSelect("All")}>
-            <Text>All</Text>
+            <Text style={styles.filterText}>All</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => typeSelect("Medicine")}>
             <Text>Medicine</Text>
@@ -95,6 +95,7 @@ const PlantLibrary = ({navigation,route}) => {
                         latitudeDelta: 0, 
                         longitudeDelta: 2}}
       >
+        <Marker coordinate={mapRegion} title='You are here!' />
         {showMarkers === "All" && 
           <View>
             {plantListLibrary.map(item => (
@@ -109,10 +110,13 @@ const PlantLibrary = ({navigation,route}) => {
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.localName, 
-                                                             description: item.description, 
-                                                             type: item.category, 
-                                                             id: item.id})}>
+                                                            scientificName: item.scientificName, 
+                                                            localName: item.localName, 
+                                                            description: item.description, 
+                                                            use: item.use, 
+                                                            taxonomy: item.taxonomy, 
+                                                            category: item.category, 
+                                                            id: item.id})}>
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -139,10 +143,13 @@ const PlantLibrary = ({navigation,route}) => {
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.localName, 
-                                                             description: item.description, 
-                                                             type: item.category, 
-                                                             id: item.id})}>
+                                                              scientificName: item.scientificName, 
+                                                              localName: item.localName, 
+                                                              description: item.description, 
+                                                              use: item.use, 
+                                                              taxonomy: item.taxonomy, 
+                                                              category: item.category, 
+                                                              id: item.id})}>
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -169,10 +176,13 @@ const PlantLibrary = ({navigation,route}) => {
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.localName, 
-                                                             description: item.description, 
-                                                             type: item.category, 
-                                                             id: item.id})}>
+                                                              scientificName: item.scientificName, 
+                                                              localName: item.localName, 
+                                                              description: item.description, 
+                                                              use: item.use, 
+                                                              taxonomy: item.taxonomy, 
+                                                              category: item.category, 
+                                                              id: item.id})}>
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -199,10 +209,13 @@ const PlantLibrary = ({navigation,route}) => {
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.localName, 
-                                                             description: item.description, 
-                                                             type: item.category, 
-                                                             id: item.id})}>
+                                                              scientificName: item.scientificName, 
+                                                              localName: item.localName, 
+                                                              description: item.description, 
+                                                              use: item.use, 
+                                                              taxonomy: item.taxonomy, 
+                                                              category: item.category, 
+                                                              id: item.id})}>
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -234,8 +247,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
     bottom: 10,
     right: 10,
-    width: '20%',
-    height: "12%",
+    width: '30%',
+    height: "15%",
     borderColor: "Black",
     borderWidth: 1,
     backgroundColor: "white",
@@ -277,4 +290,7 @@ const styles = StyleSheet.create({
     widht: 120,
     height: 80,
   },
+  filterText: {
+    fontSize: 12,
+  }
 });
