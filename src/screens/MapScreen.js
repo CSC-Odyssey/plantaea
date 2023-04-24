@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { StyleSheet, Text, View, Image,  } from 'react-native';
 import * as Location from 'expo-location';
-import {PlantsLocation} from '../model/IndigenousPlantsLocation';
+import {plantListLibrary} from '../model/data';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -34,21 +34,21 @@ const PlantLibrary = ({navigation,route}) => {
     userLocation();
   }, []);
 
-  function listDownType(PlantsLocation){
+  function listDownType(plantListLibrary){
     const uniqueType = ["Medicinal"]
-    for (let i = 0; i < PlantsLocation.length; i++){
-      uniqueType.push(PlantsLocation[i].type)
+    for (let i = 0; i < plantListLibrary.length; i++){
+      uniqueType.push(plantListLibrary[i].type)
     }
     const uniqueArray = [...new Set(uniqueType)]
     return uniqueArray
   }
-  const lastArray = listDownType(PlantsLocation)  
+  const lastArray = listDownType(plantListLibrary)  
 
-  function filterType(PlantsLocation, userInput){
+  function filterType(plantListLibrary, userInput){
     const plantType = []
-    for (let i = 0; i < PlantsLocation.length; i++){
-      if(PlantsLocation[i].type == userInput)
-        plantType.push(PlantsLocation[i])
+    for (let i = 0; i < plantListLibrary.length; i++){
+      if(plantListLibrary[i].type == userInput)
+        plantType.push(plantListLibrary[i])
     }
     return plantType
   }
@@ -77,11 +77,14 @@ const PlantLibrary = ({navigation,route}) => {
           <TouchableOpacity onPress={() => typeSelect("All")}>
             <Text>All</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => typeSelect("Medicinal")}>
-            <Text>Medicinal</Text>
+          <TouchableOpacity onPress={() => typeSelect("Medicine")}>
+            <Text>Medicine</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => typeSelect("Food")}>
-            <Text>Food</Text>
+          <TouchableOpacity onPress={() => typeSelect("Consumable")}>
+            <Text>Consumable</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => typeSelect("Ornamental")}>
+            <Text>Ornamental</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -94,63 +97,39 @@ const PlantLibrary = ({navigation,route}) => {
       >
         {showMarkers === "All" && 
           <View>
-            {PlantsLocation.map(item => (
-              item.type == "Medicinal"?
+            {plantListLibrary.map(item => (
               <Marker
-                title={item.name} 
+                title={item.localName} 
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
               >
-                <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
+                <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.name, 
+                                                             name: item.localName, 
                                                              description: item.description, 
-                                                             type: item.type, 
+                                                             type: item.category, 
                                                              id: item.id})}>
                   <View style={styles.bubble}>
-                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
                   <View style={styles.arrowBorder}/>
                   <View style={styles.arrow} />
                 </Callout>
-              </Marker>:              
-              <Marker
-                title={item.name} 
-                coordinate = {{ latitude: item.latitude , 
-                                longitude: item.longitude}}
-                key={item.id}
-              >
-                <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
-                <Callout 
-                  tooltip
-                  onPress={() => navigation.navigate('PlantDetails', 
-                                                            {image: item.image, 
-                                                             name: item.name, 
-                                                             description: item.description, 
-                                                             type: item.type, 
-                                                             id: item.id})}>
-                  <View style={styles.bubble}>
-                    <Text style={styles.name}>{item.name}</Text>
-                    <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
-                  </View>
-                  <View style={styles.arrowBorder}/>
-                  <View style={styles.arrow} />
-                </Callout>
-              </Marker>
+              </Marker>           
             ))}
           </View>
         }
-        {showMarkers === "Medicinal" && 
+        {showMarkers === "Medicine" && 
           <View>
-            {PlantsLocation.map(item => (
-              item.type == "Medicinal"?
+            {plantListLibrary.map(item => (
+              item.category[0] == 'medicine'? 
               <Marker
-                title={item.name} 
+                title={item.localName} 
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
@@ -160,12 +139,12 @@ const PlantLibrary = ({navigation,route}) => {
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.name, 
+                                                             name: item.localName, 
                                                              description: item.description, 
-                                                             type: item.type, 
+                                                             type: item.category, 
                                                              id: item.id})}>
                   <View style={styles.bubble}>
-                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
                   <View style={styles.arrowBorder}/>
@@ -175,12 +154,12 @@ const PlantLibrary = ({navigation,route}) => {
             ))}
           </View>
         }
-        {showMarkers === "Food" && 
+        {showMarkers === "Consumable" && 
           <View>
-            {PlantsLocation.map(item => (
-              item.type == "Food"?
+            {plantListLibrary.map(item => (
+              item.category[0] == 'consumable' || item.category[1] == 'consumable'? 
               <Marker
-                title={item.name} 
+                title={item.localName} 
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
@@ -190,12 +169,42 @@ const PlantLibrary = ({navigation,route}) => {
                   tooltip
                   onPress={() => navigation.navigate('PlantDetails', 
                                                             {image: item.image, 
-                                                             name: item.name, 
+                                                             name: item.localName, 
                                                              description: item.description, 
-                                                             type: item.type, 
+                                                             type: item.category, 
                                                              id: item.id})}>
                   <View style={styles.bubble}>
-                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.name}>{item.localName}</Text>
+                    <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
+                  </View>
+                  <View style={styles.arrowBorder}/>
+                  <View style={styles.arrow} />
+                </Callout>
+              </Marker>:null
+            ))}
+          </View>
+        }
+        {showMarkers === "Ornamental" && 
+          <View>
+            {plantListLibrary.map(item => (
+              item.category[0] == 'ornamental' || item.category[1] == 'ornamental' || item.category[2] == 'ornamental'? 
+              <Marker
+                title={item.localName} 
+                coordinate = {{ latitude: item.latitude , 
+                                longitude: item.longitude}}
+                key={item.id}
+              >   
+                <Image source = {require('../assets/images/home_marker.png')} style={{height: 35, width:35 }}/>
+                <Callout 
+                  tooltip
+                  onPress={() => navigation.navigate('PlantDetails', 
+                                                            {image: item.image, 
+                                                             name: item.localName, 
+                                                             description: item.description, 
+                                                             type: item.category, 
+                                                             id: item.id})}>
+                  <View style={styles.bubble}>
+                    <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
                   </View>
                   <View style={styles.arrowBorder}/>
