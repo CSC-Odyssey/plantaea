@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
-import { StyleSheet, Text, View, Image,  } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight,  } from 'react-native';
 import * as Location from 'expo-location';
 import {plantListLibrary} from '../model/data';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 const PlantLibrary = ({navigation,route}) => { 
   const [mapRegion, setMapRegion] = useState({
@@ -57,6 +58,9 @@ const PlantLibrary = ({navigation,route}) => {
         setShowMarker(value);
     }
 
+  
+  
+
   return (
     /*<View style={styles.container}>
       <MapView style={styles.map}
@@ -69,22 +73,22 @@ const PlantLibrary = ({navigation,route}) => {
     <SafeAreaView>
       <View style={styles.filterContainer}>
         <View style={{borderBottomWidth: 1,}}>
-          <Text style={{textAlign: "center"}}>
-            FIlter
+          <Text style={styles.textHeader}>
+            FILTER
           </Text>
         </View>
         <View>
           <TouchableOpacity onPress={() => typeSelect("All")}>
-            <Text style={styles.filterText}>All</Text>
+           <Text style={styles.filterText}>All</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => typeSelect("Medicine")}>
-            <Text>Medicine</Text>
+            <Text style={styles.filterText}>Medicine</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => typeSelect("Consumable")}>
-            <Text>Consumable</Text>
+            <Text style={styles.filterText}>Consumable</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => typeSelect("Ornamental")}>
-            <Text>Ornamental</Text>
+            <Text style={styles.filterText}>Ornamental</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -93,7 +97,7 @@ const PlantLibrary = ({navigation,route}) => {
         initialRegion={{latitude: 17.3513,
                         longitude: 121.1719,
                         latitudeDelta: 0, 
-                        longitudeDelta: 2}}
+                        longitudeDelta: 1.9}}
       >
         <Marker coordinate={mapRegion} title='You are here!' />
         {showMarkers === "All" && 
@@ -245,19 +249,21 @@ const styles = StyleSheet.create({
   filterContainer: {
     position: "absolute",
     zIndex: 1,
-    bottom: 10,
+    bottom: 15,
     right: 10,
-    width: '30%',
+    width: '40%',
     height: "15%",
-    borderColor: "Black",
-    borderWidth: 1,
+    borderColor: "#102409",
+    borderWidth: 2,
+    borderRadius: 8,
     backgroundColor: "white",
+    opacity:0.9
   },
   textStyle: {
     paddingLeft: 5,
   },
   bubble: {
-    width: 150,
+    width: 130,
     flexDirection: "column",
     alignSelf: "flex-start",
     backgroundColor: "#fff",
@@ -267,7 +273,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc"
   },
   name: {
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 5,
   }, 
   arrow: {
@@ -290,7 +296,16 @@ const styles = StyleSheet.create({
     widht: 120,
     height: 80,
   },
-  filterText: {
-    fontSize: 12,
+  textHeader:{
+    fontSize:16,
+    fontStyle:'Semi-Bold',
+    textAlign:'center',
+    color :'white',
+    backgroundColor:'#102409'
+
+  },
+   filterText: {
+    fontSize: 15,
+    textAlign:'center'
   }
 });
