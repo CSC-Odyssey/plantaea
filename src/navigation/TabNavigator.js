@@ -12,6 +12,9 @@ import PlantLibraryScreen from '../screens/PlantLibrary'
 import UserProfileScreen from '../screens/UserProfileScreen'
 import PlantDetailsScreen from '../screens/PlantDetailsScreen'
 
+import ScreenA from '../screens/ScreenA'
+import ScreenB from '../screens/ScreenB'
+
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 
@@ -115,6 +118,16 @@ const TabNavigator = () => {
                 tabBarIcon: ({color,size}) => (
                     <Ionicons name="ios-bandage-sharp" color={color} size={size} />
             ) }} />        */}
+
+                                <Tab.Screen name="ScreenA" component={ScreenA} options={{
+                tabBarIcon: ({color,size}) => (
+                    <Ionicons name="ios-bandage-sharp" color={color} size={size} />
+            ) }} />       
+
+                                <Tab.Screen name="ScreenB" component={ScreenB} options={{
+                tabBarIcon: ({color,size}) => (
+                    <Ionicons name="ios-bandage-sharp" color={color} size={size} />
+            ) }} />       
 
         <Tab.Screen name="PlantLibrary" component={PlantLibraryStack} options={{
           tabBarIcon: ({color, size}) => (

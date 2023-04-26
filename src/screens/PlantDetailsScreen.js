@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
-import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, StyleSheet, StatusBar } from "react-native";
+import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, StyleSheet, StatusBar, Button } from "react-native";
 import { windowWidth, windowHeight } from '../utils/Dimensions'
+import { useNavigation } from "@react-navigation/native";
+
 
 import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -58,6 +60,7 @@ const PlantDetailsScreen = ({navigation, route}) => {
             </TriggeringView>
             
             <Text style={styles.section}>{route.params?.description}</Text>
+            <Button title="Go to map screen and select marker" onPress={() => navigation.push('Map', { markerId: 1 })}/>
             <Text style={[styles.title,styles.section]}>Use</Text>
             <Text style={styles.section}>{route.params?.use}</Text>
             <Text style={[styles.title,styles.section]}>Taxonomy</Text>
