@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const ScreenB = ({ navigation }) => {
-  const navigateToMarker = (markerNumber) => {
-    navigation.navigate('ScreenA', { marker: markerNumber });
+const ScreenB = ({ route }) => {
+  const navigation = useNavigation();
+  const navigateToMarker = (markerName) => {
+    navigation.navigate('ScreenA', { marker: markerName });
   };
+
+  useEffect(() => {
+    if (route.params?.marker) {
+      navigateToMarker(route.params?.marker);
+    }
+  }, [route.params?.marker]);
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.button, styles.buttonMarker1]}
-        onPress={() => navigateToMarker(1)}
+        onPress={() => navigateToMarker('Lagundi')}
       >
-        <Text style={styles.buttonText}>Marker 1</Text>
+        <Text style={styles.buttonText}>Lagundi</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.button, styles.buttonMarker2]}
-        onPress={() => navigateToMarker(2)}
+        onPress={() => navigateToMarker('Sambong')}
       >
-        <Text style={styles.buttonText}>Marker 2</Text>
+        <Text style={styles.buttonText}>Sambong</Text>
       </TouchableOpacity>
     </View>
   );

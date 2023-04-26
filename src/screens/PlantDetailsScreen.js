@@ -16,6 +16,12 @@ const MAX_HEIGHT = 350;
 
 const PlantDetailsScreen = ({navigation, route}) => {
 
+
+
+  const navigateToMarker = (markerNumber) => {
+    navigation.navigate('ScreenA', { marker: markerNumber });
+  };
+
     const navTitleView = useRef(null);
 
     const [descriptionTab, setDescriptionTab] = useState(1);
@@ -60,7 +66,7 @@ const PlantDetailsScreen = ({navigation, route}) => {
             </TriggeringView>
             
             <Text style={styles.section}>{route.params?.description}</Text>
-            <Button title="Go to map screen and select marker" onPress={() => navigation.push('Map', { markerId: 1 })}/>
+            <Button title="Go to map screen and select marker" onPress={() => navigateToMarker(route.params?.localName)}/>
             <Text style={[styles.title,styles.section]}>Use</Text>
             <Text style={styles.section}>{route.params?.use}</Text>
             <Text style={[styles.title,styles.section]}>Taxonomy</Text>
