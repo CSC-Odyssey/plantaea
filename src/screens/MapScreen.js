@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { StyleSheet, Text, View, Image, TouchableHighlight,  } from 'react-native';
 import * as Location from 'expo-location';
 import {plantListLibrary} from '../model/data';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { useRoute } from '@react-navigation/native';
 
 const PlantLibrary = ({navigation,route}) => { 
   const [mapRegion, setMapRegion] = useState({
@@ -59,7 +59,20 @@ const PlantLibrary = ({navigation,route}) => {
     }
 
   
-  
+    const mapRef = useRef(null);
+  	const [selectedMarker, setSelectedMarker] = useState(null);
+
+	  useEffect(() => {
+	    console.log('markerId:', route.params?.markerId);
+	    const markerId = route.params?.markerId
+	    if(markerId) {
+	      const marker = plantListLibrary.find(m => m.id === markerId);
+	      if (marker) {
+	        setSelectedMarker(marker);
+	        mapRef.current?.animateToRegion(marker.coordinate);
+	      }
+	    }
+	  }, [navigation]);
 
   return (
     /*<View style={styles.container}>
@@ -108,6 +121,7 @@ const PlantLibrary = ({navigation,route}) => {
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
+                calloutVisible={selectedMarker && selectedMarker.id === marker.id}
               >
                 <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
