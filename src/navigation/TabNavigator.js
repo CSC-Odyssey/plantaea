@@ -121,13 +121,13 @@ const TabNavigator = () => {
 
                                 <Tab.Screen name="ScreenA" component={ScreenA} options={{
                 tabBarIcon: ({color,size}) => (
-                    <Ionicons name="ios-bandage-sharp" color={color} size={size} />
+                    <Ionicons name="ios-logo-tux" color={color} size={size} />
             ) }} />       
-
+{/* 
                                 <Tab.Screen name="ScreenB" component={ScreenB} options={{
                 tabBarIcon: ({color,size}) => (
                     <Ionicons name="ios-bandage-sharp" color={color} size={size} />
-            ) }} />       
+            ) }} />        */}
 
         <Tab.Screen name="PlantLibrary" component={PlantLibraryStack} options={{
           tabBarIcon: ({color, size}) => (
