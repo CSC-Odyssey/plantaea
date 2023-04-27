@@ -115,6 +115,15 @@ const PlantLibrary = ({navigation,route}) => {
         <Marker coordinate={mapRegion} title='You are here!' />
         {showMarkers === "All" && 
           <View>
+            {MarketListLibrary.map(item =>
+              <Marker
+                title={item.marketName}
+                coordinate = {{latitude: item.latitude,
+                               longitude: item.longitude}}
+                key={item.id}
+              >
+              </Marker>)
+            }
             {plantListLibrary.map(item => (
               <Marker
                 title={item.localName} 
