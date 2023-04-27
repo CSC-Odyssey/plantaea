@@ -1,55 +1,65 @@
-import React, { useRef, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { plantListLibrary } from '../model/data';
 
-const ScreenA = ({ route, navigation }) => {
+const ScreenA = ({ route }) => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    const markers = {
-      Lagundi: { lat: 37.8565, lon: -122.4773 }, // Marker 1 - Lagundi
-      Sambong: { lat: 37.7749, lon: -122.4194 }, // Marker 2 - Sambong
-    };
-    const marker = route.params?.marker || 'Lagundi'; // Default to 'Lagundi' if no marker provided
-    const region = {
-      latitude: markers[marker].lat,
-      longitude: markers[marker].lon,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    };
-    mapRef.current?.animateToRegion(region, 1000);
-  }, [route.params?.marker]);
+    if (route.params?.latitude && route.params?.longitude) {
+      const { latitude, longitude } = route.params;
+      mapRef.current.animateToRegion(
+        {
+          latitude,
+          longitude,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+        },
+        1000
+      );
+    }
+  }, [route.params?.latitude, route.params?.longitude]);
 
-  const handleMapReady = () => {
-    if (route.params?.marker) {
-      const markers = {
-        Lagundi: { lat: 37.8565, lon: -122.4773 }, // Marker 1 - Lagundi
-        Sambong: { lat: 37.7749, lon: -122.4194 }, // Marker 2 - Sambong
-      };
-      const marker = route.params.marker;
-      const region = {
-        latitude: markers[marker].lat,
-        longitude: markers[marker].lon,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      };
-      mapRef.current?.animateToRegion(region, 1000);
+  const onMapLoaded = () => {
+    if (route.params?.latitude && route.params?.longitude) {
+      const { latitude, longitude } = route.params;
+      mapRef.current.animateToRegion(
+        {
+          latitude,
+          longitude,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+        },
+        1000
+      );
     }
   };
 
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} ref={mapRef} onMapReady={handleMapReady}>
-        {/* Marker 1 - Lagundi */}
-        <Marker
-          coordinate={{ latitude: 37.8565, longitude: -122.4773 }}
-          title="Lagundi"
-        />
-        {/* Marker 2 - Sambong */}
-        <Marker
-          coordinate={{ latitude: 37.7749, longitude: -122.4194 }}
-          title="Sambong"
-        />
+      <MapView
+        ref={mapRef}
+        style={styles.map}
+        initialRegion={{
+          latitude: 16.345,
+          longitude: 120.689,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+        }}
+        onMapReady={onMapLoaded} // added onMapReady prop to call onMapLoaded function when the map is ready
+      >
+        {plantListLibrary.map((plant) => (
+          <Marker
+            key={plant.id}
+            coordinate={{
+              latitude: plant.latitude,
+              longitude: plant.longitude,
+            }}
+            title={plant.localName}
+            description={plant.use}
+          />
+        ))}
       </MapView>
     </View>
   );
@@ -58,9 +68,12 @@ const ScreenA = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   map: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
   },
 });
 
