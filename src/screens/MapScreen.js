@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import MapView, {Marker, Callout} from 'react-native-maps';
 import { StyleSheet, Text, View, Image, TouchableHighlight,  } from 'react-native';
 import * as Location from 'expo-location';
-import {plantListLibrary} from '../model/data';
+import {plantListLibrary, MarketListLibrary} from '../model/data';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
@@ -115,6 +115,26 @@ const PlantLibrary = ({navigation,route}) => {
         <Marker coordinate={mapRegion} title='You are here!' />
         {showMarkers === "All" && 
           <View>
+            {MarketListLibrary.map(item =>
+              <Marker
+                title={item.marketName}
+                coordinate = {{latitude: item.latitude,
+                               longitude: item.longitude}}
+                key={item.id}
+              >
+                <Callout>
+                  <View>
+                    <Text>{item.marketName}</Text>
+                  </View>
+                  <View>
+                    <Text>Goods</Text>
+                    {MarketListLibrary.map(item => (
+                      <TouchableOpacity><Text>{item.goods}</Text></TouchableOpacity>
+                    ))}
+                  </View>
+                </Callout>
+              </Marker>)
+            }
             {plantListLibrary.map(item => (
               <Marker
                 title={item.localName} 

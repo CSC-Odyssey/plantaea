@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { View, Text, Image, SafeAreaView, ScrollView, ImageBackground, StyleSheet, StatusBar, Button } from "react-native";
 import { windowWidth, windowHeight } from '../utils/Dimensions'
+import { Linking } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
 import { plantListLibrary } from '../model/data';
@@ -75,7 +76,12 @@ const PlantDetailsScreen = ({navigation, route}) => {
             <Button title="Go to map screen and select marker" onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}/>
 
             <Text style={[styles.title,styles.section]}>Use</Text>
-            <Text style={styles.section}>{route.params?.use}</Text>
+            <Text style={styles.section}
+                  onPress={() => Linking.openURL("https://www.youtube.com/watch?v=uMNzY4V9N2I")}
+            >
+              {/* {route.params?.use} */}
+              Medicine Guide
+              </Text>
             <Text style={[styles.title,styles.section]}>Taxonomy</Text>
             <Text style={[styles.section,{fontSize:10}]}>{route.params?.taxonomy}</Text>
             </SafeAreaView>
