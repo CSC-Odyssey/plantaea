@@ -61,3 +61,13 @@ export const plantListLibrary = [
     },
 
 ]
+
+export const MarketListLibrary = [
+    {
+        id: "1",
+        marketName: "Local Talipapa",
+        goods: ["Lagundi","Bayabas","Sambong"],
+        latitude: 16.7170,
+        longitude: 120.9269
+    }
+]
