@@ -70,11 +70,13 @@ const PlantDetailsScreen = ({navigation, route}) => {
             <Button title="Go to map screen and select marker" onPress={() => navigateToMarker(route.params?.localName)}/>
             <Text style={[styles.title,styles.section]}>Use</Text>
             <Text style={styles.section}
-                  onPress={() => Linking.openURL("https://www.youtube.com/watch?v=uMNzY4V9N2I")}
             >
-              {/* {route.params?.use} */}
-              Medicine Guide
-              </Text>
+              {route.params?.use}
+            </Text>
+            <Text style={styles.section}
+                  onPress={() => Linking.openURL("https://www.youtube.com/watch?v=uMNzY4V9N2I")}>
+              Guide To Make
+            </Text>
             <Text style={[styles.title,styles.section]}>Taxonomy</Text>
             <Text style={[styles.section,{fontSize:10}]}>{route.params?.taxonomy}</Text>
             </SafeAreaView>
