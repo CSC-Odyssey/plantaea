@@ -9,7 +9,6 @@ import { plantListLibrary } from '../model/data';
 
 import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity } from "react-native-gesture-handler";
-import CustomSwitch from "../components/CustomSwitch";
 
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
 import * as Animatable from 'react-native-animatable';

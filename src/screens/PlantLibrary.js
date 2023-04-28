@@ -22,20 +22,13 @@ const PlantLibrary = ({navigation, route}) => {
         <SafeAreaView style={{flex:1, padding:5, paddingTop:windowHeight-(windowHeight-25), backgroundColor:'white'}}>
         <View style={{overflow: 'hidden', paddingBottom:5}}>
         <SafeAreaView style={{backgroundColor:'white', alignItems:'center', ...styles.shadow }}> 
-            
-            {/* <View style={{flexDirection:'row',alignItems:'center',marginBottom: 1}}> */}
-                {/* <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                    <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
-                </TouchableOpacity>           */}
-            {/* </View> */}
-            {/* <View style={{flex:1, alignItems:'center'}}> */}
             <Image
                 source={require('../assets/images/plantaea-logo.png')}
                 resizeMode="contain"
                 style={{width:80,height:50,marginTop:5,marginBottom:10}}
             />
-            <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E',marginBottom:15}}>ETHNOBOTANICAL PLANTS</Text>
-            {/* </View> */}
+            <Text style={{fontSize:20, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Bold'}}>ETHNOBOTANICAL PLANTS</Text>
+
     <View style={{paddingHorizontal:20}}>
         <CustomSwitchLibrary 
             selectionMode={1}
@@ -50,7 +43,7 @@ const PlantLibrary = ({navigation, route}) => {
     <View style={{borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:2,  paddingHorizontal:183, paddingVertical:2}} />
     <View style={{ flexDirection:'row', alignItems:'center', borderColor:'#E6E6E6', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:2, marginTop:2,marginBottom:5, marginHorizontal:20}}>
                 <Feather name="search" size={20} color="#C6C6C6" style={{marginRight:5}} />
-                <TextInput placeholder='Search' clearButtonMode='always' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,}}/>
+                <TextInput placeholder='Search' clearButtonMode='always' style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0, fontFamily:'Josefin Sans-Light'}}/>
     </View>
     </SafeAreaView>
         </View>

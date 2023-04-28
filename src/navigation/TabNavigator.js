@@ -123,8 +123,8 @@ const TabNavigator = () => {
                 tabBarIcon: ({color,size}) => (
                     <Ionicons name="ios-logo-tux" color={color} size={size} />
             ) }} />       
-{/* 
-                                <Tab.Screen name="ScreenB" component={ScreenB} options={{
+
+            {/* <Tab.Screen name="ScreenB" component={ScreenB} options={{
                 tabBarIcon: ({color,size}) => (
                     <Ionicons name="ios-bandage-sharp" color={color} size={size} />
             ) }} />        */}
