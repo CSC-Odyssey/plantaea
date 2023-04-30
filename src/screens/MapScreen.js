@@ -3,6 +3,7 @@ import MapView, {Marker, Callout} from 'react-native-maps';
 import { StyleSheet, Text, View, Image, TouchableHighlight,  } from 'react-native';
 import * as Location from 'expo-location';
 import {plantListLibrary, MarketListLibrary} from '../model/data';
+import { DepartmentOfAgriculture } from '../model/carDOA';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
@@ -103,6 +104,9 @@ const PlantLibrary = ({navigation,route}) => {
           <TouchableOpacity onPress={() => typeSelect("Ornamental")}>
             <Text style={styles.filterText}>Ornamental</Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => typeSelect("Office")}>
+            <Text style={styles.filterText}>DOA - Office</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <MapView
@@ -135,6 +139,23 @@ const PlantLibrary = ({navigation,route}) => {
                 </Callout>
               </Marker>)
             }
+
+            {DepartmentOfAgriculture.map(item =>
+                <Marker
+                  title={item.departmentName}
+                  coordinate = {{latitude: item.latitude,
+                                 longitude: item.longitude}}
+                  key={item.id}
+                >
+                  <Image source = {require('../assets/images/bldg_marker.png')} style={{height: 35, width:35 }}/>
+                  <Callout tooltip>
+                    <View style ={styles.bubble}>
+                      <Text>{item.departmentName}</Text>
+                    </View>
+                  </Callout>
+                </Marker>)
+            }
+
             {plantListLibrary.map(item => (
               <Marker
                 title={item.localName} 
@@ -264,6 +285,27 @@ const PlantLibrary = ({navigation,route}) => {
               </Marker>:null
             ))}
           </View>
+        } 
+        
+        { showMarkers === "Office" &&
+         <View>
+           {DepartmentOfAgriculture.map(item =>
+                <Marker 
+                  title={item.departmentName}
+                  coordinate = {{latitude: item.latitude,
+                                 longitude: item.longitude}}
+                  key={item.id}
+                >
+                  <Image source = {require('../assets/images/bldg_marker.png')} style={{height: 35, width:35 }}/>
+                  <Callout tooltip>
+                    <View style = {styles.bubble}>
+                      <Text >{item.departmentName}</Text>
+                    </View>
+                  </Callout>
+                </Marker>)
+            }
+          </View>
+
         }
       </MapView>
     </SafeAreaView>
@@ -286,7 +328,7 @@ const styles = StyleSheet.create({
     bottom: 15,
     right: 10,
     width: '40%',
-    height: "15%",
+    height: "20%",
     borderColor: "#102409",
     borderWidth: 2,
     borderRadius: 8,
