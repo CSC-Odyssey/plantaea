@@ -22,14 +22,14 @@ export default function CustomSwitchLibrary({
             <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(1)}
             style={{marginTop:getSelectionMode == 1 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 1 ? '#79D27E' : '#DEFFE0', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 <Text
-                style={{color: getSelectionMode == 1 ? 'white' : 'white', fontSize: getSelectionMode == 1 ?14:10}}>
+                style={{color: getSelectionMode == 1 ? 'white' : 'white', fontSize: getSelectionMode == 1 ? 14 : 10 , fontFamily:'Josefin Sans-Bold'}}>
                     {option1}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity activeOpacity={1} onPress={() => updateSwitchData(2)}
             style={{marginTop:getSelectionMode == 2 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 2 ? '#F37373' : '#FFDFDF', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 <Text
-                style={{color: getSelectionMode == 2 ? 'white' : 'white', fontSize: getSelectionMode == 2 ?14:10}}>
+                style={{color: getSelectionMode == 2 ? 'white' : 'white', fontSize: getSelectionMode == 2 ? 14 : 10 , fontFamily:'Josefin Sans-Bold'}}>
                     {option2}</Text>
             </TouchableOpacity>
 
@@ -37,7 +37,7 @@ export default function CustomSwitchLibrary({
             style={{marginTop:getSelectionMode == 3 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 3 ? '#F6C36C' : '#FFF7DF', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 
                 <Text
-                style={{color: getSelectionMode == 3 ? 'white' : 'white', fontSize: getSelectionMode == 3 ?14:10}}>
+                style={{color: getSelectionMode == 3 ? 'white' : 'white', fontSize: getSelectionMode == 3 ? 13 : 10 , fontFamily:'Josefin Sans-Bold'}}>
                     {option3}</Text>
             </TouchableOpacity>
 
@@ -45,7 +45,7 @@ export default function CustomSwitchLibrary({
             style={{marginTop:getSelectionMode == 4 ? 0 : 17 ,flex:1, backgroundColor: getSelectionMode == 4 ? '#E281DA' : '#FFE0FC', borderTopRightRadius:13,borderTopLeftRadius:13, justifyContent:'center', alignItems:'center'}}>
                 
                 <Text
-                style={{color: getSelectionMode == 4 ? 'white' : 'white', fontSize: getSelectionMode == 4 ?14:10}}>
+                style={{color: getSelectionMode == 4 ? 'white' : 'white', fontSize: getSelectionMode == 4 ? 12 : 10 , fontFamily:'Josefin Sans-Bold'}}>
                     {option4}</Text>
             </TouchableOpacity>
         </View>

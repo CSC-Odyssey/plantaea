@@ -25,7 +25,7 @@ export default function HomeScreen({navigation}){
                      resizeMode="contain"
                      style={{width:80,height:80}}
                      />
-                    <Text style={{fontSize:30 ,fontWeight:'bold', marginBottom: 10}}> PLANTAEA </Text>                  
+                    <Text style={{color:'#1C4C4E',fontSize:30 , marginBottom: 10, fontFamily:'Josefin Sans-Bold'}}> PLANTAEA </Text>                  
                 </View>
 
                 

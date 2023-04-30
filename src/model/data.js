@@ -1,42 +1,6 @@
 export const plantListLibrary = [
     {
         id: '1',
-        scientificName: 'Allium Ramosum',
-        localName: 'Kutsai',
-        category: ['medicine','consumable'],
-        description: 'Commonly found in Benguet, Allium ramosum has clusters of narrow bulbs. Scapes are up to 60 cm tall. Leaves are linear, keeled, shorter than the scape. Umbels have many flowers crowded together. Tepals are white or pale red with a red midvein.',
-        use: 'Used as treatment for wounds, cough, colds, etc.',
-        taxonomy: 'Plants (Kingdom Plantae)\n ⤷Vascular Plants (Phylum Tracheophyta)\n ⤷Flowering Plants (Subphylum Angiospermae)\n ⤷Monocots (Class Liliopsida)\n ⤷Agaves, Orchids, Irises, and Allies (Order Asparagales)\n ⤷Amaryllis, Onions, and Allies (Family Amaryllidaceae)\n ⤷Subfamily Allioideae\n ⤷Tribe Allieae\n ⤷Onions (Genus Allium)\n ⤷Subgenus Butomissa\n ⤷Allium ramosum',
-        image: require('../assets/images/plants/allium_ramosum.jpg'),
-        latitude: 16.3450,
-        longitude:120.6890
-    },
-    {
-        id: '2',
-        scientificName: 'Blumea balsamifera',
-        localName: 'Sambong',
-        category: ['medicine','ornamental'],
-        description: 'In the Philippines, where it is most commonly known as sambong, Blumea balsamifera is used in traditional herbal medicine for the common cold and as a diuretic. It is also used for infected wounds, respiratory infections, and stomach pains in Thai and Chinese folk medicine. The genus Blumea is found in the tropical and sub-tropical zones of Asia, especially the Indian Subcontinent and Southeast Asia. Blumea balsamifera is one of its species that is used in Southeast Asia. A weed, this plant is a ruderal species that often grows on disturbed land, and in grasslands.',
-        use: 'Its primary uses are as a diuretic (or "water pill") and to treat symptoms of the common cold. As a diuretic, sambong is an herb used to treat urolithiasis (urinary tract or kidney stones) and urinary tract infections, and thus reduces high blood pressure. Sambong works as an expectorant, an antidiarrheal and an antispasmodic, all of which treat some symptoms of the common cold. It is also sometimes used as an astringent for wounds. It is approved by the Philippine Department of Health, Institute of Traditional and Alternative Health Care, and by the Bureau of Plant Industries of the Department of Agriculture.',
-        taxonomy: "Plants (Kingdom Plantae)\n ⤷Vascular Plants (Phylum Tracheophyta)\n ⤷Flowering Plants (Subphylum Angiospermae)\n ⤷Dicots (Class Magnoliopsida)\n ⤷Sunflowers, Bellflowers, Fanflowers, and Allies (Order Asterales)\n ⤷Sunflowers, Daisies, Asters, and Allies (Family Asteraceae)\n ⤷Subfamily Asteroideae\n ⤷Tribe Inuleae\n ⤷Subtribe Inulinae\n ⤷Genus Blumea\n ⤷Sambong (Blumea balsamifera)",
-        image: require('../assets/images/plants/blumea-balsamifera.jpg'),
-        latitude: 16.3005,
-        longitude: 120.5740
-    },
-    {
-        id: "3",
-        scientificname: "Ehretia microphylla",
-        localName: "Tsaang Gubat",
-        category: ['medicine','consumable'],
-        description: "Usually found on Terrestrial Areas, specifically on trees. Used as cure for diarrhea when drank as tea",
-        use: "The leaves are used to treat cough, colic, diarrhea, and dysentery",
-        taxonomy: "Plants (Kingdom Plantae)\n ⤷Vascular Plants (Phylum Tracheophyta)\n ⤷Flowering Plants (Subphylum Angiospermae)\n ⤷Dicots (Class Magnoliopsida)\n ⤷Borages (Order Boraginales)\n ⤷Borage Family Family Boraginaceae\n ⤷Subfamily Ehretioideae\n ⤷Genus Ehretia\n ⤷Fukien Tea Tree (Ehretia microphylla)",
-        image: require('../assets/images/plants/ehretia.png'),
-        latitude: 16.3460,
-        longitude:120.6890
-    },
-    {
-        id: '4',
         scientificName: 'Psidium guajava',
         localName: 'Bayabas',
         category: ['medicine','consumable'],
@@ -48,7 +12,19 @@ export const plantListLibrary = [
         longitude:120.5164
     },
     {
-        id: '5',
+        id: '2',
+        scientificName: 'Allium Ramosum',
+        localName: 'Kutsai',
+        category: ['medicine','consumable','ornamental'],
+        description: 'Commonly found in Benguet, Allium ramosum has clusters of narrow bulbs. Scapes are up to 60 cm tall. Leaves are linear, keeled, shorter than the scape. Umbels have many flowers crowded together. Tepals are white or pale red with a red midvein.',
+        use: 'Used as treatment for wounds, cough, colds, etc.',
+        taxonomy: 'Plants (Kingdom Plantae)\n ⤷Vascular Plants (Phylum Tracheophyta)\n ⤷Flowering Plants (Subphylum Angiospermae)\n ⤷Monocots (Class Liliopsida)\n ⤷Agaves, Orchids, Irises, and Allies (Order Asparagales)\n ⤷Amaryllis, Onions, and Allies (Family Amaryllidaceae)\n ⤷Subfamily Allioideae\n ⤷Tribe Allieae\n ⤷Onions (Genus Allium)\n ⤷Subgenus Butomissa\n ⤷Allium ramosum',
+        image: require('../assets/images/plants/allium_ramosum.jpg'),
+        latitude: 16.3450,
+        longitude:120.6890
+    },
+    {
+        id: '3',
         scientificName: 'Vitex Negundo',
         localName: 'Lagundi',
         category: ['medicine','ornamental'],
@@ -59,7 +35,30 @@ export const plantListLibrary = [
         latitude: 16.6170,
         longitude:120.8269
     },
-
+    {
+        id: '4',
+        scientificName: 'Blumea balsamifera',
+        localName: 'Sambong',
+        category: ['medicine','ornamental'],
+        description: 'In the Philippines, where it is most commonly known as sambong, Blumea balsamifera is used in traditional herbal medicine for the common cold and as a diuretic. It is also used for infected wounds, respiratory infections, and stomach pains in Thai and Chinese folk medicine. The genus Blumea is found in the tropical and sub-tropical zones of Asia, especially the Indian Subcontinent and Southeast Asia. Blumea balsamifera is one of its species that is used in Southeast Asia. A weed, this plant is a ruderal species that often grows on disturbed land, and in grasslands.',
+        use: 'Its primary uses are as a diuretic (or "water pill") and to treat symptoms of the common cold. As a diuretic, sambong is an herb used to treat urolithiasis (urinary tract or kidney stones) and urinary tract infections, and thus reduces high blood pressure. Sambong works as an expectorant, an antidiarrheal and an antispasmodic, all of which treat some symptoms of the common cold. It is also sometimes used as an astringent for wounds. It is approved by the Philippine Department of Health, Institute of Traditional and Alternative Health Care, and by the Bureau of Plant Industries of the Department of Agriculture.',
+        taxonomy: "Plants (Kingdom Plantae)\n ⤷Vascular Plants (Phylum Tracheophyta)\n ⤷Flowering Plants (Subphylum Angiospermae)\n ⤷Dicots (Class Magnoliopsida)\n ⤷Sunflowers, Bellflowers, Fanflowers, and Allies (Order Asterales)\n ⤷Sunflowers, Daisies, Asters, and Allies (Family Asteraceae)\n ⤷Subfamily Asteroideae\n ⤷Tribe Inuleae\n ⤷Subtribe Inulinae\n ⤷Genus Blumea\n ⤷Sambong (Blumea balsamifera)",
+        image: require('../assets/images/plants/blumea-balsamifera.jpg'),
+        latitude: 16.3005,
+        longitude: 120.5740
+    },
+    {
+        id: "5",
+        scientificName: "Ehretia microphylla",
+        localName: "Tsaang Gubat",
+        category: ['medicine','consumable'],
+        description: "Usually found on Terrestrial Areas, specifically on trees. Used as cure for diarrhea when drank as tea",
+        use: "The leaves are used to treat cough, colic, diarrhea, and dysentery",
+        taxonomy: "Plants (Kingdom Plantae)\n ⤷Vascular Plants (Phylum Tracheophyta)\n ⤷Flowering Plants (Subphylum Angiospermae)\n ⤷Dicots (Class Magnoliopsida)\n ⤷Borages (Order Boraginales)\n ⤷Borage Family Family Boraginaceae\n ⤷Subfamily Ehretioideae\n ⤷Genus Ehretia\n ⤷Fukien Tea Tree (Ehretia microphylla)",
+        image: require('../assets/images/plants/ehretia.png'),
+        latitude: 16.3460,
+        longitude:120.6890
+    }
 ]
 
 export const MarketListLibrary = [

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet,Animated} from "react-native";
-//import * as Progress from 'react-native-progress';
-//import { spring } from "react-native-reanimated";
+import { capCounter } from "../screens/CameraScreen";
+
 
 
 
@@ -75,7 +75,7 @@ export default function ListActivities({title, total}){
             }}> 
                 <View style ={styles.container}>
                     <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
-                        <Progress step={1} steps= {total} height={10} />
+                        <Progress step={capCounter} steps= {total} height={10} />
                         
                         {/* <View style={{ flex: 1, justifyContent: "space-evenly", paddingTop: 5}}>
                             <Progress.Bar progress={0.6}  height={9} width={350} /> 

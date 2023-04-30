@@ -4,10 +4,11 @@ import { windowWidth, windowHeight } from '../utils/Dimensions'
 import { Linking } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
+import { plantListLibrary } from '../model/data';
+
 
 import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity } from "react-native-gesture-handler";
-import CustomSwitch from "../components/CustomSwitch";
 
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
 import * as Animatable from 'react-native-animatable';
@@ -18,9 +19,12 @@ const MAX_HEIGHT = 350;
 const PlantDetailsScreen = ({navigation, route}) => {
 
 
-
-  const navigateToMarker = (markerNumber) => {
-    navigation.navigate('ScreenA', { marker: markerNumber });
+  const nav = useNavigation();
+  const navigateToMarker = (latitude, longitude) => {
+    nav.navigate('ScreenA', {
+      latitude,
+      longitude,
+    });
   };
 
     const navTitleView = useRef(null);
@@ -67,7 +71,9 @@ const PlantDetailsScreen = ({navigation, route}) => {
             </TriggeringView>
             
             <Text style={styles.section}>{route.params?.description}</Text>
-            <Button title="Go to map screen and select marker" onPress={() => navigateToMarker(route.params?.localName)}/>
+
+            <Button title="Go to map screen and select marker" onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}/>
+
             <Text style={[styles.title,styles.section]}>Use</Text>
             <Text style={styles.section}
             >
@@ -83,48 +89,6 @@ const PlantDetailsScreen = ({navigation, route}) => {
 
         </ImageHeaderScrollView>
         </View>
-
-
-
-
-
-        // <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
-        //     <View>
-        //         <ImageBackground source={route.params?.image} style={{width:windowWidth ,height:400}} imageStyle={{borderRadius:0}}>
-        //             <View style={{backgroundColor:'white',width:44,height:44,borderRadius:44/2,marginTop:40,marginLeft:20,alignItems:'center',justifyContent:'center', shadowColor:'#171717', shadowOffset:{width: 100, height: 100}, shadowOpacity: 1,shadowRadius: 3}}>
-        //                 <TouchableOpacity onPress={()=>navigation.goBack()}>
-        //                     <Feather name="chevron-left" color="#1C4C4E" size={30}/>
-        //                 </TouchableOpacity>
-        //             </View>
-        //         </ImageBackground>
-        //     </View>
-
-        // <ScrollView style={{padding:20}}>
-
-        // <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-        // <Text style={{fontWeight:'bold', fontSize:30, color:'#1C4C4E', textAlign:'center'}}>{route.params?.localName}</Text>
-        // <Text style={{fontStyle:'italic', marginBottom:20}}>{route.params?.scientificName}</Text>
-
-        // <View>
-        //     <CustomSwitch 
-        //         selectionMode={1}
-        //         option1="Description"
-        //         option2="Uses"
-        //         option3="Taxonomy"
-        //         onSelectSwitch={onSelectSwitch}
-        //     />
-        // </View>
-        
-        // <View style={{backgroundColor:'red'}}>
-        // {descriptionTab == 1 && <Text style={{textAlign:'justify', marginBottom:100}}>{route.params?.description}</Text>}
-        // {descriptionTab == 2 && <Text style={{textAlign:'justify', marginBottom:100}}>{route.params?.use}</Text>}
-        // {descriptionTab == 3 && <Text style={{textAlign:'justify', marginBottom:100, fontSize:10}}>{route.params?.taxonomy}</Text>}
-        // </View>
-
-        
-        // </View>
-        // </ScrollView>
-        // </SafeAreaView>
     )
 }
 
