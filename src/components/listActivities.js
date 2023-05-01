@@ -44,7 +44,7 @@ const Progress = ({ step, steps, height}) => {
             style ={{height,
             width:'100%',
             borderRadius:height, 
-            backgroundColor:'rgba(0,0,0,0.5)',
+            backgroundColor:'rgba(63,89,57,0.7)',
             position:'absolute',
             left :0,
             top: 0,
@@ -60,7 +60,7 @@ const Progress = ({ step, steps, height}) => {
 }
     
 
-export default function ListActivities({title, total}){
+export default function ListActivities({title, total,category}){
     return( 
             <View style={{flexDirection:'row', 
                 alignItems:'center', 
@@ -73,9 +73,45 @@ export default function ListActivities({title, total}){
                 margin: 10,
                 marginTop:7,
             }}> 
-                <View style ={styles.container}>
+
+                     
+
+                    { category == "camera" &&
+                            <View style ={styles.container}>
+                            <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
+                            { capCounter != total &&
+                                <Progress step={capCounter} steps= {total} height={10} />
+                            } 
+                            {capCounter == total &&
+                            <View>
+                             <Text> Completed </Text>
+                            </View>
+                            }
+
+                            </View>
+                            
+                    }
+                    
+                    {
+                    category == "map" &&
+                    <View style ={styles.container}>
                     <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
-                        <Progress step={capCounter} steps= {total} height={10} />
+                        <Progress step={1} steps= {total} height={10} />
+                    
+                    </View>
+                    }
+                    {
+                    category == "library" &&
+                    <View style ={styles.container}>
+                    <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
+                        <Progress step={3} steps= {total} height={10} />
+                    
+                    </View>
+                    }
+              
+
+
+                
                         
                         {/* <View style={{ flex: 1, justifyContent: "space-evenly", paddingTop: 5}}>
                             <Progress.Bar progress={0.6}  height={9} width={350} /> 
@@ -84,7 +120,7 @@ export default function ListActivities({title, total}){
                                 </Text>
                         </View>*/}
                     
-                </View>
+                
             </View>
     )
 }

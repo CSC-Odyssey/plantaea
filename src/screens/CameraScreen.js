@@ -5,7 +5,7 @@ import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 
-export let capCounter = 0;
+export let capCounter = 2;
 export default function App() {
 
   let cameraRef = useRef();
