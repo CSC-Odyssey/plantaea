@@ -16,6 +16,13 @@ const App = () => {
     "Josefin Sans-SemiBold": require('./src/assets/fonts/JosefinSans-SemiBold.ttf'),
     "Josefin Sans-Bold": require('./src/assets/fonts/JosefinSans-Bold.ttf'),
     "Josefin Sans-Italic": require('./src/assets/fonts/JosefinSans-Italic.ttf'),
+
+    "Montserrat-Regular": require('./src/assets/fonts/Montserrat-Regular.ttf'),
+    "Montserrat-Light": require('./src/assets/fonts/Montserrat-Light.ttf'),
+    "Montserrat-SemiBold": require('./src/assets/fonts/Montserrat-SemiBold.ttf'),
+    "Montserrat-Bold": require('./src/assets/fonts/Montserrat-Bold.ttf'),
+    "Montserrat-Italic": require('./src/assets/fonts/Montserrat-Italic.ttf'),
+
 });
 
 // useEffect(() => {
@@ -27,7 +34,7 @@ const App = () => {
 
 if(!fontsLoaded){
   return undefined;
-} 
+}
 
 // else {
 //   SplashScreen.hideAsync();

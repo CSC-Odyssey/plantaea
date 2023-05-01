@@ -6,6 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 
 import { plantListLibrary } from '../model/data';
 
+import ListItem from '../components/ListItem'
+import PlantTagDetailsScreen from "../components/PlantTagDetailsScreen";
 
 import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -17,7 +19,6 @@ const MIN_HEIGHT = 55;
 const MAX_HEIGHT = 350;
 
 const PlantDetailsScreen = ({navigation, route}) => {
-
 
   const nav = useNavigation();
   const navigateToMarker = (latitude, longitude) => {
@@ -37,7 +38,8 @@ const PlantDetailsScreen = ({navigation, route}) => {
     return(
 
         <View style={styles.container}>
-            <StatusBar barStyle='light-content'/>
+        <StatusBar barStyle='light-content'/>
+
         <ImageHeaderScrollView
             maxHeight={MAX_HEIGHT}
             minHeight={MIN_HEIGHT}
@@ -50,7 +52,7 @@ const PlantDetailsScreen = ({navigation, route}) => {
             renderForeground={() => (
                 <View style={styles.titleContainer}>
                     <Text style={styles.imageTitle}>{route.params?.localName}</Text>
-                    <Text style={{fontStyle:'italic',color:'white'}}>{route.params?.scientificName}</Text>
+                    <Text style={{color:'white',fontFamily:'Josefin Sans-Italic'}}>{route.params?.scientificName}</Text>
                 </View>
             )}
 
@@ -70,11 +72,39 @@ const PlantDetailsScreen = ({navigation, route}) => {
                     <Text style={styles.title}>Description</Text>
             </TriggeringView>
             
+            <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc'}}/>
+            
             <Text style={styles.section}>{route.params?.description}</Text>
 
-            <Button title="Go to map screen and select marker" onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}/>
 
-            <Text style={[styles.title,styles.section]}>Use</Text>
+            {/* <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc',marginBottom:50}}/> */}
+
+
+            <View style={{alignItems:'center'}}>
+                    {route.params?.category[0] == 'medicine' && route.params?.category[1] == 'consumable' && route.params?.category[2] == 'ornamental'?
+                        PlantTagDetailsScreen(true,true,true)
+                        : route.params?.category[0] == 'medicine' && route.params?.category[1] == 'consumable'?
+                        PlantTagDetailsScreen(true,true)
+                        : route.params?.category[0] == 'medicine' && route.params?.category[1] == 'ornamental'?
+                        PlantTagDetailsScreen(true,false,true)
+                        : route.params?.category[0] == 'consumable' && route.params?.category[1] == 'ornamental'?
+                        PlantTagDetailsScreen(false,true,true)
+                        : route.params?.category[0] == 'medicine'?     
+                        PlantTagDetailsScreen(true)    
+                        : route.params?.category[0] == 'consumable'?
+                        PlantTagDetailsScreen(false,true)   
+                        :
+                        PlantTagDetailsScreen(false,false,true)
+                    }
+                    </View>
+
+
+
+
+
+            <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc',marginTop:50}}/>
+            <Text style={[styles.title, {padding:20}]}>Use</Text>
+            <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc'}}/>
             <Text style={styles.section}
             >
               {route.params?.use}
@@ -83,8 +113,16 @@ const PlantDetailsScreen = ({navigation, route}) => {
                   onPress={() => Linking.openURL("https://www.youtube.com/watch?v=uMNzY4V9N2I")}>
               Guide To Make
             </Text>
-            <Text style={[styles.title,styles.section]}>Taxonomy</Text>
-            <Text style={[styles.section,{fontSize:10}]}>{route.params?.taxonomy}</Text>
+
+            <TouchableOpacity 
+              style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#8EB96F', borderRadius:8,paddingVertical:15, marginTop:2,marginBottom:5, marginHorizontal:20,marginBottom:100}}
+              onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}
+            >
+                <Feather name="map-pin" size={20} color="white" style={{marginRight:5}} />
+                <Text style={{fontFamily:'Josefin Sans-Bold', color:"white"}}>Plant Location</Text>
+            </TouchableOpacity>
+            {/* <Text style={[styles.title,styles.section]}>Taxonomy</Text>
+            <Text style={[styles.section,{fontSize:10}]}>{route.params?.taxonomy}</Text> */}
             </SafeAreaView>
 
         </ImageHeaderScrollView>
@@ -106,15 +144,22 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 20,
+      fontFamily:'Josefin Sans-Regular',
+      color:'#1C4C4E'
     },
     name: {
       fontWeight: 'bold',
     },
     section: {
       padding: 20,
-      borderBottomWidth: 1,
-      borderBottomColor: '#cccccc',
+      // borderBottomWidth: 1,
+      // borderBottomColor: '#cccccc',
       backgroundColor: 'white',
+      fontFamily:'Josefin Sans-Light',
+      textAlign:'justify',
+      lineHeight:25,
+      color:'#1C4C4E',
+      fontSize:15
     },
     sectionTitle: {
       fontSize: 18,
@@ -153,6 +198,7 @@ const styles = StyleSheet.create({
       color: 'white',
       backgroundColor: 'transparent',
       fontSize: 24,
+      fontFamily:'Josefin Sans-SemiBold'
     },
     navTitleView: {
       height: MIN_HEIGHT,
