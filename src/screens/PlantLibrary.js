@@ -27,7 +27,7 @@ const PlantLibrary = ({navigation, route}) => {
                 resizeMode="contain"
                 style={{width:200,height:200,marginTop:5,marginBottom:10}}
             />
-            <Text style={{fontSize:30, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Bold'}}>Plant Library</Text>
+            <Text style={{fontSize:27, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Light',letterSpacing:8}}>PLANT LIBRARY</Text>
 
     <View style={{paddingHorizontal:20}}>
         <CustomSwitchLibrary 

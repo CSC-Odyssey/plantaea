@@ -38,6 +38,7 @@ const PlantLibraryStack = () => {
                 headerTintColor:'white'
             })}
         />
+        <Stack.Screen component={ScreenA} name="ScreenA" />
       </Stack.Navigator>
     )
 }
@@ -81,16 +82,16 @@ const CameraBottomTabButton = ({children, onPress}) => (
 const TabNavigator = () => {
     return (
 
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#164530',tabBarInactiveTintColor:'#E2E2E2'}}>
+    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#6B8778',tabBarInactiveTintColor:'#E2E2E2'}}>
         <Tab.Screen name="Home2" component={HomeStack} options={{
             tabBarIcon: ({color,size}) => (
-                <Ionicons name="ios-home-sharp" color={color} size={size} />
+                <Feather name="home" color={color} size={size}/>
             )
         }}/>
 
         <Tab.Screen name="Dailies" component={DailiesScreen} options={{
         tabBarIcon: ({color,size}) => (
-            <Ionicons name="ios-game-controller" color={color} size={size} />
+            <Feather name="flag" color={color} size={size} />
     ) }} />
 
 
@@ -119,10 +120,10 @@ const TabNavigator = () => {
                     <Ionicons name="ios-bandage-sharp" color={color} size={size} />
             ) }} />        */}
 
-                                <Tab.Screen name="ScreenA" component={ScreenA} options={{
+                                {/* <Tab.Screen name="ScreenA" component={ScreenA} options={{
                 tabBarIcon: ({color,size}) => (
                     <Ionicons name="ios-logo-tux" color={color} size={size} />
-            ) }} />       
+            ) }} />        */}
 
             {/* <Tab.Screen name="ScreenB" component={ScreenB} options={{
                 tabBarIcon: ({color,size}) => (
@@ -131,12 +132,12 @@ const TabNavigator = () => {
 
         <Tab.Screen name="PlantLibrary" component={PlantLibraryStack} options={{
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="ios-book" color={color} size={size} />
+            <Feather name="bookmark" color={color} size={size} />
           ),
         }}/>
         <Tab.Screen name="UserProfile" component={UserProfileScreen} options={{
         tabBarIcon: ({color,size}) => (
-                <Ionicons name="ios-person-sharp" color={color} size={size} />
+                <Feather name="user" color={color} size={size} />
             )
         }}/>
     </Tab.Navigator>

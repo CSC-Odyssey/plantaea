@@ -125,7 +125,7 @@ const PlantDetailsScreen = ({navigation, route}) => {
             </Text>
 
             <TouchableOpacity 
-              style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#8EB96F', borderRadius:8,paddingVertical:15, marginTop:2,marginBottom:5, marginHorizontal:20,marginBottom:100}}
+              style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#92AF9F', borderRadius:8,paddingVertical:15, marginTop:2,marginBottom:5, marginHorizontal:20,marginBottom:100}}
               onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}
             >
                 <Feather name="map-pin" size={20} color="white" style={{marginRight:5}} />

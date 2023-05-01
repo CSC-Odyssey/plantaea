@@ -12,7 +12,7 @@ export default function HomeScreen({navigation}){
     return (
         
         
-        <View style={{ flex:1, backgroundColor:'#E8F5DE'}}>
+        <View style={{ flex:1, backgroundColor:'#92AF9F'}}>
 <View style={[{ backgroundColor:'white',backgroundColor:'white',borderBottomLeftRadius:20,borderBottomRightRadius:20,marginBottom:5},styles.shadow]}>
         <View style={{padding:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',backgroundColor:'white',marginTop:windowHeight-(windowHeight-50)}}>
         <View>
@@ -55,7 +55,7 @@ export default function HomeScreen({navigation}){
 
             {/* </Swiper> */}
             {/* </View> */}
-            <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'#E8F5DE'}}>
+            <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'#92AF9F'}}>
                 
 
              
