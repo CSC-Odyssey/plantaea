@@ -23,11 +23,11 @@ const PlantLibrary = ({navigation, route}) => {
         <View style={{overflow: 'hidden', paddingBottom:5}}>
         <SafeAreaView style={{backgroundColor:'white', alignItems:'center', ...styles.shadow }}> 
             <Image
-                source={require('../assets/images/plantaea-logo.png')}
+                source={require('../assets/images/undraw_Bookshelves_re_lxoy.png')}
                 resizeMode="contain"
-                style={{width:80,height:50,marginTop:5,marginBottom:10}}
+                style={{width:200,height:200,marginTop:5,marginBottom:10}}
             />
-            <Text style={{fontSize:20, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Bold'}}>ETHNOBOTANICAL PLANTS</Text>
+            <Text style={{fontSize:30, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Bold'}}>Plant Library</Text>
 
     <View style={{paddingHorizontal:20}}>
         <CustomSwitchLibrary 

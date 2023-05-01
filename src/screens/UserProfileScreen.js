@@ -12,13 +12,9 @@ const UserProfileScreen = ({navigation}) => {
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
             <ScrollView style={{padding:40}}>
-                <View style={{flexDirection:'row',alignItems:'center',marginBottom: -30}}>
-                    <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:35,height:35}} imageStyle={{borderRadius:25}} />
-                    </TouchableOpacity>          
-                </View>
+
                 <View style={{flex:1,alignItems:'center',marginBottom:20}}>
-                    <Image source={require('../assets/images/profile-icon.png')} 
+                    <Image source={require('../assets/images/undraw_Female_avatar_efig.png')} 
                            style={{width:175,height:175, borderRadius: 75}}  
                     />
                     <Text style={{fontSize:20, fontWeight:'bold', color:'#1C4C4E', marginTop:10}}>User</Text>

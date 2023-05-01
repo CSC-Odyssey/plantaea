@@ -6,13 +6,13 @@ import ListActivities from "../components/listActivities";
 
 export default function DailiesScreen({navigation}){
     return (
-        <SafeAreaView> 
-         <ScrollView style={{marginTop:80}}>
+        <SafeAreaView style={{backgroundColor:'white'}}> 
+         <ScrollView style={{marginTop:2}}>
             <View style={{flex:1, alignItems:'center'}}>
               <Image
-                source={require('../assets/images/gamepad.png')}
+                source={require('../assets/images/undraw_Gaming_re_cma2.png')}
                 resizeMode="contain"
-                style={{width:80,height:80}}
+                style={{width:300,height:300}}
               />
              <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E'}}>DAILIES</Text>
             </View>
