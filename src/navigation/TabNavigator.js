@@ -101,7 +101,7 @@ const TabNavigator = () => {
 
 
         
-        <Tab.Screen name="Camera" component={CameraScreen} options={{
+        {/* <Tab.Screen name="Camera" component={CameraScreen} options={{
             tabBarIcon: ({focused}) => (
                     <Image
                         source={require('../assets/images/icons/camera-button-icon.png')}
@@ -112,7 +112,7 @@ const TabNavigator = () => {
                 tabBarButton: (props) => (
                     <CameraBottomTabButton {...props} />
                 )
-            }}/>   
+            }}/>    */}
 
                     {/* <Tab.Screen name="PlantUses" component={PlantUsesScreen} options={{
                 tabBarIcon: ({color,size}) => (

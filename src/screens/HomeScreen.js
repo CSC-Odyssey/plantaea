@@ -12,21 +12,32 @@ export default function HomeScreen({navigation}){
     return (
         
         
-        <View style={{ flex:1, backgroundColor:'white'}}>
-                        <View style={{flexDirection:'row',alignItems:'center',marginBottom:1}}>
-                    <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                        <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30,marginTop:windowHeight-(windowHeight-50),marginLeft:20}} imageStyle={{borderRadius:0}} />
-                    </TouchableOpacity>          
+        <View style={{ flex:1, backgroundColor:'#E8F5DE'}}>
+<View style={[{ backgroundColor:'white',backgroundColor:'white',borderBottomLeftRadius:20,borderBottomRightRadius:20,marginBottom:5},styles.shadow]}>
+        <View style={{padding:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',backgroundColor:'white',marginTop:windowHeight-(windowHeight-50)}}>
+        <View>
+            <TouchableOpacity onPress={()=>navigation.openDrawer()}>
+                <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30}} />
+            </TouchableOpacity>    
+        </View>
+        <View>
+            <Text style = {styles.appName}>PLANTAEA</Text>
+        </View>
+        <View style={{width:30}}/>
+
+                     
+
+
             </View>
             {/* <View style={styles.sliderContainer}> */}
             {/* <Swiper autoplay height={50} activeDotColor="#1C4C4E" removeClippedSubviews={false}> */}
             {/* <View styles={styles.slide}> */}
-            <ImageBackground
+            <Image
                 source={require('../assets/images/undraw_Gardening_re_e658.png')}
                 resizeMode="contain"
-                style={{width:windowWidth,height:200,marginTop:2}}
+                style={{width:windowWidth,height:200,marginTop:2,marginBottom:10}}
             >
-            </ImageBackground>
+            </Image>
             {/* </View> */}
 
             {/* <View styles={styles.slide}>
@@ -39,12 +50,12 @@ export default function HomeScreen({navigation}){
             </ImageBackground>
             </View> */}
 
-            
+</View>
 
 
             {/* </Swiper> */}
             {/* </View> */}
-            <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'#E8F5DE',borderTopLeftRadius:20,borderTopRightRadius:20}}>
+            <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'#E8F5DE'}}>
                 
 
              
@@ -113,16 +124,18 @@ export default function HomeScreen({navigation}){
                 
                 {/* <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} /> */}
             
-                <View style= {{flex: 1, flexDirection:'row', alignContent:'center'}} >
-                   <TouchableOpacity onPress={()=>navigation.navigate('PlantLibraryStack')}> 
+
+                <View style={{flex:1,margin:17,paddingVertical:20}}>
+                <View style= {{flexDirection:'row',justifyContent:'space-evenly'}} >
+                   <TouchableOpacity onPress={()=>navigation.navigate('Camera')}> 
                      <View style = {styles.containerLE}> 
                          <Image
                             source={require('../assets/images/undraw_Camera_re_cnp4.png')}
                             resizeMode="contain"
-                            style={{width:200,height:100,alignSelf:"center", margin: 20}}
+                            style={{width:200,height:100,alignSelf:"center", margin: 8}}
                          />
-                            <Text style = {styles.headingText}> GUIDE </Text>
-                            <Text style = {styles.bodyText}> get the best results when scanning plants</Text>
+                            <Text style = {styles.headingText}>SCAN</Text>
+                            <Text style = {styles.bodyText}>Scan a plant!</Text>
                      </View>
                   </TouchableOpacity>
 
@@ -131,14 +144,30 @@ export default function HomeScreen({navigation}){
                           <Image
                             source={require('../assets/images/undraw_My_current_location_re_whmt.png')}
                             resizeMode="contain"
-                            style={{width:200,height:100,alignSelf:"center",margin: 20}}
+                            style={{width:200,height:100,alignSelf:"center",margin: 8}}
                          />
 
-                            <Text style = {styles.headingText}> EXPLORE</Text>
-                            <Text style = {styles.bodyText}> Find the wonders around you</Text>
+                            <Text style = {styles.headingText}>LOCATE</Text>
+                            <Text style = {styles.bodyText}>Look at plant coordinates</Text>
                      </View>
                     </TouchableOpacity>
                 </View>
+
+                <TouchableOpacity style={{alignItems:'center', marginTop:10}}>
+                    <View style ={styles.containerLE2}>
+                        <Image
+                                source={require('../assets/images/undraw_Questions_re_1fy7.png')}
+                                resizeMode="contain"
+                                style={{width:150,height:200,margin: 2}}
+                        />
+                        <View style={{justifyContent:'flex-start'}}>
+                        <Text style = {styles.headingText}>GUIDE</Text>
+                        <Text style = {styles.bodyText}>For more accurate results.</Text>
+                        </View>
+                    </View>
+                    </TouchableOpacity>
+                </View>
+
             </ScrollView>
         </View>    
     )
@@ -146,33 +175,51 @@ export default function HomeScreen({navigation}){
 
 
 const  styles = StyleSheet.create({
+    appName:{
+        fontSize:20,
+        fontFamily:'Josefin Sans-Light',
+        color:'#1C4C4E',
+        letterSpacing:10
+    },
     headingText:{
         textAlign: "center",
         fontSize:20,
-        fontFamily:'Josefin Sans-Bold',
+        fontFamily:'Josefin Sans-Light',
         color:'#1C4C4E',
+        letterSpacing:2
      },
      bodyText:{
         textAlign: "center",
-        fontSize:15,
+        fontSize:11,
         fontFamily:'Josefin Sans-Light'
      },
     containerLE:{
-        margin: 17,
         width: 150,
-        height : 210,
+        height : 190,
         borderRadius: 10,
         opacity: 20,
         backgroundColor: 'white',
-        // borderColor:'red',
-        elevation: 3,
-        shadowOffset: {
-            width: 1,
-            height: 1
-        },
-        shadowColor: '#333',
-        shadowOpacity: 0.4
-    }, containerT:{
+        // elevation: 5,
+        // shadowOffset: {
+        //     width: 1,
+        //     height: 1
+        // },
+        // shadowColor: '#333',
+        // shadowOpacity: 0.4
+    },
+    containerLE2:{
+        margin:20,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'flex-start',
+        margin: 2,
+        width: 320,
+        height : 120,
+        borderRadius: 10,
+        opacity: 20,
+        backgroundColor: 'white',
+    }, 
+    containerT:{
         margin: 17,
         width: 320,
         height : 130,
@@ -207,5 +254,12 @@ const  styles = StyleSheet.create({
         borderRadius:8,
         justifyContent: 'center',
         alignItems:'center',
+    },
+    shadow: {
+        shadowColor:'black',
+        shadowOffset: {width:1,height:1},
+        shadowOpacity:1,
+        shadowRadius:3.5,
+        elevation:5
     }
 })

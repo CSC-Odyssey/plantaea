@@ -4,6 +4,8 @@ import { windowWidth, windowHeight } from '../utils/Dimensions'
 import { Linking } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
+import YoutubePlayer from 'react-native-youtube-iframe'
+
 import { plantListLibrary } from '../model/data';
 
 import ListItem from '../components/ListItem'
@@ -99,7 +101,15 @@ const PlantDetailsScreen = ({navigation, route}) => {
                     </View>
 
 
-
+            {/* <View style={{justifyContent:'center',alignItems:'center'}}>
+              <YoutubePlayer
+                height={300}
+                width={300}
+                play={false}
+                videoId="gdsyer04cVI"
+                webViewStyle={ {opacity:0.99} } //Do not remove this line, the app will crash when navigating to this screen(Bug in the WebView library where the fix is to set its opacity to 0.99.)
+              />
+            </View> */}
 
 
             <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc',marginTop:50}}/>
