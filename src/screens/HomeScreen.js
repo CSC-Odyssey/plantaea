@@ -12,9 +12,9 @@ export default function HomeScreen({navigation}){
     return (
         
         
-        <View style={{ flex:1, backgroundColor:'#92AF9F'}}>
-<View style={[{ backgroundColor:'white',backgroundColor:'white',borderBottomLeftRadius:20,borderBottomRightRadius:20,marginBottom:5},styles.shadow]}>
-        <View style={{padding:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',backgroundColor:'white',marginTop:windowHeight-(windowHeight-50)}}>
+        <SafeAreaView style={{ flex:1, backgroundColor:'#92AF9F'}}>
+<View style={[{ backgroundColor:'white',borderBottomLeftRadius:20,borderBottomRightRadius:20,marginBottom:10},styles.shadow]}>
+        <View style={{padding:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',backgroundColor:'white',marginTop:windowHeight-(windowHeight-10)}}>
         <View>
             <TouchableOpacity onPress={()=>navigation.openDrawer()}>
                 <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30}} />
@@ -24,108 +24,24 @@ export default function HomeScreen({navigation}){
             <Text style = {styles.appName}>PLANTAEA</Text>
         </View>
         <View style={{width:30}}/>
+        </View>
 
-                     
-
-
-            </View>
-            {/* <View style={styles.sliderContainer}> */}
-            {/* <Swiper autoplay height={50} activeDotColor="#1C4C4E" removeClippedSubviews={false}> */}
-            {/* <View styles={styles.slide}> */}
             <Image
                 source={require('../assets/images/undraw_Gardening_re_e658.png')}
                 resizeMode="contain"
                 style={{width:windowWidth,height:200,marginTop:2,marginBottom:10}}
             >
             </Image>
-            {/* </View> */}
 
-            {/* <View styles={styles.slide}>
-            <ImageBackground
-                source={require('../assets/images/undraw_tourist_map_re_293e.png')}
-                resizeMode="contain"
-                style={{width:windowWidth,height:400}}
-            >
-
-            </ImageBackground>
-            </View> */}
 
 </View>
 
 
-            {/* </Swiper> */}
-            {/* </View> */}
+
             <ScrollView style={{alignContent:'center', flex: 1, backgroundColor:'#92AF9F'}}>
                 
 
-             
-                {/* <View style={{flex:1,alignItems:'center'}}>
-                  <Image
-                     source={require('../assets/images/plantaea-logo.png')}
-                     resizeMode="contain"
-                     style={{width:80,height:80}}
-                     />
-                    <Text style={{color:'#1C4C4E',fontSize:30 , marginBottom: 10, fontFamily:'Josefin Sans-Bold'}}> PLANTAEA </Text>                  
-                </View> */}
-
-                
-                {/* <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6'}} /> */}
-
-                    {/* <Text style={{ fontSize:20, fontWeight:'bold',color:'#1C4C4E'}}>PLANT TRIVIAS</Text> */}
-
-                {/* <TouchableOpacity 
-                    style={{ backgroundColor:'white',flexDirection:'row', alignItems:'center', borderColor:'#E1F6F7', borderWidth:1, borderRadius:8, paddingHorizontal:10,paddingVertical:10, marginTop:2,marginBottom:5, marginHorizontal:20}}
-                    onPress={()=>navigation.navigate('PlantLibraryStack')}
-                >
-                        <Feather name="search" size={20} color="#1C4C4E" style={{marginRight:5}} />
-                        <Text style={{flex: 1, paddingTop: 2, paddingRight: 10, paddingBottom: 2, paddingLeft: 0,color:'#1C4C4E'}}>Search</Text>
-                </TouchableOpacity> */}
-
-                {/* <View style={styles.sliderContainer}>
-                    <Swiper autoplay height={50} activeDotColor="#1C4C4E" removeClippedSubviews={false}>
-                            <View styles={styles.slide}>
-                                <ImageBackground
-                                    source={require('../assets/images/banners/plant-banner1.png')}
-                                    resizeMode="cover"
-                                    style={styles.sliderImage}
-                                    imageStyle={{borderRadius:10}}
-                                >
-                                <Text style={{color:'white'}}>PLANTS ARE NICE</Text>
-                                </ImageBackground>           
-                            </View>
-
-                            <View styles={styles.slide}>
-                                <ImageBackground
-                                    source={require('../assets/images/banners/plant-banner2.jpg')}
-                                    resizeMode="cover"
-                                    style={styles.sliderImage}
-                                    imageStyle={{borderRadius:10}}
-                                >
-                                <Text style={{color:'white'}}>There are over 200,000 identified plant species and the list is growing all the time. 90 percent of the foods humans eat come from just 30 plants. An average size tree can provide enough wood to make 170,100 pencils.</Text>
-                                </ImageBackground>           
-                            </View>
-
-                            <View styles={styles.slide}>
-                                <ImageBackground
-                                    source={require('../assets/images/banners/plant-banner3.jpg')}
-                                    resizeMode="cover"
-                                    style={styles.sliderImage}
-                                    imageStyle={{borderRadius:10}}
-                                >
-                                <Text style={{color:'white'}}>sample text</Text>
-                                </ImageBackground>           
-                            </View>
-                    </Swiper>
-                </View> */}
-
-                {/* <View style={styles.containerT}>
-                </View> */}
-
-                
-                {/* <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} /> */}
-            
-
-                <View style={{flex:1,margin:17,paddingVertical:20}}>
+                <View style={{flex:1,margin:10}}>
                 <View style= {{flexDirection:'row',justifyContent:'space-evenly'}} >
                    <TouchableOpacity onPress={()=>navigation.navigate('Camera')}> 
                      <View style = {styles.containerLE}> 
@@ -153,7 +69,34 @@ export default function HomeScreen({navigation}){
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={{alignItems:'center', marginTop:10}}>
+                <View style= {{flexDirection:'row',justifyContent:'space-evenly',paddingTop:15}} >
+                   <TouchableOpacity onPress={()=>navigation.navigate('PlantLibrary')}> 
+                     <View style = {styles.containerLE}> 
+                         <Image
+                            source={require('../assets/images/undraw_Bookshelves_re_lxoy.png')}
+                            resizeMode="contain"
+                            style={{width:200,height:100,alignSelf:"center", margin: 8}}
+                         />
+                            <Text style = {styles.headingText}>LIBRARY</Text>
+                            <Text style = {styles.bodyText}>Browse plant species!</Text>
+                     </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                        <View style ={styles.containerLE}>
+                          <Image
+                            source={require('../assets/images/undraw_Questions_re_1fy7.png')}
+                            resizeMode="contain"
+                            style={{width:200,height:100,alignSelf:"center",margin: 8}}
+                         />
+
+                            <Text style = {styles.headingText}>GUIDE</Text>
+                            <Text style = {styles.bodyText}>For more accurate results.</Text>
+                     </View>
+                    </TouchableOpacity>
+                </View>
+
+                {/* <TouchableOpacity style={{alignItems:'center', marginTop:10}}>
                     <View style ={styles.containerLE2}>
                         <Image
                                 source={require('../assets/images/undraw_Questions_re_1fy7.png')}
@@ -165,11 +108,11 @@ export default function HomeScreen({navigation}){
                         <Text style = {styles.bodyText}>For more accurate results.</Text>
                         </View>
                     </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
             </ScrollView>
-        </View>    
+        </SafeAreaView>    
     )
 }
 
@@ -195,7 +138,7 @@ const  styles = StyleSheet.create({
      },
     containerLE:{
         width: 150,
-        height : 190,
+        height : 170,
         borderRadius: 10,
         opacity: 20,
         backgroundColor: 'white',

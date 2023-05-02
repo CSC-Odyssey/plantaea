@@ -10,8 +10,8 @@ export default function ListItem({image, scientificName, localName, category, on
                 <TouchableOpacity onPress={onPress} style={{borderRadius:20,flexDirection:'row', alignItems:'center', flex:1, backgroundColor:'#F7FFF9', paddingHorizontal:15,paddingVertical:10,marginBottom:10,marginHorizontal:3,elevation:3}}>
                     <Image source={image} style={{width:55,height:55,borderRadius:55/2,marginRight:8}}/>
                     <View>
-                    <Text style={{fontFamily:'Josefin Sans-Regular', color:'#1C4C4E'}}>{localName}</Text>
-                    <Text style={{fontFamily:'Josefin Sans-Italic',fontSize:10, color:'#1C4C4E'}}>{scientificName}</Text>
+                    <Text style={{fontFamily:'Josefin Sans-Light', color:'#1C4C4E'}}>{localName}</Text>
+                    <Text style={{fontFamily:'Josefin Sans-LightItalic',fontSize:10, color:'#1C4C4E'}}>{scientificName}</Text>
                     <View style={{flexDirection:'row'}}>
                     {category[0] == 'medicine' && category[1] == 'consumable' && category[2] == 'ornamental'?
                         createPlantTag(true,true,true)

@@ -25,7 +25,7 @@ const PlantLibrary = ({navigation, route}) => {
             <Image
                 source={require('../assets/images/undraw_Bookshelves_re_lxoy.png')}
                 resizeMode="contain"
-                style={{width:200,height:200,marginTop:5,marginBottom:10}}
+                style={{width:200,height:200}}
             />
             <Text style={{fontSize:27, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Light',letterSpacing:8}}>PLANT LIBRARY</Text>
 
@@ -47,7 +47,7 @@ const PlantLibrary = ({navigation, route}) => {
     </View>
     </SafeAreaView>
         </View>
-                <ScrollView style={{paddingHorizontal:15,paddingVertical:15, marginTop:0}}>
+                <ScrollView style={{paddingHorizontal:15,paddingVertical:15, marginTop:0, backgroundColor:'#92AF9F'}}>
         {descriptionTab == 1 &&
             <View>
                 {plantListLibrary.map(item => (
@@ -92,7 +92,7 @@ const PlantLibrary = ({navigation, route}) => {
             </View>
         }
 
-<View style={{padding:7,borderTopWidth:1,borderTopColor:'white', marginTop:60}} />
+<View style={{padding:7,marginTop:100}} />
             </ScrollView>
         </SafeAreaView>
 

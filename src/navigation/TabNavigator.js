@@ -23,7 +23,7 @@ const Tab = createBottomTabNavigator();
 
 const PlantLibraryStack = () => {
     return (
-      <Stack.Navigator screenOptions={{}}>
+      <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack"
             options={({}) => ({
                 headerShown:false
@@ -31,14 +31,21 @@ const PlantLibraryStack = () => {
         />
         <Stack.Screen component={PlantDetailsScreen} name="PlantDetails" 
             options={({}) => ({
-                headerBackVisible:true,
+                headerShown:true,
                 title:'',
-                // headerShown:false,
+                headerTintColor:'white',
                 headerTransparent:true,
-                headerTintColor:'white'
             })}
         />
-        <Stack.Screen component={ScreenA} name="ScreenA" />
+        <Stack.Screen component={ScreenA} name="ScreenA" 
+                    options={({}) => ({
+                        headerShown:true,
+                        title:'',
+                        headerTintColor:'black',
+                        headerTransparent:true,
+                    })}
+        />
+        <Stack.Screen component={MapScreen} name="Map" />
       </Stack.Navigator>
     )
 }
@@ -47,8 +54,9 @@ const HomeStack = () => {
     return (
       <Stack.Navigator screenOptions={{headerShown:false}}
     >
-        <Stack.Screen component={HomeScreen} name="HomeScreen" />
-        <Stack.Screen component={PlantLibraryScreen} name="PlantLibraryStack" />
+        <Stack.Screen component={HomeScreen} name="HomeScreen"      />
+        <Stack.Screen component={PlantLibraryStack} name="PlantLibrary" />
+        <Stack.Screen component={CameraScreen} name="Camera" />
         {/* <Stack.Screen component={DailiesScreen} name="Dailies" /> */}
         <Stack.Screen component={MapScreen} name="Map" />
         {/* <Stack.Screen component={PlantUsesScreen} name="PlantUses" /> */}
@@ -82,7 +90,11 @@ const CameraBottomTabButton = ({children, onPress}) => (
 const TabNavigator = () => {
     return (
 
-    <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel:false, tabBarStyle:{backgroundColor:'white'},tabBarActiveTintColor:'#6B8778',tabBarInactiveTintColor:'#E2E2E2'}}>
+    <Tab.Navigator 
+        screenOptions={{headerShown: false, tabBarShowLabel:false,tabBarActiveTintColor:'#6B8778',tabBarInactiveTintColor:'#E2E2E2',
+        tabBarStyle:{backgroundColor:'white',position:'absolute',borderRadius:20,bottom:15, left:20, right:20}
+        }}
+    >
         <Tab.Screen name="Home2" component={HomeStack} options={{
             tabBarIcon: ({color,size}) => (
                 <Feather name="home" color={color} size={size}/>
@@ -129,12 +141,12 @@ const TabNavigator = () => {
                 tabBarIcon: ({color,size}) => (
                     <Ionicons name="ios-bandage-sharp" color={color} size={size} />
             ) }} />        */}
-
+{/* 
         <Tab.Screen name="PlantLibrary" component={PlantLibraryStack} options={{
           tabBarIcon: ({color, size}) => (
             <Feather name="bookmark" color={color} size={size} />
           ),
-        }}/>
+        }}/> */}
         <Tab.Screen name="UserProfile" component={UserProfileScreen} options={{
         tabBarIcon: ({color,size}) => (
                 <Feather name="user" color={color} size={size} />

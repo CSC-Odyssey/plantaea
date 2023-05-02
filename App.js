@@ -13,6 +13,7 @@ const App = () => {
   const [fontsLoaded] = useFonts ({
     "Josefin Sans-Regular": require('./src/assets/fonts/JosefinSans-Regular.ttf'),
     "Josefin Sans-Light": require('./src/assets/fonts/JosefinSans-Light.ttf'),
+    "Josefin Sans-LightItalic": require('./src/assets/fonts/JosefinSans-LightItalic.ttf'),
     "Josefin Sans-SemiBold": require('./src/assets/fonts/JosefinSans-SemiBold.ttf'),
     "Josefin Sans-Bold": require('./src/assets/fonts/JosefinSans-Bold.ttf'),
     "Josefin Sans-Italic": require('./src/assets/fonts/JosefinSans-Italic.ttf'),

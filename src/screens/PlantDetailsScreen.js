@@ -8,6 +8,8 @@ import YoutubePlayer from 'react-native-youtube-iframe'
 
 import { plantListLibrary } from '../model/data';
 
+import MapView, {Marker} from 'react-native-maps';
+
 import ListItem from '../components/ListItem'
 import PlantTagDetailsScreen from "../components/PlantTagDetailsScreen";
 
@@ -17,7 +19,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
 import * as Animatable from 'react-native-animatable';
 
-const MIN_HEIGHT = 55;
+const MIN_HEIGHT = 150;
 const MAX_HEIGHT = 350;
 
 const PlantDetailsScreen = ({navigation, route}) => {
@@ -38,17 +40,20 @@ const PlantDetailsScreen = ({navigation, route}) => {
     }
 
     return(
+      
 
         <View style={styles.container}>
-        <StatusBar barStyle='light-content'/>
+        
+        {/* <StatusBar barStyle='light-content'/> */}
+        {/* <StatusBar translucent hidden backgroundColor='transparent' /> */}
 
         <ImageHeaderScrollView
             maxHeight={MAX_HEIGHT}
             minHeight={MIN_HEIGHT}
-            maxOverlayOpacity={0.6}
-            minOverlayOpacity={0.3}
+            maxOverlayOpacity={.9}
+            minOverlayOpacity={.5}
             renderHeader={() =>  (
-                <Image source={route.params?.image} style={{width:windowWidth,height:400}}/>
+                <ImageBackground source={route.params?.image} style={styles.image}/>
                 )}
 
             renderForeground={() => (
@@ -56,6 +61,8 @@ const PlantDetailsScreen = ({navigation, route}) => {
                     <Text style={styles.imageTitle}>{route.params?.localName}</Text>
                     <Text style={{color:'white',fontFamily:'Josefin Sans-Italic'}}>{route.params?.scientificName}</Text>
                 </View>
+   
+
             )}
 
             renderFixedForeground={() => (
@@ -119,20 +126,51 @@ const PlantDetailsScreen = ({navigation, route}) => {
             >
               {route.params?.use}
             </Text>
-            <Text style={styles.section}
-                  onPress={() => Linking.openURL("https://www.youtube.com/watch?v=uMNzY4V9N2I")}>
-              Guide To Make
-            </Text>
+
 
             <TouchableOpacity 
-              style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#92AF9F', borderRadius:8,paddingVertical:15, marginTop:2,marginBottom:5, marginHorizontal:20,marginBottom:100}}
+              style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#C48E8E', borderRadius:8,paddingVertical:15,marginHorizontal:20,marginBottom:50}}
+              onPress={() => Linking.openURL("https://www.youtube.com/watch?v=uMNzY4V9N2I")}
+            >
+                <Feather name="external-link" size={20} color="white" style={{marginRight:5}} />
+                <Text style={{fontFamily:'Josefin Sans-Bold',letterSpacing:1, color:"white"}}>Video Guide</Text>
+            </TouchableOpacity>
+            
+            <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc'}}/>
+            <Text style={[styles.title, {padding:20}]}>Location</Text>
+            <View style={{borderBottomWidth: 1, borderBottomColor: '#cccccc'}}/>
+
+            
+            <View style={styles.mapSection}>
+              <MapView
+                style={{flex:1}}
+                region={{
+                  latitude: route.params?.latitude,
+                  longitude: route.params?.longitude,
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                }}
+              >
+                <Marker
+                  coordinate={{
+                    latitude: route.params?.latitude,
+                    longitude: route.params?.longitude,
+                  }}
+              >
+                <Image source={require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }} />
+              </Marker>
+
+              </MapView>
+            </View>
+
+
+            <TouchableOpacity 
+              style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#92AF9F', borderRadius:8,paddingVertical:15,marginTop:2,marginHorizontal:20,marginBottom:100}}
               onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}
             >
                 <Feather name="map-pin" size={20} color="white" style={{marginRight:5}} />
-                <Text style={{fontFamily:'Josefin Sans-Bold', color:"white"}}>Plant Location</Text>
+                <Text style={{fontFamily:'Josefin Sans-Bold',letterSpacing:1,color:"white"}}>Locate in Map Screen</Text>
             </TouchableOpacity>
-            {/* <Text style={[styles.title,styles.section]}>Taxonomy</Text>
-            <Text style={[styles.section,{fontSize:10}]}>{route.params?.taxonomy}</Text> */}
             </SafeAreaView>
 
         </ImageHeaderScrollView>
@@ -164,12 +202,15 @@ const styles = StyleSheet.create({
       padding: 20,
       // borderBottomWidth: 1,
       // borderBottomColor: '#cccccc',
-      backgroundColor: 'white',
       fontFamily:'Josefin Sans-Light',
       textAlign:'justify',
       lineHeight:25,
       color:'#1C4C4E',
       fontSize:15
+    },
+    mapSection: {
+      padding: 20,
+      height:250,
     },
     sectionTitle: {
       fontSize: 18,
