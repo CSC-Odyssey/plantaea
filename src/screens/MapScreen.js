@@ -110,6 +110,7 @@ const PlantLibrary = ({navigation,route}) => {
         </View>
       </View>
       <MapView
+        provider={MapView.PROVIDER_OPENSTREETMAP}
         style={styles.map}
         initialRegion={{latitude: 17.3513,
                         longitude: 121.1719,
