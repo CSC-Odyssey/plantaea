@@ -168,15 +168,8 @@ const PlantLibrary = ({navigation,route}) => {
                 <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
                   tooltip
-                  onPress={() => navigation.navigate('PlantDetails', 
-                                                            {image: item.image, 
-                                                            scientificName: item.scientificName, 
-                                                            localName: item.localName, 
-                                                            description: item.description, 
-                                                            use: item.use, 
-                                                            taxonomy: item.taxonomy, 
-                                                            category: item.category, 
-                                                            id: item.id})}>
+                  onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, latitude: item.latitude, longitude: item.longitude, category: item.category, id: item.id})}
+                >
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -201,15 +194,8 @@ const PlantLibrary = ({navigation,route}) => {
                 <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
                   tooltip
-                  onPress={() => navigation.navigate('PlantDetails', 
-                                                            {image: item.image, 
-                                                              scientificName: item.scientificName, 
-                                                              localName: item.localName, 
-                                                              description: item.description, 
-                                                              use: item.use, 
-                                                              taxonomy: item.taxonomy, 
-                                                              category: item.category, 
-                                                              id: item.id})}>
+                  onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, latitude: item.latitude, longitude: item.longitude, category: item.category, id: item.id})}
+                >
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -234,15 +220,8 @@ const PlantLibrary = ({navigation,route}) => {
                 <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
                   tooltip
-                  onPress={() => navigation.navigate('PlantDetails', 
-                                                            {image: item.image, 
-                                                              scientificName: item.scientificName, 
-                                                              localName: item.localName, 
-                                                              description: item.description, 
-                                                              use: item.use, 
-                                                              taxonomy: item.taxonomy, 
-                                                              category: item.category, 
-                                                              id: item.id})}>
+                  onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, latitude: item.latitude, longitude: item.longitude, category: item.category, id: item.id})}
+                >
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>
@@ -267,15 +246,8 @@ const PlantLibrary = ({navigation,route}) => {
                 <Image source = {require('../assets/images/home_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
                   tooltip
-                  onPress={() => navigation.navigate('PlantDetails', 
-                                                            {image: item.image, 
-                                                              scientificName: item.scientificName, 
-                                                              localName: item.localName, 
-                                                              description: item.description, 
-                                                              use: item.use, 
-                                                              taxonomy: item.taxonomy, 
-                                                              category: item.category, 
-                                                              id: item.id})}>
+                  onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, latitude: item.latitude, longitude: item.longitude, category: item.category, id: item.id})}
+                >
                   <View style={styles.bubble}>
                     <Text style={styles.name}>{item.localName}</Text>
                     <Text style={{bottom: 40, marginBottom: -30}}><Image style={{width: 100, height:100}} source={item.image}/></Text>

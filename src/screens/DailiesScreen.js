@@ -14,7 +14,7 @@ export default function DailiesScreen({navigation}){
                 resizeMode="contain"
                 style={{width:300,height:300}}
               />
-             <Text style={{fontWeight:'bold', fontSize:20, color:'#1C4C4E'}}>DAILIES</Text>
+             <Text style={{fontSize:27, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Light',letterSpacing:8}}>DAILIES</Text>
             </View>
           
             <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
