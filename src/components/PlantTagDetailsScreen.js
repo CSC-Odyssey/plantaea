@@ -8,21 +8,21 @@ export default function PlantTagDetailsScreen(isMedicine, isConsumable, isAromat
         <View style={{flexDirection:'row'}}>
             {isMedicine == true? 
                 <View 
-                    style={{ flexDirection:'row', backgroundColor:'#F37373', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}>
+                    style={{ flexDirection:'row', backgroundColor:'#E88E8E', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}>
                     <Feather name="heart" size={12} color="white" style={{marginRight:5}} />
                     <Text style={{fontSize:12, color:'white', fontFamily:'Josefin Sans-Regular'}}>Medicine</Text></View>
                 :
                 null
             }
             {isConsumable == true? 
-                <View style={{flexDirection:'row',backgroundColor:'#F6C36C', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}>
+                <View style={{flexDirection:'row',backgroundColor:'#E8D38E', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}>
                     <Feather name="coffee" size={12} color="white" style={{marginRight:5}} />
                     <Text style={{fontSize:12, color:'white', fontFamily:'Josefin Sans-Regular'}}>Consumable</Text></View>
                 :
                 null
             }
             {isAromatic == true? 
-                <View style={{flexDirection:'row',backgroundColor:'#E281DA', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}>
+                <View style={{flexDirection:'row',backgroundColor:'#E8A4DC', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}>
                     <Feather name="star" size={12} color="white" style={{marginRight:5}} />
                     <Text style={{fontSize:12, color:'white', fontFamily:'Josefin Sans-Regular'}}>Ornamental</Text></View>
                 :

@@ -8,6 +8,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
 
+import Feather from 'react-native-vector-icons/Feather'
+
 const PlantLibrary = ({navigation,route}) => { 
   const [mapRegion, setMapRegion] = useState({
     latitude: 37.78825,
@@ -87,27 +89,51 @@ const PlantLibrary = ({navigation,route}) => {
     <SafeAreaView>
       <View style={styles.filterContainer}>
         <View style={{borderBottomWidth: 1,}}>
-          <Text style={styles.textHeader}>
+          {/* <Text style={styles.textHeader}>
             FILTER
-          </Text>
+          </Text> */}
         </View>
-        <View>
-          <TouchableOpacity onPress={() => typeSelect("All")}>
-           <Text style={styles.filterText}>All</Text>
+        <View style={{flexDirection:'row',paddingBottom:20}}>
+          <TouchableOpacity 
+            onPress={() => typeSelect("All")}
+            style={{ flexDirection:'row', backgroundColor:'#92AF9F', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
+          >
+            <Feather name="heart" size={12} color="white" style={{marginRight:5}} />
+            <Text style={styles.filterText}>All</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => typeSelect("Medicine")}>
+
+          <TouchableOpacity 
+            onPress={() => typeSelect("Medicine")}
+            style={{ flexDirection:'row', backgroundColor:'#E88E8E', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
+          >
+            <Feather name="heart" size={12} color="white" style={{marginRight:5}} />
             <Text style={styles.filterText}>Medicine</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => typeSelect("Consumable")}>
+
+          <TouchableOpacity 
+            onPress={() => typeSelect("Consumable")}
+            style={{flexDirection:'row',backgroundColor:'#E8D38E', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
+          >
+            <Feather name="coffee" size={12} color="white" style={{marginRight:5}} />
             <Text style={styles.filterText}>Consumable</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => typeSelect("Ornamental")}>
+          
+          <TouchableOpacity 
+            onPress={() => typeSelect("Ornamental")}
+            style={{flexDirection:'row',backgroundColor:'#E8A4DC', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
+          >
+            <Feather name="star" size={12} color="white" style={{marginRight:5}} />
             <Text style={styles.filterText}>Ornamental</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => typeSelect("Office")}>
-            <Text style={styles.filterText}>DOA - Office</Text>
-          </TouchableOpacity>
+
         </View>
+        <TouchableOpacity 
+          onPress={() => typeSelect("Office")}
+          style={{flexDirection:'row',backgroundColor:'#8EE8DB', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
+        >
+            <Feather name="grid" size={12} color="white" style={{marginRight:5}} />
+            <Text style={styles.filterText}>Plant Institutions</Text>
+          </TouchableOpacity>
       </View>
       <MapView
         provider={MapView.PROVIDER_OPENSTREETMAP}
@@ -296,16 +322,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   filterContainer: {
+    padding:20,
     position: "absolute",
     zIndex: 1,
-    bottom: 15,
-    right: 10,
-    width: '40%',
-    height: "20%",
-    borderColor: "#102409",
-    borderWidth: 2,
+    bottom: 5,
+    width: '100%',
     borderRadius: 8,
-    backgroundColor: "white",
+    alignItems:'center',
+    justifyContent:'center',
     opacity:0.9
   },
   textStyle: {
@@ -354,7 +378,9 @@ const styles = StyleSheet.create({
 
   },
    filterText: {
-    fontSize: 15,
+    fontSize:12, 
+    color:'white', 
+    fontFamily:'Josefin Sans-Regular',
     textAlign:'center'
   }
 });

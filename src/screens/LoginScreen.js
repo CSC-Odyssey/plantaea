@@ -15,7 +15,7 @@ const LoginScreen = ({navigation}) => {
         <View style={{paddingHorizontal:25}}>
             <View style={{alignItems:'center'}}>
             <Image
-                source={require('../assets/images/undraw_flowers_vx06.png')}
+                source={require('../assets/images/undraw_farm_girl_dnpe.png')}
                 resizeMode="contain"
                 style={{width:300,height:300}}
             />
