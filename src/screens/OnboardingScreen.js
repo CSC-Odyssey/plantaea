@@ -8,26 +8,26 @@ import { windowWidth } from '../utils/Dimensions'
 
 const OnboardingScreen = ({navigation}) => {
     return(
-      <SafeAreaView style={{flex:1,justifyContent:'center', alignItems: 'center', padding:20}}>
-        <View style={{alignItems:'center', marginTop:200}}>
+      <SafeAreaView style={{flex:1,justifyContent:'center', alignItems: 'center', padding:20,backgroundColor:'white'}}>
+        <View style={{alignItems:'center', marginTop:2}}>
         <View>
-        {/* <PlantImgTemp width={300} height={300} style={{ transform: [{rotate: '15deg'}]}}/> */}
         <Image
-          source={require('../assets/images/plantaea-logo.png')}
-          resizeMode="contain"
-          style={{width:80,height:80}}
+                source={require('../assets/images/undraw_flowers_vx06.png')}
+                resizeMode="contain"
+                style={{width:300,height:300}}
         />
         </View>
-        <View style={{marginTop:1}}>
-          <Text style={{ fontSize:60, fontWeight:'bold', color:'#1C4C4E'}}>Plantaea</Text>
+        <View style={{alignItems:'center'}}>
+          <Text style={{ fontSize:15, fontFamily:'Josefin Sans-LightItalic', color:'#1C4C4E',letterSpacing:2}}>welcome to</Text>
+          <Text style={{ fontSize:40, fontFamily:'Josefin Sans-Light', color:'#1C4C4E',letterSpacing:10}}>PLANTAEA</Text>
         </View>
         </View>
         <View style={{flex:1, justifyContent:'flex-end',marginBottom:50}}>
         <TouchableOpacity 
-        style={{flexDirection:'row',justifyContent:'space-between', backgroundColor:'#1C4C4E', padding:20, width:windowWidth-40,borderRadius:15}}
+        style={{flexDirection:'row',justifyContent:'space-between', backgroundColor:'#92AF9F', padding:20, width:windowWidth-40,borderRadius:15}}
         onPress={() => navigation.navigate('Login')}
         >
-          <Text style= {{ fontWeight:'bold', fontSize:18, color:'white'}}>Let's Start!</Text>
+          <Text style= {{ fontFamily:'Josefin Sans-SemiBold', fontSize:18, color:'white',letterSpacing:3}}>Get Started!</Text>
           <MaterialIcons name="arrow-forward-ios" size={22} color="white" />
         </TouchableOpacity>
         </View>

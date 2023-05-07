@@ -12,11 +12,11 @@ const UserProfileScreen = ({navigation}) => {
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white',padding:40,alignItems:'center'}}>
 
-                <View style={{alignItems:'center',marginBottom:80}}>
+                <View style={{alignItems:'center',marginBottom:50}}>
                     <Image source={require('../assets/images/undraw_Female_avatar_efig.png')} 
                            style={{width:175,height:175, borderRadius: 75}}  
                     />
-                    <Text style={{fontSize:20, fontFamily:'Josefin Sans-SemiBold', color:'#1C4C4E', marginTop:2}}>User</Text>
+                    <Text style={{fontSize:20, fontFamily:'Josefin Sans-Light', color:'#1C4C4E', marginTop:2,letterSpacing:1}}>Hello, User</Text>
                 </View>
 
 
