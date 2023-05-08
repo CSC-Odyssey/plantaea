@@ -1,6 +1,6 @@
 export const plantListLibrary = [
     {
-        id: '1',
+        id: 1,
         scientificName: 'Psidium guajava',
         localName: 'Bayabas',
         category: ['medicine','consumable'],
@@ -12,7 +12,7 @@ export const plantListLibrary = [
         longitude:120.5164
     },
     {
-        id: '2',
+        id: 2,
         scientificName: 'Allium Ramosum',
         localName: 'Kutsai',
         category: ['medicine','consumable','ornamental'],
@@ -24,7 +24,7 @@ export const plantListLibrary = [
         longitude:120.6890
     },
     {
-        id: '3',
+        id: 3,
         scientificName: 'Vitex Negundo',
         localName: 'Lagundi',
         category: ['medicine','ornamental'],
@@ -36,7 +36,7 @@ export const plantListLibrary = [
         longitude:120.8269
     },
     {
-        id: '4',
+        id: 4,
         scientificName: 'Blumea balsamifera',
         localName: 'Sambong',
         category: ['medicine','ornamental'],
@@ -48,7 +48,7 @@ export const plantListLibrary = [
         longitude: 120.5740
     },
     {
-        id: "5",
+        id: 5,
         scientificName: "Ehretia microphylla",
         localName: "Tsaang Gubat",
         category: ['medicine','consumable'],
@@ -63,7 +63,7 @@ export const plantListLibrary = [
 
 export const MarketListLibrary = [
     {
-        id: "1",
+        id: 1,
         marketName: "Local Talipapa",
         goods: ["Lagundi","Bayabas","Sambong"],
         latitude: 16.7170,
