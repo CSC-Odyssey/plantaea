@@ -12,7 +12,7 @@ const CustomDrawer = (props) => {
     return (
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
-            <View source={require('../assets/images/drawer-bg.png')} style={{padding:20}}>
+            <View style={{padding:20}}>
             <Image source={require('../assets/images/user-profile.jpg')} style={{height:80,width:80,borderRadius:40,marginBottom:10}} />
             <Text style={{fontFamily:'Josefin Sans-Light',color:'#1C4C4E',fontSize:18}}>Username</Text>
             <Text style={{fontFamily:'Josefin Sans-Light',color:'#1C4C4E'}}>Botanist</Text>
