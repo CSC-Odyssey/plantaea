@@ -11,12 +11,20 @@ import { windowWidth, windowHeight } from '../utils/Dimensions'
 
 import {plantListLibrary} from '../model/data'
 
+
+export let libCounter = 0;
 const PlantLibrary = ({navigation, route}) => {
 
     const [descriptionTab, setDescriptionTab] = useState(1);
     const onSelectSwitch = (value) => {
         setDescriptionTab(value);
     }
+    const [count,setCount] = useState(1)
+    var lCounter = () => {
+        setCount(count + 1)
+        libCounter = count
+        console.log(count)
+      }
 
     return (
         <SafeAreaView style={{flex:1, padding:5, paddingTop:windowHeight-(windowHeight-5), backgroundColor:'white'}}>
@@ -52,7 +60,7 @@ const PlantLibrary = ({navigation, route}) => {
             <View>
                 {plantListLibrary.map(item => (
                     <ListItem key={item.id} image={item.image} scientificName={item.scientificName} localName={item.localName} category={item.category} 
-                    onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, latitude: item.latitude, longitude: item.longitude, category: item.category, id: item.id})}/>
+                    onPress={() => {lCounter(); navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, localName: item.localName, description: item.description, use: item.use, taxonomy: item.taxonomy, latitude: item.latitude, longitude: item.longitude, category: item.category, id: item.id})}}/>
                 ))
                 }
             </View>

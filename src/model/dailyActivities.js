@@ -30,5 +30,13 @@ export const activities = [
         total:4,
         description: "",
         complete: false
-    }
+    },
+    {
+        id: 5,
+        category : "map",
+        title:"Visit 4 Markers",
+        total:4,
+        description: "",
+        complete: false
+    },
 ]

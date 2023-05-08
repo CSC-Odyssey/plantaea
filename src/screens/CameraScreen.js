@@ -5,7 +5,7 @@ import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 
-export let capCounter = 2;
+export let capCounter = 0;
 export default function App() {
 
   let cameraRef = useRef();
@@ -71,8 +71,7 @@ export default function App() {
   return (
     <Camera style={styles.container} ref={cameraRef}>
       <View style={styles.buttonContainer}>
-      <Button title="count" onPress={counter} />
-        <Button title="Take Pic" onPress={takePic} />
+        <Button title="Take Pic" onPress={ () => {counter(); takePic()}} />
       </View>
       <StatusBar style="auto" />
     </Camera>

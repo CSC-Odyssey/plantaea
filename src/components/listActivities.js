@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet,Animated} from "react-native";
 import { capCounter } from "../screens/CameraScreen";
+import { libCounter} from "../screens/PlantLibrary"
+import { mapCounter} from "../screens/MapScreen"
 
 
 
@@ -25,7 +27,7 @@ const Progress = ({ step, steps, height}) => {
 
     return ( 
     <>
-        <Text> 
+        <Text style={{fontSize:12 ,fontFamily:'Josefin Sans-Italic'}}> 
             {step} /{steps}
         </Text>
 
@@ -76,15 +78,15 @@ export default function ListActivities({title, total,category}){
 
                      
 
-                    { category == "camera" &&
+                    {   category == "camera" &&
                             <View style ={styles.container}>
-                            <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
-                            { capCounter != total &&
+                            <Text style={{fontSize:15 ,fontFamily:'Josefin Sans-Regular',  color:'#1C4C4E'}}> {title}</Text>
+                            { capCounter < total &&
                                 <Progress step={capCounter} steps= {total} height={10} />
                             } 
-                            {capCounter == total &&
+                            {capCounter >= total &&
                             <View>
-                             <Text> Completed </Text>
+                             <Text style={{fontSize:15 ,fontFamily:'Josefin Sans-Bold', color:'#1C4C4E'}}> COMPLETED </Text>
                             </View>
                             }
 
@@ -92,21 +94,33 @@ export default function ListActivities({title, total,category}){
                             
                     }
                     
-                    {
-                    category == "map" &&
-                    <View style ={styles.container}>
-                    <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
-                        <Progress step={1} steps= {total} height={10} />
-                    
-                    </View>
+                    {   category == "map" &&
+                        <View style ={styles.container}>
+                        <Text style={{fontSize:15 ,fontFamily:'Josefin Sans-Regular',  color:'#1C4C4E'}}>{title}</Text>
+                            { mapCounter < total &&
+                                <Progress step={mapCounter} steps= {total} height={10} />
+                            } 
+                            {mapCounter >= total &&
+                            <View>
+                                <Text style={{fontSize:15 ,fontFamily:'Josefin Sans-Bold', color:'#1C4C4E'}}> COMPLETED </Text>
+                            </View>
+                            }
+
+                        </View>
                     }
-                    {
-                    category == "library" &&
-                    <View style ={styles.container}>
-                    <Text style={{fontStyle: "italic", fontWeight: "bold"}}>{title}</Text>
-                        <Progress step={3} steps= {total} height={10} />
-                    
-                    </View>
+                    {   category == "library" &&
+                        <View style ={styles.container}>
+                        <Text style={{fontSize:15 ,fontFamily:'Josefin Sans-Regular',  color:'#1C4C4E'}}> {title} </Text>
+                            { libCounter < total &&
+                                <Progress step={libCounter} steps= {total} height={10} />
+                            } 
+                            {libCounter >= total &&
+                            <View>
+                                <Text style={{fontSize:15 ,fontFamily:'Josefin Sans-Bold', color:'#1C4C4E'}}> COMPLETED </Text>
+                            </View>
+                            }
+
+                            </View>
                     }
               
 

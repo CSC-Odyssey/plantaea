@@ -10,6 +10,9 @@ import { useRoute } from '@react-navigation/native';
 
 import Feather from 'react-native-vector-icons/Feather'
 
+
+
+export let mapCounter = 0;
 const PlantLibrary = ({navigation,route}) => { 
   const [mapRegion, setMapRegion] = useState({
     latitude: 37.78825,
@@ -76,6 +79,12 @@ const PlantLibrary = ({navigation,route}) => {
 	  //     }
 	  //   }
 	  // }, [navigation]);
+    const [count,setCount] = useState(1)
+    var mCounter = () => {
+      setCount(count + 1)
+      mapCounter = count
+      console.log(count)
+    }
 
   return (
     /*<View style={styles.container}>
@@ -197,12 +206,13 @@ const PlantLibrary = ({navigation,route}) => {
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
+                onPress={mCounter}
                 calloutVisible={selectedMarker && selectedMarker.id === marker.id}
               >
                 <Image source = {require('../assets/images/plant_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
                   tooltip
-                  onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, 
+                  onPress={() =>  navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, 
                                                                       localName: item.localName, description: item.description, 
                                                                       use: item.use, taxonomy: item.taxonomy, 
                                                                       latitude: item.latitude, longitude: item.longitude, 
