@@ -48,7 +48,7 @@ const PlantLibraryStack = () => {
                         headerTransparent:true,
                     })}
         />
-        {/* <Stack.Screen component={MapScreen} name="Map" /> */}
+        <Stack.Screen component={MapStack} name="Map" />
       </Stack.Navigator>
     )
 }
