@@ -19,13 +19,13 @@ const PlantLibrary = ({navigation, route}) => {
     }
 
     return (
-        <SafeAreaView style={{flex:1, padding:5, paddingTop:windowHeight-(windowHeight-25), backgroundColor:'white'}}>
+        <SafeAreaView style={{flex:1, padding:5, paddingTop:windowHeight-(windowHeight-5), backgroundColor:'white'}}>
         <View style={{overflow: 'hidden', paddingBottom:5}}>
         <SafeAreaView style={{backgroundColor:'white', alignItems:'center', ...styles.shadow }}> 
             <Image
                 source={require('../assets/images/undraw_Bookshelves_re_lxoy.png')}
                 resizeMode="contain"
-                style={{width:200,height:200}}
+                style={{width:200,height:140}}
             />
             <Text style={{fontSize:27, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Light',letterSpacing:8}}>PLANT LIBRARY</Text>
 

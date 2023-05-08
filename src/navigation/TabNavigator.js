@@ -80,7 +80,7 @@ const HomeStack = () => {
     return (
 
         <Tab.Navigator 
-        screenOptions={{headerShown: false, tabBarShowLabel:false,tabBarActiveTintColor:'#6B8778',tabBarInactiveTintColor:'#E2E2E2',
+        screenOptions={{headerShown: false, tabBarShowLabel:false,tabBarActiveTintColor:'#6CA285',tabBarInactiveTintColor:'#A2A2A2',
         tabBarStyle:{backgroundColor:'white',position:'absolute',borderRadius:20,bottom:15, left:20, right:20}
         }}
     >
