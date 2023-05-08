@@ -6,7 +6,8 @@ import {plantListLibrary, MarketListLibrary} from '../model/data';
 import { DepartmentOfAgriculture } from '../model/carDOA';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useIsFocused } from '@react-navigation/native';
+import { outSName } from './PlantDetailsScreen';
 
 import Feather from 'react-native-vector-icons/Feather'
 
@@ -41,31 +42,20 @@ const PlantLibrary = ({navigation,route}) => {
     userLocation();
   }, []);
 
-  function listDownType(plantListLibrary){
-    const uniqueType = ["Medicinal"]
-    for (let i = 0; i < plantListLibrary.length; i++){
-      uniqueType.push(plantListLibrary[i].type)
-    }
-    const uniqueArray = [...new Set(uniqueType)]
-    return uniqueArray
-  }
-  const lastArray = listDownType(plantListLibrary)  
-
-  function filterType(plantListLibrary, userInput){
-    const plantType = []
-    for (let i = 0; i < plantListLibrary.length; i++){
-      if(plantListLibrary[i].type == userInput)
-        plantType.push(plantListLibrary[i])
-    }
-    return plantType
-  }
-    const [showMarkers, setShowMarker] = useState("All");
+    let sName = outSName;
+    console.log(sName);
+    const [showMarkers, setShowMarker] = useState(sName === "" ? "All" : "Scientific Name");
     const typeSelect = (value) => {
         setShowMarker(value);
     }
+    const isFocused = useIsFocused();
+    useEffect(() => {
+      console.log("Map Screen Unmounted")
+      return() => {setShowMarker("All");
+                  sName = "";
+                  }
+    }, [isFocused]); 
 
-  
-    const mapRef = useRef(null);
   	const [selectedMarker, setSelectedMarker] = useState(null);
 
 	  // useEffect(() => {
@@ -153,7 +143,40 @@ const PlantLibrary = ({navigation,route}) => {
                         longitudeDelta: 1.9}}
       >
         <Marker coordinate={mapRegion} title='You are here!' />
-
+        {showMarkers === "Scientific Name" &&
+              <View>
+                  {plantListLibrary.map(item => (
+                    item.scientificName == sName? 
+                    <Marker
+                      title={item.localName} 
+                      coordinate = {{latitude: item.latitude,
+                                    longitude: item.longitude}}
+                      key={item.id}
+                    >
+                      <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
+                      <Callout 
+                        tooltip
+                        onPress={() => navigation.navigate('PlantDetails', {image: item.image, scientificName: item.scientificName, 
+                                                                            localName: item.localName, description: item.description, 
+                                                                            use: item.use, taxonomy: item.taxonomy, 
+                                                                            latitude: item.latitude, longitude: item.longitude, 
+                                                                            category: item.category, id: item.id})}
+                      >
+                        <View style={styles.bubble}>
+                          <Text style={styles.name} key={`name-${item.id}`}>
+                            {item.localName}
+                          </Text>
+                          <Text style={{bottom: 40, marginBottom: -30}}>
+                            <Image style={{width: 100, height:100}} source={item.image}/>
+                          </Text>
+                        </View>
+                        <View style={styles.arrowBorder}/>
+                        <View style={styles.arrow} />
+                      </Callout>
+                    </Marker>:null
+                  ))}
+                </View>
+            }
         {showMarkers === "All" && 
           <View>
             {/* Markets */}
@@ -181,6 +204,7 @@ const PlantLibrary = ({navigation,route}) => {
                 </Callout>
               </Marker>)
             }
+          
             {/* Departments */}
             {DepartmentOfAgriculture.map(item =>
                 <Marker

@@ -22,14 +22,13 @@ import * as Animatable from 'react-native-animatable';
 const MIN_HEIGHT = 150;
 const MAX_HEIGHT = 350;
 
+export let outSName = ""
 const PlantDetailsScreen = ({navigation, route}) => {
 
   const nav = useNavigation();
-  const navigateToMarker = (latitude, longitude) => {
-    nav.navigate('ScreenA', {
-      latitude,
-      longitude,
-    });
+  const navigateToMarker = (sName) => {
+    outSName = sName
+    nav.navigate('Map', sName);
   };
 
     const navTitleView = useRef(null);
@@ -166,7 +165,7 @@ const PlantDetailsScreen = ({navigation, route}) => {
 
             <TouchableOpacity 
               style={{flexDirection:'row', alignItems:'center', justifyContent:'center',backgroundColor:'#92AF9F', borderRadius:8,paddingVertical:15,marginTop:2,marginHorizontal:20,marginBottom:100}}
-              onPress={() => navigateToMarker(route.params?.latitude, route.params?.longitude)}
+              onPress={() => navigateToMarker(route.params?.scientificName)}
             >
                 <Feather name="map-pin" size={20} color="white" style={{marginRight:5}} />
                 <Text style={{fontFamily:'Josefin Sans-Bold',letterSpacing:1,color:"white"}}>Locate in Map Screen</Text>
