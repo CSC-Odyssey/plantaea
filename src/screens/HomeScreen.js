@@ -14,12 +14,12 @@ export default function HomeScreen({navigation}){
         
         <SafeAreaView style={{ flex:1, backgroundColor:'#92AF9F'}}>
 <View style={[{ backgroundColor:'white',borderBottomLeftRadius:20,borderBottomRightRadius:20,marginBottom:10},styles.shadow]}>
-        <View style={{padding:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',backgroundColor:'white',marginTop:windowHeight-(windowHeight-10)}}>
-        <View>
+        <View style={{padding:10,alignItems:'center',justifyContent:'center',backgroundColor:'white',marginTop:windowHeight-(windowHeight-10)}}>
+        {/* <View>
             <TouchableOpacity onPress={()=>navigation.openDrawer()}>
                 <ImageBackground source={require('../assets/images/hamburgerMenu-icon.png')} style={{width:30,height:30}} />
             </TouchableOpacity>    
-        </View>
+        </View> */}
         <View>
             <Text style = {styles.appName}>PLANTAEA</Text>
         </View>

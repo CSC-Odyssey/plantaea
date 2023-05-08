@@ -13,7 +13,7 @@ const RegisterScreen = ({navigation}) => {
         <View style={{paddingHorizontal:25}}>
             <View style={{alignItems:'center'}}>
             <Image
-                source={require('../assets/images/undraw_farm_girl_dnpe.png')}
+                source={require('../assets/images/undraw_GardeningPlain_re_e658.png')}
                 resizeMode="contain"
                 style={{width:300,height:300}}
             />
