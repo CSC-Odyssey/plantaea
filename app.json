@@ -3,6 +3,7 @@
     "name": "Plantaea",
     "slug": "Plantaea",
     "version": "1.0.0",
+    "owner": "csc-odyssey",
     "orientation": "portrait",
     "icon": "src/assets/images/plantaea-logo.png",
     "splash": {
