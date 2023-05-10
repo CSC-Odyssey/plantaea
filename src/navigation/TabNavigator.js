@@ -115,7 +115,14 @@ const TabNavigator = () => {
                 component={PlantLibraryStack} 
                 name="PlantLibrary"
             />
-            <Stack.Screen component={CameraScreen} name="Camera" />
+                    <Stack.Screen component={CameraScreen} name="Camera" 
+            options={({}) => ({
+                headerShown:true,
+                title:'',
+                headerTintColor:'#1C4C4E',
+                headerTransparent:true,
+            })}
+        />
             <Stack.Screen component={MapStack} name="Map" />
           </Stack.Navigator>
 

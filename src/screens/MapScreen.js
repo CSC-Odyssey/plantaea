@@ -11,6 +11,8 @@ import { outSName } from './PlantDetailsScreen';
 
 import Feather from 'react-native-vector-icons/Feather'
 
+import DropDownPicker from 'react-native-dropdown-picker';
+
 
 
 export let mapCounter = 0;
@@ -76,6 +78,33 @@ const PlantLibrary = ({navigation,route}) => {
       console.log(count)
     }
 
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+      { label:  'All', value: 'All' , icon: () => <View style={[styles.circle, {backgroundColor:'#92AF9F'}]} /> },
+      { label: 'Medicine', value: 'Medicine' , icon: () => <View style={[styles.circle, {backgroundColor:'#E88E8E'}]} /> },
+      { label: 'Consumable', value: 'Consumable'  , icon: () => <View style={[styles.circle, {backgroundColor:'#E8D38E'}]} /> },
+      { label: 'Ornamental', value: 'Ornamental'  , icon: () => <View style={[styles.circle, {backgroundColor:'#E8A4DC'}]} /> },
+      { label: 'Establishments', value: 'Office' , icon: () => <View style={[styles.circle, {backgroundColor:'#9EEBE2'}]} />  },
+    ]);
+  
+    const handleValueChange = (itemValue, itemIndex) => {
+      setValue(itemValue);
+      console.log(itemValue);
+    };
+
+    const handleItemChange = (selectedItem) => {
+      setValue(selectedItem.value);
+      console.log(`Selected Item: ${selectedItem.label}`);
+    };
+
+    const selectedItemStyle = {
+      backgroundColor: 'lightblue',
+      borderRadius: 5,
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+    };
+    
   return (
     /*<View style={styles.container}>
       <MapView style={styles.map}
@@ -85,55 +114,31 @@ const PlantLibrary = ({navigation,route}) => {
         </MapView>
         <Button title='Get Location' onPress={userLocation} />
     </View>*/
+
     <SafeAreaView>
-      <View style={styles.filterContainer}>
-        <View style={{borderBottomWidth: 1,}}>
-          {/* <Text style={styles.textHeader}>
-            FILTER
-          </Text> */}
-        </View>
-        <View style={{flexDirection:'row',paddingBottom:20}}>
-          <TouchableOpacity 
-            onPress={() => typeSelect("All")}
-            style={{ flexDirection:'row', backgroundColor:'#92AF9F', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
-          >
-            <Feather name="heart" size={12} color="white" style={{marginRight:5}} />
-            <Text style={styles.filterText}>All</Text>
-          </TouchableOpacity>
 
-          <TouchableOpacity 
-            onPress={() => typeSelect("Medicine")}
-            style={{ flexDirection:'row', backgroundColor:'#E88E8E', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
-          >
-            <Feather name="heart" size={12} color="white" style={{marginRight:5}} />
-            <Text style={styles.filterText}>Medicine</Text>
-          </TouchableOpacity>
+    <View style={styles.dropcontainer}>
+      <DropDownPicker
+        textStyle={{
+          fontSize: 16,
+          fontFamily:'Josefin Sans-Light'
+        }}
+        open={open}
+        value={value}
+        items={items}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems}
+        containerStyle={styles.dropdownContainer}
+        style={styles.dropdown}
+        dropDownContainerStyle={styles.dropDownContainer}
+        onChangeValue={(value) => {
+          typeSelect(value)
+        }}
+        placeholder="Filter"
+      />
+    </View>
 
-          <TouchableOpacity 
-            onPress={() => typeSelect("Consumable")}
-            style={{flexDirection:'row',backgroundColor:'#E8D38E', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
-          >
-            <Feather name="coffee" size={12} color="white" style={{marginRight:5}} />
-            <Text style={styles.filterText}>Consumable</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            onPress={() => typeSelect("Ornamental")}
-            style={{flexDirection:'row',backgroundColor:'#E8A4DC', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
-          >
-            <Feather name="star" size={12} color="white" style={{marginRight:5}} />
-            <Text style={styles.filterText}>Ornamental</Text>
-          </TouchableOpacity>
-
-        </View>
-        <TouchableOpacity 
-          onPress={() => typeSelect("Office")}
-          style={{flexDirection:'row',backgroundColor:'#8EE8DB', alignItems:'center', borderRadius:20, paddingHorizontal:10,paddingVertical:3,marginTop:2,marginRight:2.5}}
-        >
-            <Feather name="grid" size={12} color="white" style={{marginRight:5}} />
-            <Text style={styles.filterText}>Plant Institutions</Text>
-          </TouchableOpacity>
-      </View>
       <MapView
         provider={MapView.PROVIDER_OPENSTREETMAP}
         style={styles.map}
@@ -142,7 +147,9 @@ const PlantLibrary = ({navigation,route}) => {
                         latitudeDelta: 0, 
                         longitudeDelta: 1.9}}
       >
-        <Marker coordinate={mapRegion} title='You are here!' />
+        <Marker coordinate={mapRegion} title='You are here!' >
+          <Image source = {require('../assets/images/user_marker.png')} style={{height: 35, width:35 }}/>
+        </Marker>
         {showMarkers === "Scientific Name" &&
               <View>
                   {plantListLibrary.map(item => (
@@ -187,6 +194,7 @@ const PlantLibrary = ({navigation,route}) => {
                                longitude: item.longitude}}
                 key={item.id}
               >
+                <Image source = {require('../assets/images/market_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout>
                   <View>
                     <Text key={`name-${item.id}`}>{item.marketName}</Text>
@@ -389,6 +397,37 @@ const PlantLibrary = ({navigation,route}) => {
 export default PlantLibrary
 
 const styles = StyleSheet.create({
+  dropcontainer: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+    paddingTop: 50,
+    paddingRight: 20,
+  },
+  dropdownContainer: {
+    height: 90,
+    width: 200,
+    marginTop: 10,
+  },
+  dropdown: {
+    // backgroundColor: '#fff',
+    // borderColor: 'blue',
+    borderWidth: 0,
+    borderRadius: 10,
+  },
+  dropDownContainer: {
+    marginTop:6,
+    // backgroundColor: '#=',
+    // borderColor: 'green',
+    borderWidth:0,
+    borderRadius: 10,
+  },
+  selectedItem: {
+    marginTop: 100,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'red',
+  },
   container: {
     flex: 1,
   },
@@ -457,5 +496,12 @@ const styles = StyleSheet.create({
     color:'white', 
     fontFamily:'Josefin Sans-Regular',
     textAlign:'center'
-  }
+  },
+  circle: {
+    height:20,
+    width:20,
+    borderRadius:10,
+    justifyContent:'center',
+    alignItems:'center'
+  },
 });

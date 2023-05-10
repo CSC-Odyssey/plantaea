@@ -2,7 +2,6 @@ import React from 'react'
 import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native'
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import PlantImgTemp from '../assets/icons/plant.svg';
 
 import { windowWidth } from '../utils/Dimensions'
 
