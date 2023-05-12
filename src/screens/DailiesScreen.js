@@ -6,37 +6,35 @@ import ListActivities from "../components/listActivities";
 
 export default function DailiesScreen({navigation}){
    
-/*
-  const [dActivities, setdActivities] = useState([activities]);
 
-  
-  const shuffleActivities = (array) => {
-    // Shuffle the daily activities array
-    const shuffledActivities = [...dActivities]; //creates a copy of the activities
 
-    for (let i = shuffledActivities.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledActivities[i], shuffledActivities[j]] = [shuffledActivities[j], shuffledActivities[i]];
-    }
-    setdActivities(shuffledActivities)
-    //console.log(dActivities)
-  };
-
+  //data
+  const [dailyActivity, setDailyActivity] = useState(activities);  
+  // Shuffle every 24 hrs :24 * 60 * 60 * 1000
   useEffect(() => {
-    // Initial shuffle when the component mounts
-    shuffleActivities();
+    const interval = setInterval(() => {
+      shuffleDailies();
+    }, 24 * 60 * 60 * 1000);
 
-    // Shuffle every 30 seconds
-    const intervalId = setInterval(() => {
-      shuffleActivities(), 30 * 1000});
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(intervalId);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
-  const dailies = dActivities.flat()
+  // Shuffle the data array using Fisher-Yates shuffle algorithm
+  const shuffleDailies = () => {
+    setDailyActivity((prevData) => {
+      const shuffleActivity = [...prevData];
+      for (let i = shuffleActivity.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffleActivity[i], shuffleActivity[j]] = [shuffleActivity[j], shuffleActivity[i]];
+      }
+      return shuffleActivity;
+     
+    });
+  };
 
-  */
+  
     return (
         <SafeAreaView style={{backgroundColor:'white'}}> 
          <ScrollView style={{marginTop:2}}>
@@ -51,7 +49,7 @@ export default function DailiesScreen({navigation}){
           
             <View style={{padding:7,borderTopWidth:1,borderTopColor:'#E6E6E6', marginTop:15}} />
 
-            {activities.map(e => (
+            {dailyActivity.map(e => (
                     <ListActivities key={e.id}  title={e.title}  total= {e.total} category= {e.category} />
                 ))
             }
