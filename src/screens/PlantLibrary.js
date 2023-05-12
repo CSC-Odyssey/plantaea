@@ -25,7 +25,7 @@ const PlantLibrary = ({navigation, route}) => {
         libCounter = count
         console.log(count)
       }
-
+      
     return (
         <SafeAreaView style={{flex:1, padding:5, paddingTop:windowHeight-(windowHeight-5), backgroundColor:'white'}}>
         <View style={{overflow: 'hidden', paddingBottom:5}}>

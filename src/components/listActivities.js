@@ -63,7 +63,10 @@ const Progress = ({ step, steps, height}) => {
     
 
 export default function ListActivities({title, total,category}){
+
+    
     return( 
+        
             <View style={{flexDirection:'row', 
                 alignItems:'center', 
                 flex:1, 

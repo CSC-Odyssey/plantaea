@@ -7,7 +7,12 @@ import ListImage from '../components/ListImage'
 import {plantListLibrary} from '../model/data'
 import { s } from 'react-native-wind';
 
+import { capCounter } from "../screens/CameraScreen";
+import { libCounter} from "../screens/PlantLibrary"
+import { mapCounter} from "../screens/MapScreen"
+
 const UserProfileScreen = ({navigation}) => {
+
     const [switchView,setSwitchView] = useState(true); 
     return (
         <SafeAreaView style={{flex:1, backgroundColor:'white',padding:40,alignItems:'center'}}>
@@ -23,7 +28,7 @@ const UserProfileScreen = ({navigation}) => {
 
                 <View style={{justifyContent:'center',alignItems:'center',height:300,width:300,borderRadius:150,borderWidth:.5,borderColor:'#1C4C4E'}}>
                 <View style={{flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
-                    <Text style={{fontSize: 50,fontFamily:'Josefin Sans-SemiBold', color:'#1C4C4E',marginRight:2}}>256</Text>
+                    <Text style={{fontSize: 50,fontFamily:'Josefin Sans-SemiBold', color:'#1C4C4E',marginRight:2}}>{capCounter + libCounter + mapCounter}</Text>
                     <Text style={{fontSize: 15,fontFamily:'Josefin Sans-Light', color:'#1C4C4E'}}>pts</Text>
                 </View>
                 </View>
