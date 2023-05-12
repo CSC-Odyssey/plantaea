@@ -192,6 +192,7 @@ const PlantLibrary = ({navigation,route}) => {
                 title={item.marketName}
                 coordinate = {{latitude: item.latitude,
                                longitude: item.longitude}}
+                onPress={mCounter}
                 key={item.id}
               >
                 <Image source = {require('../assets/images/market_marker.png')} style={{height: 35, width:35 }}/>
@@ -219,6 +220,7 @@ const PlantLibrary = ({navigation,route}) => {
                   title={item.departmentName}
                   coordinate = {{latitude: item.latitude,
                                  longitude: item.longitude}}
+                  onPress={mCounter}               
                   key={item.id}
                 >
                   <Image source = {require('../assets/images/bldg_marker.png')} style={{height: 35, width:35 }}/>
@@ -273,6 +275,8 @@ const PlantLibrary = ({navigation,route}) => {
                 title={item.localName} 
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
+
+                onPress={mCounter}
                 key={item.id}
               >
                 <Image source = {require('../assets/images/medicine_marker.png')} style={{height: 35, width:35 }}/>
@@ -308,6 +312,7 @@ const PlantLibrary = ({navigation,route}) => {
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
+                onPress={mCounter}
               >   
                 <Image source = {require('../assets/images/food_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
@@ -342,6 +347,7 @@ const PlantLibrary = ({navigation,route}) => {
                 coordinate = {{ latitude: item.latitude , 
                                 longitude: item.longitude}}
                 key={item.id}
+                onPress={mCounter}
               >   
                 <Image source = {require('../assets/images/home_marker.png')} style={{height: 35, width:35 }}/>
                 <Callout 
@@ -376,6 +382,7 @@ const PlantLibrary = ({navigation,route}) => {
                   coordinate = {{latitude: item.latitude,
                                  longitude: item.longitude}}
                   key={item.id}
+                  onPress={mCounter}
                 >
                   <Image source = {require('../assets/images/bldg_marker.png')} style={{height: 35, width:35 }}/>
                   <Callout tooltip>
