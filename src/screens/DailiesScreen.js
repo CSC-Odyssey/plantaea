@@ -44,7 +44,7 @@ export default function DailiesScreen({navigation}){
               <Image
                 source={require('../assets/images/undraw_Gaming_re_cma2.png')}
                 resizeMode="contain"
-                style={{width:300,height:250}}
+                style={{width:300,height:140}}
               />
              <Text style={{fontSize:27, color:'#1C4C4E',marginBottom:15, fontFamily:'Josefin Sans-Light',letterSpacing:8}}>DAILIES</Text>
             </View>
