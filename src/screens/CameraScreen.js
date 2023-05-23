@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
@@ -13,6 +14,8 @@ export default function App() {
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
   const [photo, setPhoto] = useState();
+  const [isScanning, setIsScanning] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [count,setCount] = useState(1)
   var counter = () => {
     setCount(count + 1)
@@ -47,6 +50,10 @@ export default function App() {
   };
 
   if (photo) {
+    let scanPic = () => {
+      setIsLoading(true);
+    };
+
     let sharePic = () => {
       shareAsync(photo.uri).then(() => {
         setPhoto(undefined);
@@ -59,12 +66,36 @@ export default function App() {
       });
     };
 
+    if (isLoading) {
+      setTimeout(() => {
+        setIsScanning(false);
+      }, 4000);
+      return (
+        <SafeAreaView style={styles.container}>
+          <Image style={styles.preview} source={{ uri: "data:image/jpg;base64," + photo.base64 }} />
+          <View style={styles.circleContainer}>
+            {isScanning ? (
+              <View>
+                <ActivityIndicator size="large" color="#478c0b" />
+                <Text style={styles.indicatorText}>Loading results...</Text>
+              </View>
+            ) : (
+              <View>
+                <ActivityIndicator size="large" color="#478c0b" />
+                <Text style={styles.indicatorText}>Loading completed!</Text>
+              </View>
+            )}
+          </View>
+        </SafeAreaView>
+      );
+    }
+
     return (
       <SafeAreaView style={styles.container}>
         <Image style={styles.preview} source={{ uri: "data:image/jpg;base64," + photo.base64 }} />
 
         <View style={styles.circleContainer}>
-          <TouchableOpacity style={styles.circle}>
+          <TouchableOpacity style={styles.circle} onPress={scanPic}>
             <Text style={styles.circleText}>SCAN</Text>
           </TouchableOpacity>
 
@@ -109,10 +140,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 2,
     paddingBottom:50,
-    paddingTop:100
-
+    paddingTop:100,
   },
   preview: {
     alignSelf: 'stretch',
@@ -133,9 +163,14 @@ const styles = StyleSheet.create({
       letterSpacing:2
   },
   circleContainer: {
-    flex:1,
+    flex: 0.5,
     flexDirection:'row',
     justifyContent:'space-evenly',
-    marginTop:20
+    alignItems: 'center',
+    marginTop:10
+  },
+  indicatorText: {
+    fontSize: 18,
+    marginTop: 6
   }
 });
